@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+
+android {
+    signingConfigs {
+    }
+    compileSdkVersion 15
+    buildToolsVersion '19.1.0'
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 15
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile files('libs/realm-0.81.1.jar')
+    compile files('libs/nanomodbus.jar')
+    compile files('libs/gson-2.3.1.jar')
+    compile files('libs/Ychmi.jar')
+    compile files('libs/nanomodbus-1.0.jar')
+}

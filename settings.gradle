@@ -1,0 +1,2 @@
+include ':app', ':farmintell.modbus', ':farmintell.mqttclient', ':farmintell.httpserver',
+        ':qrcode.encoder', ':vitamio-release'

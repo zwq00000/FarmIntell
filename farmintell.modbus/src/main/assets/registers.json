@@ -1,0 +1,44 @@
+[
+  {
+    "slaveId": 1,
+    "model": "温湿度CO2光照变送器",
+    "sensors": [
+      {
+        "name": "temp",
+        "displayName": "温度",
+        "factor": 0.1
+      },
+      {
+        "name": "hum",
+        "displayName": "湿度",
+        "factor": 0.1
+      },
+      {
+        "name": "co2",
+        "displayName": "CO2",
+        "factor": 1
+      },
+      {
+        "name": "light",
+        "displayName": "光照",
+        "factor": 10
+      }
+    ]
+  },
+  {
+    "slaveId": 2,
+    "model": "土壤温湿度传感器",
+    "sensors": [
+      {
+        "name": "water",
+        "displayName": "水分",
+        "factor": 0.1
+      },
+      {
+        "name": "temp",
+        "displayName": "温度",
+        "factor": 0.1
+      }
+    ]
+  }
+]

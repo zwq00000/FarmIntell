@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/category_mqtt">
+        <EditTextPreference android:key="@string/key_mqtt_address"
+                            android:title="@string/caption_mqtt_address"
+                            android:lines="1"
+                            android:editable="true"
+                            android:marqueeRepeatLimit="marquee_forever"
+                />
+        <EditTextPreference android:key="@string/key_mqtt_client_id"
+                            android:title="@string/mqtt_client_id"
+                />
+    </PreferenceCategory>
+</PreferenceScreen>

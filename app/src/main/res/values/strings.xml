@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">蔬菜大棚智能监控</string>
+
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="prompt_Text">prompt_Text</string>
+    <string name="secText">secText</string>
+    <string name="action_settings">设置...</string>
+    <string name="title_activity_cam_monitor">CamMonitorActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+</resources>
