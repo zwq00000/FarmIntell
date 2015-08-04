@@ -1,6 +1,5 @@
 package com.lingya.farmintell.models;
 
-import android.os.Bundle;
 import android.test.AndroidTestCase;
 
 import io.realm.Realm;
@@ -27,19 +26,6 @@ public class SensorStatusTest extends AndroidTestCase {
     }
     RealmConfiguration config = new RealmConfiguration.Builder(getContext()).build();
     Realm.deleteRealm(config);
-  }
-
-  public void testPutParcelable() throws Exception {
-    SensorStatus status = new SensorStatus();
-    status.setId("1-1");
-    status.setName("tmep");
-    status.setDisplayName("温度");
-    status.setValue(12f);
-    Bundle mBundle = new Bundle();
-    String Key = "SensorStatus";
-    mBundle.putParcelable(Key, status);
-    assertNotNull(mBundle.get(Key));
-    assertSame(mBundle.get(Key), status);
   }
 
 }

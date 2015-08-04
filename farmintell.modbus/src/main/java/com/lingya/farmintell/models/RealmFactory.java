@@ -82,7 +82,6 @@ public class RealmFactory {
           statuses.add(status);
         }
         status.setName(sensor.getName());
-        status.setDisplayName(sensor.getDisplayName());
         status.setValue(sensor.getValue());
         index++;
       }
@@ -133,73 +132,58 @@ public class RealmFactory {
   /**
    * 获取 小时 汇总统计
    */
-  public static SensorSummary[] queryHourlySummary(Realm realm, String sensorId,
-                                                   Calendar startCalendar,
-                                                   Calendar endCalendar) {
+  public static SensorSummary queryHourlySummary(Realm realm, String sensorId,
+                                                 Calendar startCalendar,
+                                                 Calendar endCalendar) {
     if (TextUtils.isEmpty(sensorId)) {
       throw new IllegalArgumentException("sensorId is not been null Or Empty");
     }
-    alignmentHour(startCalendar);
-    alignmentHour(endCalendar);
 
-    if (startCalendar.equals(endCalendar)) {
-      return new SensorSummary[0];
-    }
-
-    if (endCalendar.before(startCalendar)) {
-      //前后交换
-      long temp = startCalendar.getTimeInMillis();
-      startCalendar.setTimeInMillis(endCalendar.getTimeInMillis());
-      startCalendar.setTimeInMillis(temp);
-    }
+    SensorSummary summary = new SensorSummary(sensorId, startCalendar.getTime());
 
     //计算间隔的小时数
     int
-        hours =
+        hourCount =
         (int) TimeUnit.MILLISECONDS
             .toHours(endCalendar.getTimeInMillis() - startCalendar.getTimeInMillis());
 
-    if (hours <= 0) {
-      return new SensorSummary[0];
+    if (hourCount <= 0) {
+      return summary;
     }
-
-    SensorSummary[] sensorSummaries = new SensorSummary[hours];
-    Calendar nextCalendar = (Calendar) startCalendar.clone();
-    nextCalendar.add(Calendar.HOUR, 1);
-    for (int i = 0; i < hours; i++) {
-      Date start = startCalendar.getTime();
-      Date next = nextCalendar.getTime();
-      sensorSummaries[i] = getSensorSummary(realm, sensorId, start, next);
-      startCalendar.add(Calendar.HOUR, 1);
-      nextCalendar.add(Calendar.HOUR, 1);
+    RealmQuery<SensorAverage>
+        query =
+        SensorAverageHelper.query(realm, sensorId, startCalendar, endCalendar);
+    float max = query.maximumFloat("maximum");
+    float min = query.minimumFloat("minimum");
+    RealmResults<SensorAverage> queryResults = query.findAll();
+    int size = queryResults.size();
+    float[] values = new float[size];
+    Date[] stamps = new Date[size];
+    for (int i = 0; i < size; i++) {
+      values[i] = queryResults.get(i).getAverage();
+      stamps[i] = queryResults.get(i).getStartTime();
     }
-    return sensorSummaries;
+    summary.setTimeStamps(stamps);
+    summary.setAverages(values);
+    summary.setMaximum(max);
+    summary.setMinimum(min);
+    return summary;
   }
 
-
-  /**
-   * 整小时对齐
-   */
-  private static void alignmentHour(Calendar calendar) {
-    calendar.set(Calendar.MILLISECOND, 0);
-    calendar.set(Calendar.SECOND, 0);
-    calendar.set(Calendar.MINUTE, 0);
-  }
 
   /**
    * 根据日期范围 统计 传感器数值
    */
-  private static SensorSummary getSensorSummary(Realm realm, String sensorId, Date startTime,
-                                                Date endTime) {
+  static float queryAverage(Realm realm, String sensorId, Date startTime,
+                            Date endTime) {
     RealmQuery<SensorLog>
         query =
         realm.where(SensorLog.class).equalTo("sensorId", sensorId)
             .between("time", startTime, endTime);
-    return new SensorSummary(sensorId, startTime,
-                             (int) query.count(),
-                             (float) query.averageFloat("value"),
-                             query.maximumFloat("value"),
-                             query.minimumFloat("value"));
+    if (query.count() == 0) {
+      return 0;
+    }
+    return (float) query.averageFloat("value");
   }
 
   @RealmModule(library = true, allClasses = true)

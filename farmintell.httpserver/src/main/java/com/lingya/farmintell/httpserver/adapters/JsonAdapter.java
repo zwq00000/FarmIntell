@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * JSON 适配器
  * Created by zwq00000 on 2015/7/8.
  */
 public class JsonAdapter {
@@ -30,15 +31,15 @@ public class JsonAdapter {
       Object currentValue = prefMap.get(key);
       Log.d(TAG, key + ":" + currentValue);
       if (currentValue instanceof String) {
-        pref.edit().putString(key, jsonObject.getString(key)).commit();
+        pref.edit().putString(key, jsonObject.getString(key)).apply();
       } else if (currentValue instanceof Integer) {
-        pref.edit().putInt(key, jsonObject.getInt(key)).commit();
+        pref.edit().putInt(key, jsonObject.getInt(key)).apply();
       } else if (currentValue instanceof Float) {
-        pref.edit().putFloat(key, (float) jsonObject.getDouble(key)).commit();
+        pref.edit().putFloat(key, (float) jsonObject.getDouble(key)).apply();
       } else if (currentValue instanceof Long) {
-        pref.edit().putLong(key, jsonObject.getLong(key)).commit();
+        pref.edit().putLong(key, jsonObject.getLong(key)).apply();
       } else if (currentValue instanceof Set) {
-        pref.edit().putStringSet(key, convertToSet(jsonObject.getJSONArray(key))).commit();
+        pref.edit().putStringSet(key, convertToSet(jsonObject.getJSONArray(key))).apply();
       }
     }
   }
@@ -54,11 +55,11 @@ public class JsonAdapter {
     return set;
   }
 
-  private static JSONStringer appendJson(JSONStringer jsonStringer, Set<String> stringSet)
+  private static JSONStringer appendJson(JSONStringer jsonStringer, Set<?> stringSet)
       throws JSONException {
-    if (stringSet instanceof Set) {
+    if (stringSet != null) {
       jsonStringer.array();
-      for (String item : stringSet) {
+      for (Object item : stringSet) {
         jsonStringer.value(item);
       }
       jsonStringer.endArray();

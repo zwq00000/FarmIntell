@@ -1,6 +1,7 @@
 package com.lingya.farmintell.models;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapter;
 
 import android.test.AndroidTestCase;
@@ -101,17 +102,25 @@ public class RealmFactoryTest extends AndroidTestCase {
 
   public void testQueryHourlySummary() throws Exception {
     Calendar startCalendar = GregorianCalendar.getInstance();
-    startCalendar.add(Calendar.HOUR, -24);
 
-    SensorSummary[]
-        sensorSummaries =
-        RealmFactory
-            .queryHourlySummary(realm, "1-0", startCalendar, GregorianCalendar.getInstance());
+    String[] ids = new String[]{
+        "1-0",
+        "1-1",
+        "1-2",
+        "1-3",
+        "2-0",
+        "2-1",
+    };
 
-    assertEquals(sensorSummaries.length, 24);
-    Gson gson = new Gson();
-    TypeAdapter<SensorSummary> adapter = gson.getAdapter(SensorSummary.class);
-    for (SensorSummary summary : sensorSummaries) {
+    for (String id : ids) {
+      startCalendar.add(Calendar.HOUR, -24);
+      SensorSummary
+          summary =
+          RealmFactory
+              .queryHourlySummary(realm, id, startCalendar, GregorianCalendar.getInstance());
+
+      Gson gson = new GsonBuilder().serializeSpecialFloatingPointValues().create();
+      TypeAdapter<SensorSummary> adapter = gson.getAdapter(SensorSummary.class);
       System.out.println(adapter.toJson(summary));
     }
   }

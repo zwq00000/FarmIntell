@@ -1,30 +1,35 @@
 package com.lingya.farmintell.models;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
+ * 传感器值 小时合计
  * Created by zwq00000 on 2015/7/4.
  */
 public class SensorSummary {
 
-  private static final SimpleDateFormat shortTimeFormat = new SimpleDateFormat("MM/dd HH");
-  /**
-   * 采样数量
-   */
-  private final int samplesCount;
+  private static final SimpleDateFormat SHORT_TIME_FORMAT = new SimpleDateFormat("HH");
   /**
    * 传感器Id
    */
   private String sensorId;
+
   /**
    * 测量时间
    */
-  private String shortTime;
+  private Calendar startCalendar;
   /**
    * 算数平均值
    */
-  private float average;
+  private float[] averages;
+
+  /**
+   * 时间标记序列
+   */
+  private Date[] timeStamps;
+
   /**
    * 最大值
    */
@@ -34,44 +39,86 @@ public class SensorSummary {
    */
   private float minimum;
 
-  public SensorSummary(String sensorId, Date beginTime, int samplesCount, float average,
-                       float max, float min) {
-    this(sensorId, shortTimeFormat.format(beginTime), samplesCount, average, max, min);
+  private SensorSummary() {
+    this.maximum = 0;
+    this.minimum = 0;
+    this.averages = new float[0];
+    startCalendar = Calendar.getInstance();
   }
 
-  public SensorSummary(String sensorId, String shortTime, int samplesCount, float average,
-                       float max, float min) {
+  public SensorSummary(String sensorId, Date beginTime) {
+    this();
     this.sensorId = sensorId;
-    this.shortTime = shortTime;
-    this.samplesCount = samplesCount;
-    this.average = average;
-    this.maximum = max;
-    this.minimum = min;
+    startCalendar.setTime(beginTime);
   }
 
   public String getSensorId() {
     return sensorId;
   }
 
+  public float[] getAverages() {
+    return averages;
+  }
 
-  public float getAverage() {
-    return average;
+  public void setAverages(float[] averages) {
+    this.averages = averages;
   }
 
   public float getMaximum() {
     return maximum;
   }
 
+  public void setMaximum(float maxValue) {
+    this.maximum = maxValue;
+  }
 
   public float getMinimum() {
     return minimum;
   }
 
-  public String getShortTime() {
-    return shortTime;
+  public void setMinimum(float minValue) {
+    this.minimum = minValue;
   }
 
-  public int getSamplesCount() {
-    return samplesCount;
+  public String getShortTime() {
+    return SHORT_TIME_FORMAT.format(startCalendar);
+  }
+
+  public String[] getTimeLables() {
+    int count = timeStamps.length;
+    String[] labels = new String[count];
+    for (int i = 0; i < count; i++) {
+      labels[i] = SHORT_TIME_FORMAT.format(timeStamps[i]);
+    }
+    return labels;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder(this.sensorId);
+    builder.append(" ").append(getShortTime())
+        .append(" Max:").append(getMaximum())
+        .append(" min:").append(getMinimum()).append(" avg:[");
+
+    for (int i = 0; i < this.averages.length; i++) {
+      builder.append(averages[i]).append(",");
+    }
+    builder.append("]");
+    return builder.toString();
+  }
+
+  public Date[] getTimeStamps() {
+    return timeStamps;
+  }
+
+  public void setTimeStamps(Date[] timeStamps) {
+    this.timeStamps = timeStamps;
+  }
+
+  public int size() {
+    if (averages == null) {
+      return 0;
+    }
+    return averages.length;
   }
 }

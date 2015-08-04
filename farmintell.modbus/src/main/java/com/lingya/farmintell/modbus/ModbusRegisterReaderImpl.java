@@ -6,70 +6,33 @@ import com.redriver.modbus.Holder;
 import com.redriver.modbus.ReadInputRegistersRequest;
 
 import java.io.IOException;
-import java.util.TimerTask;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Modbus Input 寄存器 读取器 Created by zwq00000 on 2015/6/28.
  */
-public class ModbusRegisterReaderImpl<H extends Holder> implements ModbusRegisterReader<H> {
+public class ModbusRegisterReaderImpl extends ModbusRegisterReader<Holder<Short>> {
 
-  private static final String TAG = "ModbusRegisterReader";
-  /**
-   * 最大读取周期
-   */
-  private static final long MAX_PERIOD = 1000 * 60;
-  /**
-   * 最小读取周期
-   */
-  private static final int MIN_PERIOD = 1000;
-  private final Holder[] holders;
-  /**
-   * 任务调度
-   */
-  private final ScheduledExecutorService
-      scheduleService =
-      Executors.newScheduledThreadPool(1);
+  private static final String TAG = "ModbusRegisterReaderImpl";
+
   /**
    * 串口工厂
    */
   private SerialPortFactory portFactory;
-  /**
-   * 数据侦听器
-   */
-  private HolderValueChangedListener listener;
+
   /**
    * modbus 寄存器 读取请求
    */
   private ReadInputRegistersRequest[] requests;
-  /**
-   * 工作线程
-   */
-  private ScheduledFuture<?> readerTask;
-  /**
-   * 是否已经关闭
-   */
-  private boolean isClosed = true;
-  /**
-   * 读取周期 默认 3秒钟
-   */
-  private long period = 3000;
 
-  public ModbusRegisterReaderImpl(Holder<Short>[] holders, SerialPortFactory portFactory) {
-    this.holders = holders;
+  ModbusRegisterReaderImpl(Holder<Short>[] holders, SerialPortFactory portFactory) {
+    super(holders);
     this.portFactory = portFactory;
     this.requests = new ReadInputRegistersRequest[holders.length];
     initRegisterRequest();
   }
 
-  public ModbusRegisterReaderImpl(Holder holder, SerialPortFactory port) {
-    this.holders = new Holder[]{holder};
-    this.portFactory = port;
-    this.requests = new ReadInputRegistersRequest[holders.length];
-    initRegisterRequest();
+  ModbusRegisterReaderImpl(Holder<Short>[] holders) {
+    this(holders, SerialPortFactory.getInstance());
   }
 
   /**
@@ -78,32 +41,9 @@ public class ModbusRegisterReaderImpl<H extends Holder> implements ModbusRegiste
   private void initRegisterRequest() {
     for (int i = 0; i < holders.length; i++) {
       Holder register = holders[i];
+      //noinspection unchecked
       requests[i] = new ReadInputRegistersRequest(register);
     }
-  }
-
-  /**
-   * 设置 侦听器
-   */
-  @Override
-  public void setOnValueChangedListener(HolderValueChangedListener<H> listener) {
-    this.listener = listener;
-  }
-
-  /**
-   * 打开连接
-   */
-  @Override
-  public void open() throws IOException {
-    openInternal();
-  }
-
-  /**
-   * 接收器是否已经关闭
-   */
-  @Override
-  public boolean isClosed() {
-    return isClosed;
   }
 
   /**
@@ -114,101 +54,56 @@ public class ModbusRegisterReaderImpl<H extends Holder> implements ModbusRegiste
    * be called at most once.
    */
   @Override
-  public void close() throws IOException {
-    if (!isClosed) {
-      if (!this.readerTask.isCancelled()) {
-        readerTask.cancel(false);
-      }
-      this.isClosed = true;
-    }
+  public void onClose() throws IOException {
+    portFactory.stopWatchdog();
   }
 
-  private void openInternal() throws IOException {
-    if (isClosed) {
-      readerTask =
-          scheduleService
-              .scheduleWithFixedDelay(new ReaderTask(), 0, period, TimeUnit.MILLISECONDS);
-    }
-    this.isClosed = false;
+  @Override
+  void onOpen() throws IOException {
+    portFactory.startWatchdog();
   }
-
-  /**
-   * 设置 循环周期
-   */
-  public void setPeriod(long periodMilliSeconds) throws IOException {
-    if (periodMilliSeconds < MIN_PERIOD) {
-      periodMilliSeconds = MIN_PERIOD;
-    }
-    if (periodMilliSeconds > MAX_PERIOD) {
-      periodMilliSeconds = MAX_PERIOD;
-    }
-    if (periodMilliSeconds != period) {
-      this.period = periodMilliSeconds;
-      if (!this.isClosed()) {
-        this.restart();
-      }
-    }
-  }
-
-  /**
-   * 重新启动服务
-   */
-  private void restart() throws IOException {
-    if (!this.isClosed) {
-      this.close();
-    }
-    if (this.isClosed) {
-      this.open();
-    }
-  }
-
 
   /**
    * 读取传感器集合
    */
-  private boolean readRegisters() {
-    boolean hasResponsed = true;
+  synchronized void readRegisters() {
     int requestsLen = this.requests.length;
     for (int i = 0; i < requestsLen; i++) {
       ReadInputRegistersRequest request = this.requests[i];
       try {
-        request.writeFrame(portFactory.getOutputStream());
-        if (!request.readResponse(portFactory.getInutStream())) {
-          Log.d(TAG, "read slaveId " + request.getSlaveId() + " not responsed");
-        }
+        readRegister(request);
         if (i < requestsLen - 1) {
           Thread.sleep(50);
         }
       } catch (IOException ex) {
         Log.e(TAG, ex.getMessage());
-        hasResponsed = false;
       } catch (InterruptedException e) {
         Log.e(TAG, e.toString());
-        hasResponsed = false;
       }
     }
-    return hasResponsed;
+  }
+
+  private boolean readRegister(ReadInputRegistersRequest request) throws IOException {
+    int retryCount = 0;
+    while (retryCount < 3) {
+      request.writeFrame(portFactory.getOutputStream());
+      if (request.readResponse(portFactory.getInutStream())) {
+        return true;
+      } else {
+        retryCount++;
+        Log.d(TAG, "read slaveId " + request.getSlaveId() + " not responsed retry:" + retryCount);
+      }
+    }
+    return false;
   }
 
   /**
-   * 响应 数据读取完成事件
+   * Starts executing the active part of the class' code. This method is called when a thread is
+   * started that has been created with a class which implements {@code Runnable}.
    */
-  private void onReceivedData() {
-    if (listener != null) {
-      listener.onValueChanged(this.holders);
-    }
-  }
-
-  private final class ReaderTask extends TimerTask {
-
-    @Override
-    public void run() {
-      if (!isClosed()) {
-        if (portFactory != null) {
-          ModbusRegisterReaderImpl.this.readRegisters();
-          onReceivedData();
-        }
-      }
-    }
+  @Override
+  public void run() {
+    portFactory.feedWatchdog();
+    super.run();
   }
 }

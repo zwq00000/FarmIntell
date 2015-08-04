@@ -6,7 +6,8 @@ import io.realm.RealmObject;
 import io.realm.annotations.Index;
 
 /**
- * 测量数据记录 Created by zwq00000 on 2015/6/24.
+ * 测量数据记录
+ * Created by zwq00000 on 2015/6/24.
  */
 public class SensorLog extends RealmObject {
 

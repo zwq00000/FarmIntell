@@ -10,6 +10,7 @@ import com.redriver.modbus.RegisterHolder;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by zwq00000 on 2015/6/28.
@@ -23,16 +24,17 @@ public class ModbusRegisterReaderImplTest extends AndroidTestCase {
     assertNotNull(portFactory);
     ModbusRegisterReaderImpl
         reader =
-        new ModbusRegisterReaderImpl<Register>(registers, portFactory);
+        new ModbusRegisterReaderImpl(registers, portFactory);
     assertNotNull(reader);
 
     reader.setOnValueChangedListener(
-        new ModbusRegisterReader.HolderValueChangedListener<Register>() {
+        new ModbusRegisterReader.HolderValueChangedListener<Holder<Short>>() {
           /**
            * 接收到 modbus 数据数据 帧类型为 @see
+           * @param holders
            */
           @Override
-          public void onValueChanged(Register[] holders) {
+          public void onValueChanged(Holder... holders) {
             for (Holder<Short> holder : holders) {
               Register register = (Register) holder;
               try {
@@ -55,21 +57,26 @@ public class ModbusRegisterReaderImplTest extends AndroidTestCase {
   public void testOpen() throws Exception {
     Register[] registers = RegisterFactory.loadFromJson(getContext());
     assertNotNull(registers);
+    assertEquals(registers.length, 2);
     SerialPortFactory portFactory = SerialPortFactory.getInstance();
     assertNotNull(portFactory);
     ModbusRegisterReaderImpl
         reader =
-        new ModbusRegisterReaderImpl<Register>(registers, portFactory);
+        new ModbusRegisterReaderImpl(registers, portFactory);
     assertNotNull(reader);
 
+    //reader.setPeriod(1000);
+
     reader.setOnValueChangedListener(
-        new ModbusRegisterReader.HolderValueChangedListener<Register>() {
+        new ModbusRegisterReader.HolderValueChangedListener<Holder<Short>>() {
           /**
            * 接收到 modbus 数据数据 帧类型为 @see
+           * @param holders
            */
           @Override
-          public void onValueChanged(Register[] holders) {
-            for (Holder<Short> holder : holders) {
+          public void onValueChanged(Holder... holders) {
+            assertEquals(holders.length, 2);
+            for (Holder holder : holders) {
               Register register = (Register) holder;
               try {
                 System.out.println(register.toJson());
@@ -81,11 +88,15 @@ public class ModbusRegisterReaderImplTest extends AndroidTestCase {
         });
 
     reader.open();
-
-    Thread.sleep(1000 * 100);
+    ArrayList l = new ArrayList();
+    for (int i = 0; i < 1024 * 100; i++) {
+      //System.gc();
+      Thread.sleep(100);
+      l.add(new byte[1024]);
+    }
     reader.close();
     reader.open();
-    Thread.sleep(1000 * 100);
+    Thread.sleep(1000 * 1);
   }
 
   public void testReadSalved2() throws Exception {

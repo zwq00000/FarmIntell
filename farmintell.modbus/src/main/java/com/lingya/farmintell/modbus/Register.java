@@ -32,11 +32,12 @@ public class Register implements Holder<Short> {
    */
   private Sensor[] sensors;
 
-  public Register(byte slaveId, Sensor[] sensors) {
+  public Register(byte slaveId, String model, Sensor[] sensors) {
     if (sensors == null) {
       throw new IllegalArgumentException("sensors isnot been null");
     }
     this.setSlaveId(slaveId);
+    this.setModel(model);
     this.setSensors(sensors);
   }
 
@@ -127,7 +128,12 @@ public class Register implements Holder<Short> {
   public String toJson() throws JSONException {
     JSONObject root = new JSONObject();
     for (Sensor register : getSensors()) {
-      root.put(register.getName(), register.getValue());
+      float regValue = register.getValue();
+      if (Float.isNaN(regValue)) {
+        root.put(register.getName(), "NaN");
+      } else {
+        root.put(register.getName(), regValue);
+      }
     }
     root.put("slaveId", this.getSlaveId());
     return root.toString();
@@ -173,20 +179,11 @@ public class Register implements Holder<Short> {
    * 传感器
    */
   public static class Sensor {
-
-    /**
-     * 计量单位
-     */
-    private String unit;
-
     /**
      * 索引
      */
     private String id;
-    /**
-     * 寄存器显示名
-     */
-    private String displayName;
+
     /**
      * 实际数值系数因子
      */
@@ -206,9 +203,15 @@ public class Register implements Holder<Short> {
 
     public Sensor() {
       this.name = "";
-      this.displayName = "";
       this.rawValue = 0;
       this.factor = 1;
+    }
+
+    public Sensor(String id, String name, float factor) {
+      this.id = id;
+      this.name = name;
+      this.rawValue = 0;
+      this.factor = factor;
     }
 
     /**
@@ -262,20 +265,6 @@ public class Register implements Holder<Short> {
     }
 
     /**
-     * 获取 寄存器显示名
-     */
-    public String getDisplayName() {
-      return displayName;
-    }
-
-    /**
-     * 设置 寄存器显示名
-     */
-    public void setDisplayName(String displayName) {
-      this.displayName = displayName;
-    }
-
-    /**
      * 获取 传感器 Id
      */
     public String getId() {
@@ -287,14 +276,6 @@ public class Register implements Holder<Short> {
      */
     public void setId(String id) {
       this.id = id;
-    }
-
-    public String getUnit() {
-      return unit;
-    }
-
-    public void setUnit(String unit) {
-      this.unit = unit;
     }
 
     /**

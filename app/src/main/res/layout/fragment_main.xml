@@ -1,8 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.cchp.dxapp.MainFragment">
+             android:layout_height="match_parent" tools:showIn="@layout/activity_main">
 
     <LinearLayout android:id="@+id/mainView"
                   android:layout_width="match_parent"
@@ -23,17 +22,17 @@
                     android:layout_weight="1"
                     android:background="@drawable/shape1"
                     android:orientation="vertical">
-                <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/barcodeImageView" android:layout_gravity="left|top"/>
-
-                <ListView
-                        android:id="@+id/listView"
+                <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_weight="1"/>
+                        android:layout_height="wrap_content"
+                        android:id="@+id/updateClock" android:layout_gravity="center"
+                        android:textSize="@dimen/abc_text_size_display_1_material"
+                        tools:targetApi="jelly_bean_mr1" android:text="更新时间"/>
+
+                <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent"
+                           android:id="@+id/barCodeView"
+
+                        />
             </LinearLayout>
 
             <LinearLayout
@@ -62,7 +61,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="温度A(℃)"/>
+                                android:text="温度 (℃)"/>
 
                         <TextView
                                 android:id="@+id/tv11"
@@ -85,7 +84,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="温度B(℃)"/>
+                                android:text="湿度 (%RH)"/>
 
                         <TextView
                                 android:id="@+id/tv12"
@@ -108,7 +107,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="湿度A(%RH)"/>
+                                android:text="CO2 (ppm)"/>
 
                         <TextView
                                 android:id="@+id/tv13"
@@ -131,7 +130,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="湿度B(%RH)"/>
+                                android:text="光照 (lux)"/>
 
                         <TextView
                                 android:id="@+id/tv14"
@@ -162,7 +161,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="二氧化碳A(ppm)"/>
+                                android:text="土壤含水量"/>
 
                         <TextView
                                 android:id="@+id/tv21"
@@ -185,7 +184,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="二氧化碳B(ppm)"/>
+                                android:text="土壤温度 (℃)"/>
 
                         <TextView
                                 android:id="@+id/tv22"
@@ -232,7 +231,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="光照B(W Lux)"/>
+                                android:text="-"/>
 
                         <TextView
                                 android:id="@+id/tv24"
@@ -263,7 +262,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="土壤温度A(℃)"/>
+                                android:text="-"/>
 
                         <TextView
                                 android:id="@+id/tv31"
@@ -286,7 +285,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="土壤温度B(℃)"/>
+                                android:text="-"/>
 
                         <TextView
                                 android:id="@+id/tv32"
@@ -309,7 +308,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="土壤湿度A(%RH)"/>
+                                android:text="-"/>
 
                         <TextView
                                 android:id="@+id/tv33"
@@ -332,7 +331,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:text="土壤湿度B(%RH)"/>
+                                android:text="-"/>
 
                         <TextView
                                 android:id="@+id/tv34"

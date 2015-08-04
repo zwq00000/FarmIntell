@@ -1,48 +1,22 @@
 package com.lingya.farmintell.httpserver;
 
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
+import android.os.Binder;
 import android.os.IBinder;
-import android.text.TextUtils;
 
 import com.koushikdutta.async.AsyncServer;
-import com.koushikdutta.async.http.WebSocket;
 import com.koushikdutta.async.http.server.AsyncHttpServer;
-import com.lingya.farmintell.httpserver.adapters.WebSocketAdapter;
+import com.lingya.farmintell.httpserver.adapters.WebSocketFactory;
 
 import java.io.IOException;
-import java.util.AbstractList;
-import java.util.ArrayList;
 
 public class HttpService extends Service {
 
   private static final String TAG = HttpService.class.getSimpleName();
-  /**
-   * 传感器状态 更新 标识
-   */
-  private static final String UPDATE_SENSOR_STATUS = "SensorService.UPDATE_SENSOR_STATUS";
-  private static String sensorStatusJson = null;
-  AsyncHttpServer asyncHttpServer = new AsyncHttpServer();
-  WebSocketAdapter webSocketAdapter = new WebSocketAdapter();
-  private AbstractList<WebSocket> webSocketArrayList = new ArrayList<WebSocket>(10);
-  private BroadcastReceiver sensorStatusReceiver = new BroadcastReceiver() {
-    @Override
-    public void onReceive(Context context, Intent intent) {
-      final String jsonStr = intent.getStringExtra("JSON");
-      if (TextUtils.isEmpty(jsonStr)) {
-        return;
-      }
-      sensorStatusJson = jsonStr;
-      webSocketAdapter.send(jsonStr);
-    }
-  };
-
-  public HttpService() {
-
-  }
+  AsyncHttpServer asyncHttpServer;
+  private boolean isRunning = false;
 
   /**
    * Called by the system when the service is first created.  Do not call this method directly.
@@ -51,7 +25,6 @@ public class HttpService extends Service {
     super.onCreate();
     asyncHttpServer = new AsyncHttpServer();
     initHttpServer(asyncHttpServer);
-    initSensorReceiver();
   }
 
   /**
@@ -59,59 +32,76 @@ public class HttpService extends Service {
    */
   @Deprecated
   public void onStart(Intent intent, int startId) {
-    startHttpServer();
+    onBind(intent);
   }
 
   @Override
   public IBinder onBind(Intent intent) {
-    if (asyncHttpServer != null) {
+    if (!isRunning) {
       startHttpServer();
     }
-    return null;
+    return new HttpServerBinderImpl();
   }
 
   @Override
   public void onDestroy() {
     if (asyncHttpServer != null) {
       asyncHttpServer.stop();
+      isRunning = false;
     }
   }
 
-  private void initHttpServer(AsyncHttpServer server) {
+  /**
+   * 初始化 Http Server
+   */
+  void initHttpServer(AsyncHttpServer server) {
+    WebSiteFactory factory = new WebSiteFactory(this);
     try {
-      WebSiteFactory.copyAssetToWebSite(this, "index.html");
+      factory.copyAssetToWebSite("index.html");
     } catch (IOException e) {
       e.printStackTrace();
     }
     server.directory(this, "/assets/.*?", "");
-    server.directory("/index.html", WebSiteFactory.getWebSiteFolder(this), true);
 
+    server.get("/index.html", factory.getDefaultDocCallback());
+    server.get("/", factory.getDefaultDocCallback());
+    server.directory("/settings/.*?", this.getDir("settings", Context.MODE_PRIVATE));
     SharedPreferencesRequestCallback
         prefCallback =
         new SharedPreferencesRequestCallback(this);
     server.get("/pref/.*?", prefCallback);
     server.post("/pref/.*?", prefCallback);
-    server.websocket("/websocket", webSocketAdapter);
+    WebSocketFactory.connect(server, "/websocket");
   }
 
+  /**
+   * 启动 Http Server
+   */
   private void startHttpServer() {
     if (asyncHttpServer == null) {
       asyncHttpServer = new AsyncHttpServer();
       initHttpServer(asyncHttpServer);
     }
-    asyncHttpServer.stop();
     asyncHttpServer.listen(AsyncServer.getDefault(), 8080);
+    isRunning = true;
   }
 
-  private void sendSensorStatusJson(WebSocket webSocket) {
-    if (!TextUtils.isEmpty(sensorStatusJson)) {
-      String jsonStr = sensorStatusJson;
-      webSocket.send(jsonStr);
+  public interface IHttpServerBinder {
+
+    /**
+     * 获取 Http Server 实例
+     */
+    AsyncHttpServer getHttpServer();
+  }
+
+  private class HttpServerBinderImpl extends Binder implements IHttpServerBinder {
+
+    /**
+     * 获取 Http Server 实例
+     */
+    @Override
+    public AsyncHttpServer getHttpServer() {
+      return HttpService.this.asyncHttpServer;
     }
-  }
-
-  private void initSensorReceiver() {
-    IntentFilter intentFilter = new IntentFilter(UPDATE_SENSOR_STATUS);
-    this.registerReceiver(sensorStatusReceiver, intentFilter);
   }
 }

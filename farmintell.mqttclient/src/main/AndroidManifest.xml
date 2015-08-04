@@ -12,6 +12,9 @@
                 android:name=".SensorStatusUpdatedReceiver"
                 android:enabled="true"
                 android:exported="true">
+            <intent-filter>
+                <action android:name="SensorService.UPDATE_SENSOR_STATUS"/>
+            </intent-filter>
         </receiver>
     </application>
 

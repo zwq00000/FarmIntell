@@ -20,28 +20,24 @@ import java.io.File;
 public class RegisterFactoryTest extends AndroidTestCase {
 
   public static Register createInstance() {
-    return new Register((byte) 1, createSensors());
+    return new Register((byte) 1, "test1", createSensors());
   }
 
   public static Register.Sensor[] createSensors() {
     Register.Sensor[] sensors = new Register.Sensor[4];
     Register.Sensor sensor = new Register.Sensor();
     sensors[0] = sensor;
-    sensor.setDisplayName("温度");
     sensor.setName("temp");
     sensor.setFactor((float) 0.1);
     sensor = new Register.Sensor();
     sensors[1] = sensor;
-    sensor.setDisplayName("湿度");
     sensor.setName("hum");
     sensor.setFactor((float) 0.1);
     sensor = new Register.Sensor();
     sensors[2] = sensor;
-    sensor.setDisplayName("CO2");
     sensor.setName("co2");
     sensor = new Register.Sensor();
     sensors[3] = sensor;
-    sensor.setDisplayName("光照");
     sensor.setName("light");
     sensor.setFactor(10);
     return sensors;
@@ -50,7 +46,7 @@ public class RegisterFactoryTest extends AndroidTestCase {
   private static Register[] createRegisters(int count) {
     Register[] registers = new Register[count];
     for (int i = 0; i < count; i++) {
-      registers[i] = new Register((byte) i, createSensors());
+      registers[i] = new Register((byte) i, "test1", createSensors());
     }
     return registers;
   }
@@ -64,7 +60,7 @@ public class RegisterFactoryTest extends AndroidTestCase {
 
   }
 
-  public void testLoadJson() throws Exception {
+  public void testLoadFromJson() throws Exception {
     Register[] registers = RegisterFactory.loadFromJson(getContext());
     assertNotNull(registers);
     assertEquals(registers.length, 2);
@@ -238,7 +234,7 @@ public class RegisterFactoryTest extends AndroidTestCase {
     assertNotNull(register);
     assertEquals(register.getCount(), 4);
     assertEquals(register.getSensors()[0].getName(), "temp");
-    assertEquals(register.getSensors()[0].getFactor(), 0.1);
+    assertEquals(register.getSensors()[0].getFactor(), 0.1f);
   }
 
   public void testUpdateSensorStatus() throws Exception {
@@ -247,7 +243,7 @@ public class RegisterFactoryTest extends AndroidTestCase {
     RealmFactory.updateSensorStatus(registers, statusList);
     assertEquals(statusList.size(), 4);
     for (SensorStatus status : statusList.getStatuses()) {
-      assertEquals(status.getValue(), 0.0);
+      assertEquals(status.getValue(), 0.0f);
     }
     registers[0].setValue(0, (short) 1);
     registers[0].setValue(1, (short) 1);
@@ -256,7 +252,7 @@ public class RegisterFactoryTest extends AndroidTestCase {
     RealmFactory.updateSensorStatus(registers, statusList);
     assertEquals(statusList.getStatuses().size(), 4);
     for (SensorStatus status : statusList.getStatuses()) {
-      assertNotSame(status.getValue(), 0.0);
+      assertNotSame(status.getValue(), 0.0f);
     }
   }
 

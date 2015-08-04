@@ -10,7 +10,6 @@ import junit.framework.Assert;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONStringer;
 
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
@@ -51,16 +50,6 @@ public class RegisterTest extends AndroidTestCase {
     port = null;
   }
 
-
-  public void testGetStatusJson() throws Exception {
-    Register.Sensor[] sensors = RegisterFactoryTest.createSensors();
-    register = new Register((byte) 1, sensors);
-    JSONStringer
-        json =
-        RegisterFactory.stringerRegister(new JSONStringer(), new Register[]{register});
-    System.out.println(json.toString());
-  }
-
   public void testParseRegisters() throws Exception {
     String jsonStr = "{\"slaveId\":1,\"count\":4,"
                      + "\"coils\":[{\"Factor\":1,\"coilName\":\"TEMP\",\"index\":0},"
@@ -83,16 +72,17 @@ public class RegisterTest extends AndroidTestCase {
   }
 
   public void testReadStatus() throws Exception {
-    testGetStatusJson();
     Register holder = this.register;
     ReadInputRegistersRequest request = new ReadInputRegistersRequest(holder.getSlaveId(), holder);
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 1000; i++) {
       request.writeFrame(output);
       request.readResponse(input);
-      Log.d(TAG, RegisterFactory.toValueJson(holder));
-
-      Thread.sleep(1000);
-      holder.reset();
+      if (holder.isChanged()) {
+        Log.d(TAG, i + "\t" + RegisterFactory.toValueJson(holder));
+      } else {
+        Log.d(TAG, i + "\tread error");
+      }
+      //Thread.sleep(50);
     }
   }
 
@@ -121,6 +111,7 @@ public class RegisterTest extends AndroidTestCase {
         request.readResponse(input);
 
         System.out.println(registers[r].toJson());
+        Thread.sleep(50);
       }
       long after = System.currentTimeMillis();
       System.out.println("Take " + (after - before) + " milliseconds");
@@ -133,25 +124,21 @@ public class RegisterTest extends AndroidTestCase {
     Register.Sensor[] sensors = new Register.Sensor[4];
     Register.Sensor sensor = new Register.Sensor();
     sensors[0] = sensor;
-    sensor.setDisplayName("温度");
     sensor.setName("temp");
     sensor.setFactor((float) 0.1);
     sensor = new Register.Sensor();
     sensors[1] = sensor;
-    sensor.setDisplayName("湿度");
     sensor.setName("hum");
     sensor.setFactor((float) 0.1);
     sensor = new Register.Sensor();
     sensors[2] = sensor;
-    sensor.setDisplayName("CO2");
     sensor.setName("co2");
     sensor = new Register.Sensor();
     sensors[3] = sensor;
-    sensor.setDisplayName("光照");
     sensor.setName("light");
     sensor.setFactor(10);
 
-    Register register = new Register((byte) 1, sensors);
+    Register register = new Register((byte) 1, "model", sensors);
     assertNotNull(register);
     assertNotNull(register.getSensors());
     assertEquals(register.getCount(), 4);

@@ -37,6 +37,28 @@ public class SerialPortFactory implements java.io.Closeable {
   }
 
   /**
+   * 喂狗
+   */
+  public void feedWatchdog() {
+    ycApi.FeedWDog();
+  }
+
+  /**
+   * 启动看门狗
+   */
+  public void startWatchdog() {
+    ycApi.SetWDog((byte) 30);
+    ycApi.StartWDog();
+  }
+
+  /**
+   * 停止看门狗
+   */
+  public void stopWatchdog() {
+    ycApi.StopWDog();
+  }
+
+  /**
    * 初始化 数据流对象
    */
   private void openStream() {

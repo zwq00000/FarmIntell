@@ -12,6 +12,7 @@ public class HttpServiceTest extends ServiceTestCase {
    * Constructor
    */
   public HttpServiceTest() {
+    //noinspection unchecked
     super(HttpService.class);
   }
 
@@ -26,6 +27,6 @@ public class HttpServiceTest extends ServiceTestCase {
 
   public void testOnBind() throws Exception {
     this.bindService(new Intent());
-    Thread.sleep(1000 * 1000);
+    Thread.sleep(1000 * 60 * 60 * 24);
   }
 }

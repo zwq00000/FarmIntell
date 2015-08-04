@@ -1,6 +1,7 @@
 package com.lingya.farmintell.adapters;
 
 import android.os.Handler;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -9,6 +10,7 @@ import com.lingya.farmintell.models.SensorStatus;
 import com.lingya.farmintell.models.SensorStatusCollection;
 import com.lingya.farmintell.services.SensorService;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -30,6 +32,7 @@ public class SensorStatusViewAdapter implements ViewAdapter<SensorService.ISenso
       R.id.tv23,
       R.id.tv24
   };
+  private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
   private final Handler handler;
   private ViewGroup containerView;
   private SensorService.ISensorBinder viewData;
@@ -79,6 +82,16 @@ public class SensorStatusViewAdapter implements ViewAdapter<SensorService.ISenso
     });
   }
 
+  public void setOnClickListener(View.OnClickListener onClickListener) {
+    for (int viewId :
+        this.viewIds) {
+      TextView textView = ((TextView) containerView.findViewById(viewId));
+      if (textView != null) {
+        textView.setOnClickListener(onClickListener);
+      }
+    }
+  }
+
   /**
    * 绑定界面任务概要数据
    */
@@ -94,7 +107,12 @@ public class SensorStatusViewAdapter implements ViewAdapter<SensorService.ISenso
         statusCollection.getStatuses();
     for (int i = 0; i < count; i++) {
       int viewId = viewIds[i];
-      ((TextView) containerView.findViewById(viewId)).setText(statuses.get(i).getFormatedValue());
+      TextView textView = ((TextView) containerView.findViewById(viewId));
+      SensorStatus status = statuses.get(i);
+      textView.setText(status.getFormatedValue());
+      textView.setTag(status.getId());
     }
+    TextView clockView = (TextView) containerView.findViewById(R.id.updateClock);
+    clockView.setText(TIME_FORMAT.format(statusCollection.getUpdateTime()));
   }
 }

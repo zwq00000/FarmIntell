@@ -14,7 +14,6 @@
             <option value="$PROJECT_DIR$/farmintell.modbus" />
             <option value="$PROJECT_DIR$/farmintell.mqttclient" />
             <option value="$PROJECT_DIR$/qrcode.encoder" />
-            <option value="$PROJECT_DIR$/vitamio-release" />
           </set>
         </option>
       </GradleProjectSettings>

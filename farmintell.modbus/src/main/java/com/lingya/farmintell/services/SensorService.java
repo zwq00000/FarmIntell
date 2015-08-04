@@ -9,19 +9,19 @@ import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import android.os.PowerManager;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.lingya.farmintell.modbus.ModbusRegisterReader;
-import com.lingya.farmintell.modbus.ModbusRegisterReaderImpl;
 import com.lingya.farmintell.modbus.Register;
-import com.lingya.farmintell.modbus.RegisterFactory;
-import com.lingya.farmintell.modbus.SerialPortFactory;
 import com.lingya.farmintell.models.RealmFactory;
+import com.lingya.farmintell.models.SensorAverageHelper;
 import com.lingya.farmintell.models.SensorLog;
 import com.lingya.farmintell.models.SensorStatusCollection;
 import com.lingya.farmintell.models.SensorSummary;
+import com.lingya.farmintell.models.SensorsConfig;
+import com.lingya.farmintell.models.SensorsConfigFactory;
+import com.lingya.farmintell.utils.CalendarUtils;
 
 import org.json.JSONException;
 
@@ -47,12 +47,9 @@ public class SensorService extends Service {
   public static final String UPDATE_SENSOR_STATUS = "SensorService.UPDATE_SENSOR_STATUS";
   private static final String TAG = "SensorService";
   //private static final String STOP_SERVICE = "SensorService.STOP_SERVICE";
-  /**
-   * 串口工厂
-   */
-  private SerialPortFactory factory;
+
   private Realm defaultRealm;
-  private ModbusRegisterReaderImpl registerReader;
+  private ModbusRegisterReader registerReader;
   private SensorStatusCollection statusCollection;
   private Handler mHandler;
   /**
@@ -64,9 +61,10 @@ public class SensorService extends Service {
 
         /**
          * 接收到 modbus 数据数据 帧类型为 @see
+         * @param holders
          */
         @Override
-        public void onValueChanged(final Register[] holders) {
+        public void onValueChanged(final Register... holders) {
           boolean isChanged = false;
           for (Register register : holders) {
             if (register.isChanged()) {
@@ -87,13 +85,12 @@ public class SensorService extends Service {
           }
         }
       };
-  private PowerManager.WakeLock wakeLock;
 
   @Override
   public void onCreate() {
-    factory = SerialPortFactory.getInstance();
     mHandler = new Handler(Looper.myLooper());
     defaultRealm = RealmFactory.getInstance(this);
+    SensorAverageHelper.registerAverageUpdate(this);
   }
 
   /**
@@ -105,6 +102,7 @@ public class SensorService extends Service {
   public void onDestroy() {
     try {
       closeInternal();
+      SensorAverageHelper.unregisterAverageUpdate(this);
     } catch (IOException e) {
       e.printStackTrace();
     } finally {
@@ -163,13 +161,16 @@ public class SensorService extends Service {
       this.registerReader.close();
       this.registerReader.setOnValueChangedListener(null);
     }
+    SensorsConfig
+        config =
+        SensorsConfigFactory.getDefaultInstance(this);
     // modbus 传感器集合
-    Register[] registers = RegisterFactory.loadFromJson(this);
+    Register[] registers = config.getRegisters();
     if (registers == null) {
       throw new IOException("初始化失败,没有设置 传感器");
     }
     this.statusCollection = new SensorStatusCollection();
-    this.registerReader = new ModbusRegisterReaderImpl(registers, this.factory);
+    this.registerReader = ModbusRegisterReader.getInstance(this, registers);
     registerReader.setOnValueChangedListener(registerListener);
     this.registerReader.open();
     Log.d(TAG, "open ModbusRegisterReaderImpl");
@@ -179,7 +180,7 @@ public class SensorService extends Service {
    * 关闭接收器 内部实现
    */
   private void closeInternal() throws IOException {
-    if (this.registerReader != null || !registerReader.isClosed()) {
+    if (this.registerReader != null && !registerReader.isClosed()) {
       registerReader.close();
     }
   }
@@ -203,7 +204,7 @@ public class SensorService extends Service {
   /**
    * 更新传感器状态
    */
-  private void updateSensorStatus(Register[] holders) {
+  private void updateSensorStatus(Register... holders) {
     Log.d(TAG, "update sensor status");
     RealmFactory.updateSensorStatus(holders, this.statusCollection);
     if (isAllowAppendLog()) {
@@ -248,14 +249,14 @@ public class SensorService extends Service {
     /**
      * 获取 24小时 每小时的状态统计
      */
-    SensorSummary[] get24HourlySummary(String sensorId);
+    SensorSummary get24HourlySummary(String sensorId);
 
     /**
      * 获取 小时 汇总统计
      *
      * @param endTime @return
      */
-    SensorSummary[] getHourlySummary(String sensorId, Date startTime, Date endTime);
+    SensorSummary getHourlySummary(String sensorId, Date startTime, Date endTime);
   }
 
   private static class SensorServiceBinderImpl extends Binder implements ISensorBinder {
@@ -282,7 +283,8 @@ public class SensorService extends Service {
      */
     @Override
     public RealmQuery<SensorLog> querySensorLog() {
-      return sensorService.defaultRealm.where(SensorLog.class);
+      Realm realm = RealmFactory.getInstance(sensorService);
+      return realm.where(SensorLog.class);
     }
 
     /**
@@ -294,30 +296,39 @@ public class SensorService extends Service {
         return null;
       }
       Date lastDate = new Date(System.currentTimeMillis() - ONE_DAY_MILLIS);
-      return
-          sensorService.defaultRealm.where(SensorLog.class)
-              .equalTo("id", sensorId)
-              .greaterThanOrEqualTo("time", lastDate)
-              .findAll();
+      Realm realm = RealmFactory.getInstance(sensorService);
+      try {
+        return realm.where(SensorLog.class)
+            .equalTo("sensorId", sensorId)
+            .greaterThanOrEqualTo("time", lastDate)
+            .findAll();
+      } finally {
+        realm.close();
+      }
     }
 
     /**
      * 获取 24小时 每小时的状态统计
      */
     @Override
-    public SensorSummary[] get24HourlySummary(String sensorId) {
-      Calendar startCalendar = GregorianCalendar.getInstance();
+    public SensorSummary get24HourlySummary(String sensorId) {
+      Calendar startCalendar = CalendarUtils.getStartCalendar(new Date());
       startCalendar.add(Calendar.HOUR, -24);
-      Calendar endCalendar = GregorianCalendar.getInstance();
-      return RealmFactory.queryHourlySummary(sensorService.defaultRealm, sensorId, startCalendar,
-                                             endCalendar);
+      Calendar endCalendar = CalendarUtils.getStartCalendar(new Date());
+      Realm realm = RealmFactory.getInstance(sensorService);
+      try {
+        return RealmFactory.queryHourlySummary(realm, sensorId, startCalendar,
+                                               endCalendar);
+      } finally {
+        realm.close();
+      }
     }
 
     /**
      * 获取 小时 汇总统计
      */
     @Override
-    public SensorSummary[] getHourlySummary(String sensorId, Date startTime, Date endTime) {
+    public SensorSummary getHourlySummary(String sensorId, Date startTime, Date endTime) {
       if (TextUtils.isEmpty(sensorId)) {
         throw new IllegalArgumentException("sensorId is not been null Or Empty");
       }
@@ -325,8 +336,13 @@ public class SensorService extends Service {
       startCalendar.setTime(startTime);
       Calendar endCalendar = GregorianCalendar.getInstance();
       endCalendar.setTime(endTime);
-      return RealmFactory
-          .queryHourlySummary(sensorService.defaultRealm, sensorId, startCalendar, endCalendar);
+      Realm realm = RealmFactory.getInstance(sensorService);
+      try {
+        return RealmFactory
+            .queryHourlySummary(realm, sensorId, startCalendar, endCalendar);
+      } finally {
+        realm.close();
+      }
     }
   }
 

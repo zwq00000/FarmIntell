@@ -79,7 +79,8 @@ public class HttpServerTest extends AndroidTestCase {
     server.directory(getContext(), "/assets/.*?", "");
     //asyncHttpServer.directory(getContext(), "/.*?", "");
     //asyncHttpServer.get("/", new AssetsDirectoryCallback(getContext()));
-    server.directory("/index.html", WebSiteFactory.getWebSiteFolder(getContext()), true);
+    WebSiteFactory factory = new WebSiteFactory(getContext());
+    server.directory("/index.html", factory.getWebSiteFolder(), true);
     SharedPreferencesRequestCallback
         prefCallback =
         new SharedPreferencesRequestCallback(getContext());

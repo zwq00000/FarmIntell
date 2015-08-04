@@ -1,7 +1,5 @@
 package com.lingya.farmintell.models;
 
-import android.os.Bundle;
-
 import junit.framework.TestCase;
 
 import java.util.List;
@@ -47,18 +45,6 @@ public class SensorStatusCollectionTest extends TestCase {
 
   public void testDescribeContents() throws Exception {
 
-  }
-
-  public void testWriteToParcel() throws Exception {
-    SensorStatusCollection collection = new SensorStatusCollection();
-    this.addSensorStatuses(collection);
-    Bundle bundle = new Bundle();
-    String Key = "Coll";
-    bundle.putParcelable(Key, collection);
-    assertNotNull(bundle.get(Key));
-    assertSame(bundle.get(Key), collection);
-    String json = ((SensorStatusCollection) bundle.get(Key)).toJson();
-    System.out.println(json);
   }
 
   public void testSize() throws Exception {

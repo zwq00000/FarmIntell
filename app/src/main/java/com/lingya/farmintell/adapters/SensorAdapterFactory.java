@@ -69,7 +69,7 @@ public class SensorAdapterFactory
    * 绑定代理,解决服务延迟绑定
    */
   private SensorService.ISensorBinder proxySensorBinder = new SensorService.ISensorBinder() {
-    private final SensorSummary[] EMPTY_SENSOR_SUMMARIES = new SensorSummary[0];
+    private final SensorSummary EMPTY_SENSOR_SUMMARIES = new SensorSummary("", new Date());
 
     /**
      * 获取 传感器状态
@@ -113,7 +113,7 @@ public class SensorAdapterFactory
      * 获取 24小时 每小时的状态统计
      */
     @Override
-    public SensorSummary[] get24HourlySummary(String sensorId) {
+    public SensorSummary get24HourlySummary(String sensorId) {
       SensorService.ISensorBinder original = SensorAdapterFactory.this.sensorBinder;
       if (original != null) {
         return original.get24HourlySummary(sensorId);
@@ -127,7 +127,7 @@ public class SensorAdapterFactory
      * @param endTime @return
      */
     @Override
-    public SensorSummary[] getHourlySummary(String sensorId, Date startTime, Date endTime) {
+    public SensorSummary getHourlySummary(String sensorId, Date startTime, Date endTime) {
       SensorService.ISensorBinder original = SensorAdapterFactory.this.sensorBinder;
       if (original != null) {
         return original.getHourlySummary(sensorId, startTime, endTime);
@@ -142,6 +142,9 @@ public class SensorAdapterFactory
     registReceiver();
   }
 
+  /**
+   * 获取 默认实例
+   */
   public static SensorAdapterFactory getInstance(Context context) {
     if (defaultInstance == null) {
       defaultInstance = new SensorAdapterFactory(context);

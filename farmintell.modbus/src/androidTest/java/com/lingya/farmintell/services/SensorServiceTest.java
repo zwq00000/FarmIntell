@@ -66,12 +66,8 @@ public class SensorServiceTest extends ServiceTestCase {
         new Intent(SensorService.START_SERVICE, Uri.EMPTY, getContext(), SensorService.class);
     SensorService.ISensorBinder binding = (SensorService.ISensorBinder) this.bindService(intent);
     assertNotNull(binding);
-    SensorSummary[] sensorSummaries = binding.get24HourlySummary("0-1");
-    assertEquals(sensorSummaries.length, 24);
-    for (SensorSummary summary : sensorSummaries) {
-      Log.d(TAG, summary.getSensorId() + "\t" + summary.getShortTime() + "\t" + summary
-          .getSamplesCount());
-    }
+    SensorSummary summary = binding.get24HourlySummary("0-1");
+    Log.d(TAG, summary.toString());
   }
 
   public void testGetHours() throws Exception {
