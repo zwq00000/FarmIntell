@@ -65,7 +65,7 @@ public class HttpService extends Service {
 
     server.get("/index.html", factory.getDefaultDocCallback());
     server.get("/", factory.getDefaultDocCallback());
-    server.directory("/settings/.*?", this.getDir("settings", Context.MODE_PRIVATE));
+    server.directory("/settings/.*?", this.getDir("settings", Context.MODE_PRIVATE), true);
     SharedPreferencesRequestCallback
         prefCallback =
         new SharedPreferencesRequestCallback(this);

@@ -56,8 +56,8 @@ JustGage = function (config) {
         // hide or display min and max values
         showMinMax: (config.showMinMax != null) ? config.showMinMax : true,
 
-        //¿í¶È
-        width: (config.width) ? config.width: 320,
+        //å®½åº¦
+        width: (config.width) ? config.width: document.getElementById(config.id).clientWidth,
 
         // gaugeWidthScale : float
         // width of the gauge element

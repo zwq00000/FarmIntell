@@ -19,7 +19,6 @@ import com.lingya.farmintell.services.SensorService;
 import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -157,9 +156,7 @@ public class SensorAdapterFactory
    */
   public void notifyDataChanged() {
     if (this.sensorBinder != null) {
-      Iterator<ViewAdapter> iterator = this.viewAdapters.iterator();
-      while (iterator.hasNext()) {
-        ViewAdapter adapter = iterator.next();
+      for (ViewAdapter adapter : this.viewAdapters) {
         adapter.notifyDataChanged();
       }
     }

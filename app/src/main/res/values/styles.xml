@@ -23,7 +23,7 @@
 
     <!-- Backward-compatible version of ?android:attr/buttonBarButtonStyle -->
     <style name="ButtonBarButton"/>
-    <style name="title">
+    <style name="headerText">
         <item name="android:gravity">center</item>
         <item name="android:background">#F5DEB3</item>
         <item name="android:textSize">22dp</item>

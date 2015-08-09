@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FarmIntell.iml" filepath="$PROJECT_DIR$/FarmIntell.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Gauge/Gauge.iml" filepath="$PROJECT_DIR$/Gauge/Gauge.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/farmintell.httpserver/farmintell.httpserver.iml" filepath="$PROJECT_DIR$/farmintell.httpserver/farmintell.httpserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/farmintell.modbus/farmintell.modbus.iml" filepath="$PROJECT_DIR$/farmintell.modbus/farmintell.modbus.iml" />

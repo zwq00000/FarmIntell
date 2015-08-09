@@ -228,9 +228,12 @@ public class FragmentMasterActivity extends Activity {
     this.adapterFactory = SensorAdapterFactory.getInstance(this);
     adapterFactory.bindService();
 
-    this.sensorAdapter = new SensorStatusViewAdapter((ViewGroup) this.findViewById(R.id.mainView));
+    this.sensorAdapter = new SensorStatusViewAdapter();
+    sensorAdapter.onBindView((ViewGroup) this.findViewById(R.id.mainView));
     sensorAdapter.setViewData(adapterFactory.getBinder());
     adapterFactory.registViewAdapter(sensorAdapter);
+
+    //chart adapter
     chartAdapter = new MultipleSeriesChartAdapter(this);
     chartAdapter.onBindView((ViewGroup) this.findViewById(R.id.chartView));
     chartAdapter.setViewData(adapterFactory.getBinder());

@@ -22,11 +22,14 @@ public class SensorsConfig {
    */
   private Station[] stations;
 
+  private int sensorCount;
+
   /**
    * 寄存器配置
    */
   private Register[] registers;
   private String[] sensorIds;
+  private Sensor[] sensorCache;
 
   public String getHostId() {
     return hostId;
@@ -59,12 +62,31 @@ public class SensorsConfig {
     return sensorIds;
   }
 
-  int getSensorsCount() {
-    int sensorsCount = 0;
-    for (int i = 0; i < stations.length; i++) {
-      sensorsCount += stations[i].size();
+  public Sensor[] getSensors() {
+    if (this.sensorCache == null) {
+      sensorCache = new Sensor[getSensorsCount()];
+      int index = 0;
+      for (int i = 0; i < this.stations.length; i++) {
+        Sensor[] sensors = stations[i].getSensors();
+        for (int s = 0; s < sensors.length; s++) {
+          sensorCache[index] = sensors[s];
+          index++;
+        }
+      }
     }
-    return sensorsCount;
+    return sensorCache;
+  }
+
+  int getSensorsCount() {
+    if (sensorCount > 0) {
+      return sensorCount;
+    }
+    int count = 0;
+    for (int i = 0; i < stations.length; i++) {
+      count += stations[i].size();
+    }
+    sensorCount = count;
+    return sensorCount;
   }
 
   /**
