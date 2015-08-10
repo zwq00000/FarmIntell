@@ -52,10 +52,6 @@ public class GaugeView extends View {
    * 数值指示色
    */
   private int pointColor;
-  /**
-   * 数值指示 修饰渐变色
-   */
-  private int gradientPointColor;
   private Paint mTextPaint;
   private String text;
   private int mFontColor;
@@ -63,7 +59,7 @@ public class GaugeView extends View {
   private float mTextHeight;
   private float valueRange;
   private String numberFormat;
-  private int[] percentColors;
+  private Hsv[] percentColors;
 
   public GaugeView(Context context) {
     super(context);
@@ -101,7 +97,6 @@ public class GaugeView extends View {
     // pointer size and color
     mPointSize = a.getInt(R.styleable.GaugeView_pointSize, 0);
     pointColor = a.getColor(R.styleable.GaugeView_pointColor, Color.WHITE);
-    gradientPointColor = HsvHelper.dark(pointColor).toColor();
     //gradientPointColor = HsvHelper.pure(pointColor).darker().toColor();
 
     // calculating one point sweep
@@ -120,9 +115,8 @@ public class GaugeView extends View {
     mFontSize = a.getDimension(R.styleable.GaugeView_fontSize, 10);
 
     a.recycle();
-    init();
 
-    setValue(value);
+    init();
   }
 
   private void init() {
@@ -148,7 +142,11 @@ public class GaugeView extends View {
     mTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
     mTextPaint.setTextAlign(Paint.Align.CENTER);
 
-    this.percentColors = getContext().getResources().getIntArray(R.array.percentColors);
+    int[] colors = getContext().getResources().getIntArray(R.array.percentColors);
+    this.percentColors = new Hsv[colors.length];
+    for(int i=0;i<colors.length;i++){
+      percentColors[i] = new Hsv(colors[i]);
+    }
     // Update TextPaint and text measurements from attributes
     invalidateTextPaintAndMeasurements();
   }
@@ -168,7 +166,6 @@ public class GaugeView extends View {
         Math.min(contentWidth, contentHeight) / 2; //(width > height ? width / 2 : height / 2);
     mStrokeWidth = radius / 3;
     radius -= mStrokeWidth / 2;
-
 
     float mRectLeft = contentWidth / 2 - radius + paddingLeft;
     float mRectTop = contentHeight / 2 - radius + paddingTop;
@@ -190,13 +187,9 @@ public class GaugeView extends View {
     //绘制仪表指示
     pointColor = getPointColor();
     paint.setColor(pointColor);
-    paint.setShader(createRedialGradient(mRect, radius, pointColor, gradientPointColor));
-    //paint.setShader(new LinearGradient(mRect.left, mRect.top, mRect.left, mRect.bottom,
-    //                                   pointColor,
-    //                                   gradientPointColor,
-    //                                   Shader.TileMode.CLAMP));
+    paint.setShader(null);
     // calculating one point sweep
-    float pointSweep = (value - minValue)/valueRange * mSweepAngle;
+    float pointSweep = (value - minValue) / valueRange * mSweepAngle;
     canvas.drawArc(mRect, mStartAngle, pointSweep, false, paint);
     drawText(canvas, mRect);
   }
@@ -236,7 +229,7 @@ public class GaugeView extends View {
    * @return RadialGradient 实例
    */
   Shader createRedialGradient(RectF rect, float radius, int color) {
-    int darkColor = HsvHelper.grayer(color).toColor();
+    int darkColor = Hsv.grayer(color);
     return createRedialGradient(rect, radius, color, darkColor);
   }
 
@@ -252,14 +245,12 @@ public class GaugeView extends View {
   }
 
 
-  int getPointColor(){
+  int getPointColor() {
     float percent = Math.abs(this.value - this.minValue) / Math.abs(maxValue - minValue);
-    for(int i=0;i<percentColors.length;i++){
-      if(percent < (i+1)/percentColors.length){
-        return percentColors[i];
-      }
+    if (percent < 1 / 2) {
+      return percentColors[0].gradient(percentColors[1], percent * 2).toColor();
     }
-    return percentColors[percentColors.length - 1];
+    return percentColors[1].gradient(percentColors[2], percent * 2 - 1).toColor();
   }
 
   public float getValue() {
@@ -313,7 +304,6 @@ public class GaugeView extends View {
 
   public void setPointColor(int pointColor) {
     this.pointColor = pointColor;
-    this.gradientPointColor = HsvHelper.dark(pointColor).toColor();
   }
 
   public void setNumberFormat(String numberFormat) {

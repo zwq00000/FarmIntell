@@ -221,11 +221,11 @@ public class MultipleSeriesChartAdapter implements ViewAdapter<SensorService.ISe
         //.setTopSpacing(Tools.fromDpToPx(15))
         //.setBorderSpacing(Tools.fromDpToPx(0))
         .setAxisBorderValues(min - range, max + range, 1)
-        .setXLabels(AxisController.LabelPosition.INSIDE)
+        .setXLabels(AxisController.LabelPosition.NONE)
         .setYLabels(AxisController.LabelPosition.OUTSIDE)
-        .setLabelsColor(Color.parseColor("#e08b36"))
+        //.setLabelsColor(Color.parseColor("#e08b36"))
         .setXAxis(true)
-        .setYAxis(true);
+        .setYAxis(false);
 
     Animation anim = new Animation().setStartPoint(-1, 1);
     this.chartView.show(anim);

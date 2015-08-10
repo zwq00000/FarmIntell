@@ -1,6 +1,7 @@
 package com.lingya.farmintell.modbus;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.util.Log;
 
 import com.lingya.farmintell.models.SensorsConfig;
@@ -67,7 +68,7 @@ public abstract class ModbusRegisterReader<H extends Holder> implements Closeabl
 
   public static ModbusRegisterReader<Holder<Short>> getInstance(Context context,
                                                                 Holder<Short>[] holders) {
-    if(context.getResources().getBoolean(R.bool.debug)){
+    if((context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0){
       try {
         return new ModbusRegisterReaderMock(holders, context);
       } catch (IOException e) {
