@@ -41,7 +41,6 @@ public class GaugeView extends View {
    */
   private int maxValue;
   private float value;
-  private double mPointAngel;
   private int mPointColor;
   private String valueFormatPattern;
   /**
@@ -62,6 +61,9 @@ public class GaugeView extends View {
   private int mFontColor;
   private float mTextWidth;
   private float mTextHeight;
+  private float valueRange;
+  private String numberFormat;
+  private int[] percentColors;
 
   public GaugeView(Context context) {
     super(context);
@@ -93,8 +95,8 @@ public class GaugeView extends View {
     mSweepAngle = a.getInt(R.styleable.GaugeView_sweepAngle, mSweepAngle);
 
     // scale (from minValue to maxValue)
-    minValue = a.getInt(R.styleable.GaugeView_minValue, minValue);
-    maxValue = a.getInt(R.styleable.GaugeView_maxValue, maxValue);
+    setMinValue(a.getInt(R.styleable.GaugeView_minValue, minValue));
+    setMaxValue(a.getInt(R.styleable.GaugeView_maxValue, maxValue));
 
     // pointer size and color
     mPointSize = a.getInt(R.styleable.GaugeView_pointSize, 0);
@@ -103,14 +105,14 @@ public class GaugeView extends View {
     //gradientPointColor = HsvHelper.pure(pointColor).darker().toColor();
 
     // calculating one point sweep
-    mPointAngel = mSweepAngle / Math.abs(maxValue - minValue);
+    initPointAngle();
 
     String pattern = a.getString(R.styleable.GaugeView_valueFormatPattern);
     if (!TextUtils.isEmpty(pattern)) {
       this.valueFormatPattern = pattern;
       this.valueFormat = new DecimalFormat(pattern);
     } else {
-      this.valueFormat = new DecimalFormat("#.0");
+      this.valueFormat = new DecimalFormat("#");
     }
 
     value = a.getFloat(R.styleable.GaugeView_value, minValue);
@@ -133,8 +135,7 @@ public class GaugeView extends View {
     paint.setStyle(Paint.Style.STROKE);
 
     //set shadow, 5dp down, 5 dp left, with radius of 15 dp
-    paint.setShadowLayer(this.mStrokeWidth / 2, this.mStrokeWidth / 4, this.mStrokeWidth / 4,
-                         Color.BLACK);
+    paint.setShadowLayer(2, 1, 1, Color.BLACK);
     //-- warning, Honeycomb and above only
     //-- this will reduce draw performance of view
     //-- but is required to support drawing filters, like shadow, blur etc
@@ -147,6 +148,7 @@ public class GaugeView extends View {
     mTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
     mTextPaint.setTextAlign(Paint.Align.CENTER);
 
+    this.percentColors = getContext().getResources().getIntArray(R.array.percentColors);
     // Update TextPaint and text measurements from attributes
     invalidateTextPaintAndMeasurements();
   }
@@ -167,6 +169,7 @@ public class GaugeView extends View {
     mStrokeWidth = radius / 3;
     radius -= mStrokeWidth / 2;
 
+
     float mRectLeft = contentWidth / 2 - radius + paddingLeft;
     float mRectTop = contentHeight / 2 - radius + paddingTop;
     float mRectRight = mRectLeft + radius * 2;
@@ -185,6 +188,7 @@ public class GaugeView extends View {
     //// TODO: 2015/8/6 测试渐变色
     paint.setStrokeWidth(mStrokeWidth);
     //绘制仪表指示
+    pointColor = getPointColor();
     paint.setColor(pointColor);
     paint.setShader(createRedialGradient(mRect, radius, pointColor, gradientPointColor));
     //paint.setShader(new LinearGradient(mRect.left, mRect.top, mRect.left, mRect.bottom,
@@ -192,8 +196,8 @@ public class GaugeView extends View {
     //                                   gradientPointColor,
     //                                   Shader.TileMode.CLAMP));
     // calculating one point sweep
-    float pointAngle = (float) ((value - minValue) * mPointAngel);
-    canvas.drawArc(mRect, mStartAngle, pointAngle, false, paint);
+    float pointSweep = (value - minValue)/valueRange * mSweepAngle;
+    canvas.drawArc(mRect, mStartAngle, pointSweep, false, paint);
     drawText(canvas, mRect);
   }
 
@@ -247,6 +251,17 @@ public class GaugeView extends View {
                               colors, null, Shader.TileMode.CLAMP);
   }
 
+
+  int getPointColor(){
+    float percent = Math.abs(this.value - this.minValue) / Math.abs(maxValue - minValue);
+    for(int i=0;i<percentColors.length;i++){
+      if(percent < (i+1)/percentColors.length){
+        return percentColors[i];
+      }
+    }
+    return percentColors[percentColors.length - 1];
+  }
+
   public float getValue() {
     return value;
   }
@@ -293,11 +308,17 @@ public class GaugeView extends View {
   }
 
   private void initPointAngle() {
-    mPointAngel = mSweepAngle / Math.abs(maxValue - minValue);
+    valueRange = Math.abs(maxValue - minValue);
   }
 
   public void setPointColor(int pointColor) {
     this.pointColor = pointColor;
     this.gradientPointColor = HsvHelper.dark(pointColor).toColor();
+  }
+
+  public void setNumberFormat(String numberFormat) {
+    this.numberFormat = numberFormat;
+    this.valueFormat.applyPattern(numberFormat);
+
   }
 }

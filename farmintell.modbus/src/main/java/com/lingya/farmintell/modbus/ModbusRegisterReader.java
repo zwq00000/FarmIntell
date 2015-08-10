@@ -67,13 +67,16 @@ public abstract class ModbusRegisterReader<H extends Holder> implements Closeabl
 
   public static ModbusRegisterReader<Holder<Short>> getInstance(Context context,
                                                                 Holder<Short>[] holders) {
-    try {
-      return new ModbusRegisterReaderMock(holders, context);
-    } catch (IOException e) {
-      e.printStackTrace();
+    if(context.getResources().getBoolean(R.bool.debug)){
+      try {
+        return new ModbusRegisterReaderMock(holders, context);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+      return null;
+    }else{
+      return new ModbusRegisterReaderImpl(holders, SerialPortFactory.getInstance());
     }
-    //return new ModbusRegisterReaderImpl(holders, SerialPortFactory.getInstance());
-    return null;
   }
 
   /**

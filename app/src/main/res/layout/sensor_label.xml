@@ -22,18 +22,19 @@
             gauge:maxValue="100"
             gauge:value="0"
             gauge:fontSize="20dp"
-            android:layout_weight="0.8"/>
+            android:layout_weight="0.7"/>
     <TextView
             android:id="@+id/headerView"
             style="@style/CardView.Dark"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:text=""
             android:layout_height="wrap_content"
             android:background="@color/accent_material_dark"
-            android:layout_weight="0.2"
+            android:layout_weight="0.3"
             android:textColor="@color/material_blue_grey_950"
             android:textSize="20dp"
             android:textIsSelectable="false"
-            android:layout_gravity="center" android:typeface="sans"/>
+            android:layout_gravity="center" android:typeface="sans"
+            android:gravity="center_vertical|center_horizontal"/>
 
 </LinearLayout>

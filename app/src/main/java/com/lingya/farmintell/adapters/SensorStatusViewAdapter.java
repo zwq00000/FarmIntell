@@ -1,5 +1,6 @@
 package com.lingya.farmintell.adapters;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Handler;
 import android.view.View;
@@ -38,16 +39,7 @@ public class SensorStatusViewAdapter implements ViewAdapter<SensorService.ISenso
       R.id.tv24
   };
 
-  private static final int[] PALETTES = new int[]{
-      Color.parseColor("#ffcc0000"),
-      Color.parseColor("#ff0099cc"),
-      Color.parseColor("#ff99cc00"),
-      Color.parseColor("#ff33b5e5"),
-      Color.parseColor("#ffff8800"),
-      Color.parseColor("#ffffbb33")
-  };
 
-  private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
   private final Handler handler;
   private ViewGroup containerView;
   private SensorService.ISensorBinder viewData;
@@ -87,23 +79,21 @@ public class SensorStatusViewAdapter implements ViewAdapter<SensorService.ISenso
 
   private void initCardView() {
     try {
+      Context context = containerView.getContext();
       SensorsConfig
           config =
-          SensorsConfigFactory.getDefaultInstance(containerView.getContext());
+          SensorsConfigFactory.getDefaultInstance(context);
       SensorsConfig.Sensor[] sensors = config.getSensors();
-      int palettesIndex = 0;
+      Palettes palettes = Palettes.getInstance(context);
       for (int i = 0; i < sensors.length; i++) {
         int viewId = viewIds[i];
         SensorsConfig.Sensor sensor = sensors[i];
         SensorCardView cardView = ((SensorCardView) containerView.findViewById(viewId));
         cardView.setHeaderText(sensor.getDisplayName());
+        cardView.setNumberFormat(sensor.getNumberFormat());
         cardView.setMaxValue(sensor.getMax());
         cardView.setMinValue(sensor.getMin());
-        cardView.setGaugeColor(PALETTES[palettesIndex]);
-        palettesIndex++;
-        if (palettesIndex >= PALETTES.length) {
-          palettesIndex = 0;
-        }
+        cardView.setGaugeColor(palettes.get(i));
       }
     } catch (IOException e) {
       e.printStackTrace();
@@ -153,7 +143,5 @@ public class SensorStatusViewAdapter implements ViewAdapter<SensorService.ISenso
       cardView.setValue(status.getValue());
       cardView.setTag(status.getId());
     }
-    TextView clockView = (TextView) containerView.findViewById(R.id.updateClock);
-    clockView.setText(TIME_FORMAT.format(statusCollection.getUpdateTime()));
   }
 }

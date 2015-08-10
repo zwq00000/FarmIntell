@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
 import com.koushikdutta.async.http.server.AsyncHttpServer;
+import com.lingya.farmintell.adapters.MainClockAdapter;
 import com.lingya.farmintell.adapters.MultipleSeriesChartAdapter;
 import com.lingya.farmintell.adapters.SensorAdapterFactory;
 import com.lingya.farmintell.adapters.SensorLogRequestCallback;
@@ -229,9 +230,14 @@ public class FragmentMasterActivity extends Activity {
     adapterFactory.bindService();
 
     this.sensorAdapter = new SensorStatusViewAdapter();
-    sensorAdapter.onBindView((ViewGroup) this.findViewById(R.id.mainView));
+    sensorAdapter.onBindView((ViewGroup) this.findViewById(R.id.statusView));
     sensorAdapter.setViewData(adapterFactory.getBinder());
     adapterFactory.registViewAdapter(sensorAdapter);
+
+    MainClockAdapter mainBlock = new MainClockAdapter();
+    mainBlock.onBindView((ViewGroup) this.findViewById(R.id.mainView));
+    mainBlock.setViewData(adapterFactory.getBinder());
+    adapterFactory.registViewAdapter(mainBlock);
 
     //chart adapter
     chartAdapter = new MultipleSeriesChartAdapter(this);

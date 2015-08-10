@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lingya.farmintell.R;
@@ -87,5 +88,9 @@ public class SensorCardView extends CardView {
 
   public void setGaugeColor(int gaugeColor) {
     this.gaugeView.setPointColor(gaugeColor);
+  }
+
+  public void setNumberFormat(String numberFormat) {
+    this.gaugeView.setNumberFormat(numberFormat);
   }
 }

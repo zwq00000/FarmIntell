@@ -237,5 +237,18 @@ public class SensorsConfig {
     public float getFactor() {
       return factor;
     }
+
+    public String getNumberFormat() {
+      if (factor >= 1f){
+        return "#";
+      }
+      if(factor>=0.1f){
+        return "#.0";
+      }
+      if(factor>=0.01f){
+        return "#.00";
+      }
+      return "#.#";
+    }
   }
 }

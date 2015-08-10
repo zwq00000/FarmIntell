@@ -1,0 +1,9 @@
+<resources>
+
+
+    <array  name="percentColors">
+        <item>#a9d70b</item>
+        <item>#FF9800</item>
+        <item>#FF5722</item>
+    </array >
+</resources>
