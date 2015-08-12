@@ -14,8 +14,8 @@ import java.text.SimpleDateFormat;
  */
 public class MainClockAdapter implements ViewAdapter<SensorService.ISensorBinder> {
 
-  private ViewGroup container;
   private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
+  private ViewGroup container;
   private TextView clockView;
   private SensorService.ISensorBinder viewData;
 

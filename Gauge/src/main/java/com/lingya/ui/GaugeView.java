@@ -22,6 +22,10 @@ import java.text.DecimalFormat;
 public class GaugeView extends View {
 
   private static final int DEFAULT_LONG_POINTER_SIZE = 1;
+  private static final int[] DefaultPercentColors = new int[]{
+          Color.GREEN, Color.YELLOW, Color.RED
+  };
+
   private DecimalFormat valueFormat;
   private float mFontSize;
 
@@ -142,10 +146,17 @@ public class GaugeView extends View {
     mTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
     mTextPaint.setTextAlign(Paint.Align.CENTER);
 
-    int[] colors = getContext().getResources().getIntArray(R.array.percentColors);
-    this.percentColors = new Hsv[colors.length];
-    for(int i=0;i<colors.length;i++){
-      percentColors[i] = new Hsv(colors[i]);
+    if (isInEditMode()) {
+      this.percentColors = new Hsv[DefaultPercentColors.length];
+      for (int i = 0; i < DefaultPercentColors.length; i++) {
+        percentColors[i] = new Hsv(DefaultPercentColors[i]);
+      }
+    } else {
+      int[] colors = getContext().getResources().getIntArray(R.array.percentColors);
+      this.percentColors = new Hsv[colors.length];
+      for (int i = 0; i < colors.length; i++) {
+        percentColors[i] = new Hsv(colors[i]);
+      }
     }
     // Update TextPaint and text measurements from attributes
     invalidateTextPaintAndMeasurements();
@@ -247,10 +258,14 @@ public class GaugeView extends View {
 
   int getPointColor() {
     float percent = Math.abs(this.value - this.minValue) / Math.abs(maxValue - minValue);
-    if (percent < 1 / 2) {
+    if (percent < 0.5f) {
       return percentColors[0].gradient(percentColors[1], percent * 2).toColor();
     }
     return percentColors[1].gradient(percentColors[2], percent * 2 - 1).toColor();
+  }
+
+  public void setPointColor(int pointColor) {
+    this.pointColor = pointColor;
   }
 
   public float getValue() {
@@ -300,10 +315,6 @@ public class GaugeView extends View {
 
   private void initPointAngle() {
     valueRange = Math.abs(maxValue - minValue);
-  }
-
-  public void setPointColor(int pointColor) {
-    this.pointColor = pointColor;
   }
 
   public void setNumberFormat(String numberFormat) {
