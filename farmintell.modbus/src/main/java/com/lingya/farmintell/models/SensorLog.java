@@ -11,43 +11,43 @@ import io.realm.annotations.Index;
  */
 public class SensorLog extends RealmObject {
 
-  /**
-   * 传感器Id
-   */
-  @Index
-  private String sensorId;
+    /**
+     * 传感器Id
+     */
+    @Index
+    private String sensorId;
 
-  /**
-   * 测量时间
-   */
-  private Date time;
+    /**
+     * 测量时间
+     */
+    private Date time;
 
-  /**
-   * 测量值
-   */
-  private float value;
+    /**
+     * 测量值
+     */
+    private float value;
 
-  public float getValue() {
-    return value;
-  }
+    public float getValue() {
+        return value;
+    }
 
-  public void setValue(float value) {
-    this.value = value;
-  }
+    public void setValue(float value) {
+        this.value = value;
+    }
 
-  public String getSensorId() {
-    return sensorId;
-  }
+    public String getSensorId() {
+        return sensorId;
+    }
 
-  public void setSensorId(String sensorId) {
-    this.sensorId = sensorId;
-  }
+    public void setSensorId(String sensorId) {
+        this.sensorId = sensorId;
+    }
 
-  public Date getTime() {
-    return time;
-  }
+    public Date getTime() {
+        return time;
+    }
 
-  public void setTime(Date time) {
-    this.time = time;
-  }
+    public void setTime(Date time) {
+        this.time = time;
+    }
 }

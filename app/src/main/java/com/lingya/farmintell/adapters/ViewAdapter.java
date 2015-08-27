@@ -17,7 +17,7 @@ public interface ViewAdapter<ViewModel> {
    *
    * @param container 容器视图
    */
-  void onBindView(ViewGroup container);
+  void bindView(ViewGroup container);
 
   /**
    * 更新视图

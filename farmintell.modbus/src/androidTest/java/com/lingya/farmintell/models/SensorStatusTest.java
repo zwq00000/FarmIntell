@@ -10,22 +10,22 @@ import io.realm.RealmConfiguration;
  */
 public class SensorStatusTest extends AndroidTestCase {
 
-  private Realm realm;
+    private Realm realm;
 
-  public void setUp() throws Exception {
-    super.setUp();
-    // Set the module in the RealmConfiguration to allow only classes defined by the module.
-    //RealmConfiguration config = new RealmConfiguration.Builder(getContext()).build();
-    //Realm.deleteRealm(config);
-    realm = RealmFactory.getInstance(getContext());
-  }
-
-  public void tearDown() throws Exception {
-    if (realm != null) {
-      realm.close();
+    public void setUp() throws Exception {
+        super.setUp();
+        // Set the module in the RealmConfiguration to allow only classes defined by the module.
+        //RealmConfiguration config = new RealmConfiguration.Builder(getContext()).build();
+        //Realm.deleteRealm(config);
+        realm = RealmFactory.getInstance(getContext());
     }
-    RealmConfiguration config = new RealmConfiguration.Builder(getContext()).build();
-    Realm.deleteRealm(config);
-  }
+
+    public void tearDown() throws Exception {
+        if (realm != null) {
+            realm.close();
+        }
+        RealmConfiguration config = new RealmConfiguration.Builder(getContext()).build();
+        Realm.deleteRealm(config);
+    }
 
 }

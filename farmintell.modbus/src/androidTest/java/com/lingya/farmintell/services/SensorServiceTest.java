@@ -18,69 +18,69 @@ import java.util.concurrent.TimeUnit;
  */
 public class SensorServiceTest extends ServiceTestCase {
 
-  private static final String TAG = "SensorServiceTest";
+    private static final String TAG = "SensorServiceTest";
 
-  /**
-   * Constructor
-   */
-  public SensorServiceTest() {
-    super(SensorService.class);
-  }
-
-  public void setUp() throws Exception {
-    super.setUp();
-
-  }
-
-  public void tearDown() throws Exception {
-
-  }
-
-  public void testStartService() throws Exception {
-    Intent
-        intent =
-        new Intent(SensorService.START_SERVICE, Uri.EMPTY, getContext(), SensorService.class);
-    SensorService.ISensorBinder binding = (SensorService.ISensorBinder) this.bindService(intent);
-    assertNotNull(binding);
-    for (int i = 0; i < 100; i++) {
-      Thread.sleep(1000 * 5);
-      SensorStatusCollection statuses = binding.getStatus();
-      for (SensorStatus status : statuses.getStatuses()) {
-        System.out
-            .println(status.getId() + " " + status.getDisplayName() + " " + status.getValue());
-      }
+    /**
+     * Constructor
+     */
+    public SensorServiceTest() {
+        super(SensorService.class);
     }
-  }
 
-  public void testOnCreate() throws Exception {
+    public void setUp() throws Exception {
+        super.setUp();
 
-  }
+    }
 
-  public void testOnDestroy() throws Exception {
+    public void tearDown() throws Exception {
 
-  }
+    }
 
-  public void testOnBind() throws Exception {
-    Intent
-        intent =
-        new Intent(SensorService.START_SERVICE, Uri.EMPTY, getContext(), SensorService.class);
-    SensorService.ISensorBinder binding = (SensorService.ISensorBinder) this.bindService(intent);
-    assertNotNull(binding);
-    SensorSummary summary = binding.get24HourlySummary("0-1");
-    Log.d(TAG, summary.toString());
-  }
+    public void testStartService() throws Exception {
+        Intent
+                intent =
+                new Intent(SensorService.START_SERVICE, Uri.EMPTY, getContext(), SensorService.class);
+        SensorService.ISensorBinder binding = (SensorService.ISensorBinder) this.bindService(intent);
+        assertNotNull(binding);
+        for (int i = 0; i < 100; i++) {
+            Thread.sleep(1000 * 5);
+            SensorStatusCollection statuses = binding.getStatus();
+            for (SensorStatus status : statuses.getStatuses()) {
+                System.out
+                        .println(status.getId() + " " + status.getDisplayName() + " " + status.getValue());
+            }
+        }
+    }
 
-  public void testGetHours() throws Exception {
-    Calendar startCalendar = GregorianCalendar.getInstance();
-    startCalendar.add(Calendar.HOUR, -24);
-    Calendar nextCalendar = GregorianCalendar.getInstance();
-    long millis = nextCalendar.getTimeInMillis() - startCalendar.getTimeInMillis();
-    System.out.println("diff millis :" + millis);
-    long hours = TimeUnit.MILLISECONDS.toHours(millis);
-    assertEquals(hours, 24);
-  }
+    public void testOnCreate() throws Exception {
 
-  public void testIsClosed() throws Exception {
+    }
 
-  }
+    public void testOnDestroy() throws Exception {
+
+    }
+
+    public void testOnBind() throws Exception {
+        Intent
+                intent =
+                new Intent(SensorService.START_SERVICE, Uri.EMPTY, getContext(), SensorService.class);
+        SensorService.ISensorBinder binding = (SensorService.ISensorBinder) this.bindService(intent);
+        assertNotNull(binding);
+        SensorSummary summary = binding.get24HourlySummary("0-1");
+        Log.d(TAG, summary.toString());
+    }
+
+    public void testGetHours() throws Exception {
+        Calendar startCalendar = GregorianCalendar.getInstance();
+        startCalendar.add(Calendar.HOUR, -24);
+        Calendar nextCalendar = GregorianCalendar.getInstance();
+        long millis = nextCalendar.getTimeInMillis() - startCalendar.getTimeInMillis();
+        System.out.println("diff millis :" + millis);
+        long hours = TimeUnit.MILLISECONDS.toHours(millis);
+        assertEquals(hours, 24);
+    }
+
+    public void testIsClosed() throws Exception {
+
+    }
 }

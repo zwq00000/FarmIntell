@@ -45,21 +45,21 @@ android {
 def AAVersion = '3.3.2'
 dependencies {
     //compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:22.2.0'
     // compile 'com.android.support:cardview-v7:22.2.0'
     compile project(':farmintell.modbus')
-    compile project(':farmintell.mqttclient')
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.android.support:design:22.2.0'
-    compile 'com.android.support:cardview-v7:22.2.0'
+    //compile project(':farmintell.mqttclient')
     compile project(':qrcode.encoder')
     //compile project(':farmintell.httpserver')
     //compile files('libs/achartengine-1.1.0.jar')
     //compile files('libs/xUtils-2.6.13.jar')
-    compile 'com.diogobernardino:williamchart:2.0'
     compile project(':farmintell.httpserver')
     compile project(':Gauge')
     apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
-
+    compile 'com.android.support:support-v4:22.2.1'
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:cardview-v7:22.2.1'
+    //compile 'com.diogobernardino:williamchart:2.0'
+    //compile project(':AChartSDK-release')
+    compile files('libs/achartengine-1.1.0.jar')
 }

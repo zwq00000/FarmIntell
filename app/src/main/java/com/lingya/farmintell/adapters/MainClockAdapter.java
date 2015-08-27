@@ -33,7 +33,7 @@ public class MainClockAdapter implements ViewAdapter<SensorService.ISensorBinder
    * @param container 容器视图
    */
   @Override
-  public void onBindView(ViewGroup container) {
+  public void bindView(ViewGroup container) {
     this.container = container;
     clockView = (TextView) container.findViewById(R.id.updateClock);
 

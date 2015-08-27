@@ -1,7 +1,5 @@
 package com.lingya.farmintell;
 
-import com.google.zxing.WriterException;
-
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
@@ -21,9 +19,10 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
+import com.google.zxing.WriterException;
 import com.koushikdutta.async.http.server.AsyncHttpServer;
+import com.lingya.farmintell.adapters.LineChartAdapter;
 import com.lingya.farmintell.adapters.MainClockAdapter;
-import com.lingya.farmintell.adapters.MultipleSeriesChartAdapter;
 import com.lingya.farmintell.adapters.SensorAdapterFactory;
 import com.lingya.farmintell.adapters.SensorLogRequestCallback;
 import com.lingya.farmintell.adapters.SensorStatusViewAdapter;
@@ -110,7 +109,6 @@ public class FragmentMasterActivity extends Activity {
   private GestureDetector detector; //手势检测
   private SensorStatusViewAdapter sensorAdapter;
   private SensorAdapterFactory adapterFactory;
-  private MultipleSeriesChartAdapter chartAdapter;
 
 
   /*
@@ -230,18 +228,18 @@ public class FragmentMasterActivity extends Activity {
     adapterFactory.bindService();
 
     this.sensorAdapter = new SensorStatusViewAdapter();
-    sensorAdapter.onBindView((ViewGroup) this.findViewById(R.id.statusView));
+    sensorAdapter.bindView((ViewGroup) this.findViewById(R.id.statusView));
     sensorAdapter.setViewData(adapterFactory.getBinder());
     adapterFactory.registViewAdapter(sensorAdapter);
 
     MainClockAdapter mainBlock = new MainClockAdapter();
-    mainBlock.onBindView((ViewGroup) this.findViewById(R.id.mainView));
+    mainBlock.bindView((ViewGroup) this.findViewById(R.id.mainView));
     mainBlock.setViewData(adapterFactory.getBinder());
     adapterFactory.registViewAdapter(mainBlock);
 
     //chart adapter
-    chartAdapter = new MultipleSeriesChartAdapter(this);
-    chartAdapter.onBindView((ViewGroup) this.findViewById(R.id.chartView));
+    /*chartAdapter = new MultipleSeriesChartAdapter(this);
+    chartAdapter.bindView((ViewGroup) this.findViewById(R.id.chartView));
     chartAdapter.setViewData(adapterFactory.getBinder());
 
     sensorAdapter.setOnClickListener(new View.OnClickListener() {
@@ -253,7 +251,19 @@ public class FragmentMasterActivity extends Activity {
         }
       }
     });
+    */
 
+    final LineChartAdapter lineChart = new LineChartAdapter(this);
+    lineChart.bindView((ViewGroup) this.findViewById(R.id.chartView));
+    sensorAdapter.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Object tag = v.getTag();
+        if (tag != null && tag instanceof String) {
+          lineChart.showSensorHistory(tag.toString());
+        }
+      }
+    });
     //start HttpService
   }
 

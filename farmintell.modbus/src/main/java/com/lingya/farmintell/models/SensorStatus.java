@@ -8,71 +8,71 @@ import java.text.NumberFormat;
  */
 public class SensorStatus {
 
-  private static final NumberFormat VALUE_FORMAT = new DecimalFormat("#.00");
-  private static final String NaNValue = "-";
-  /**
-   * 传感器Id
-   */
-  private String id;
-  /**
-   * 传感器名称
-   */
-  private String name;
-  /**
-   * 值
-   */
-  private float value;
-  /**
-   * 显示名称
-   */
-  private String displayName;
+    private static final NumberFormat VALUE_FORMAT = new DecimalFormat("#.00");
+    private static final String NaNValue = "-";
+    /**
+     * 传感器Id
+     */
+    private String id;
+    /**
+     * 传感器名称
+     */
+    private String name;
+    /**
+     * 值
+     */
+    private float value;
+    /**
+     * 显示名称
+     */
+    private String displayName;
 
 
-  public SensorStatus() {
+    public SensorStatus() {
 
-  }
-
-  public SensorStatus(String sensorId) {
-    this();
-    this.id = sensorId;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public float getValue() {
-    return value;
-  }
-
-  public void setValue(float value) {
-    this.value = value;
-  }
-
-  public String getFormatedValue() {
-    if (Float.isNaN(value)) {
-      return NaNValue;
     }
-    return VALUE_FORMAT.format(value);
-  }
 
-  public String getDisplayName() {
-    return displayName;
-  }
+    public SensorStatus(String sensorId) {
+        this();
+        this.id = sensorId;
+    }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public String getId() {
-    return id;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public void setId(String id) {
-    this.id = id;
-  }
+    public float getValue() {
+        return value;
+    }
+
+    public void setValue(float value) {
+        this.value = value;
+    }
+
+    public String getFormatedValue() {
+        if (Float.isNaN(value)) {
+            return NaNValue;
+        }
+        return VALUE_FORMAT.format(value);
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }

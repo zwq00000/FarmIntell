@@ -1,11 +1,9 @@
 package com.lingya.farmintell.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.lingya.farmintell.R;
 import com.lingya.farmintell.models.SensorStatus;
@@ -16,7 +14,6 @@ import com.lingya.farmintell.services.SensorService;
 import com.lingya.farmintell.ui.SensorCardView;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -49,7 +46,7 @@ public class SensorStatusViewAdapter implements ViewAdapter<SensorService.ISenso
    */
   public SensorStatusViewAdapter(ViewGroup container) {
     this();
-    onBindView(container);
+    bindView(container);
   }
 
   /**
@@ -72,7 +69,7 @@ public class SensorStatusViewAdapter implements ViewAdapter<SensorService.ISenso
    *
    * @param container 容器视图
    */
-  public void onBindView(ViewGroup container) {
+  public void bindView(ViewGroup container) {
     containerView = container;
     initCardView();
   }

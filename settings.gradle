@@ -1,2 +1,2 @@
 include ':app', ':farmintell.modbus', ':farmintell.mqttclient', ':farmintell.httpserver', ':Gauge',
-        ':qrcode.encoder'
+        ':qrcode.encoder', ':AChartSDK-release'

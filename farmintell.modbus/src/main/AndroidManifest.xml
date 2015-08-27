@@ -1,16 +1,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.lingya.farmintell.modbus">
+    package="com.lingya.farmintell.modbus">
 
-    <application android:allowBackup="true"
-                 android:label="@string/app_name"
-            >
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name">
         <service
-                android:name="com.lingya.farmintell.services.SensorService"
-                android:label="传感器服务">
+            android:name="com.lingya.farmintell.services.SensorService"
+            android:label="传感器服务">
             <intent-filter>
-                <action android:name="SensorService.START_SERVICE"/>
-                <action android:name="SensorService.STOP_SERVICE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="SensorService.START_SERVICE" />
+                <action android:name="SensorService.STOP_SERVICE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
     </application>

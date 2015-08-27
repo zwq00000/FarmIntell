@@ -1,48 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.lingya.farmintell">
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    package="com.lingya.farmintell">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".FragmentMasterActivity_"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme">
-        <activity
-                android:name=".FragmentMasterActivity_"
-                android:label="@string/app_name">
+            android:theme="@style/FullscreenTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-                android:name=".FullscreenActivity"
-                android:configChanges="orientation|keyboardHidden|screenSize"
-                android:label="@string/app_name"
-                android:theme="@style/FullscreenTheme">
-            <intent-filter>
-
-                <!--               <action android:name="android.intent.action.MAIN" /> -->
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-        <activity
-                android:name=".CamMonitorActivity"
-                android:label="@string/title_activity_cam_monitor">
-
+            android:name=".CamMonitorActivity"
+            android:label="@string/title_activity_cam_monitor">
         </activity>
 
         <!-- Http server websocket broadcast -->
         <receiver
-                android:name="com.lingya.farmintell.httpserver.SensorStatusReceiver"
-                android:enabled="true"
-                android:exported="true">
+            android:name=".httpserver.SensorStatusReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
-                <action android:name="SensorService.UPDATE_SENSOR_STATUS"/>
+                <action android:name="SensorService.UPDATE_SENSOR_STATUS" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
+        <activity
+            android:name=".activities.LineChartActivity"
+            android:label="@string/title_activity_line_chart"></activity>
     </application>
 
 </manifest>

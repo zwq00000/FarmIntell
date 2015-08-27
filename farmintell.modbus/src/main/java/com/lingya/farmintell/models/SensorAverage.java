@@ -10,108 +10,108 @@ import io.realm.RealmObject;
  */
 public class SensorAverage extends RealmObject {
 
-  /**
-   * 传感器Id
-   */
-  private String sensorId;
+    /**
+     * 传感器Id
+     */
+    private String sensorId;
 
-  /**
-   * 小时平均值
-   */
-  private float average;
+    /**
+     * 小时平均值
+     */
+    private float average;
 
-  /**
-   * 最大值
-   */
-  private float maximum;
-  /**
-   * 最小值
-   */
-  private float minimum;
-
-
-  /**
-   * 采样数量
-   */
-  private int samplesCount;
-
-  /**
-   * 开始时间
-   */
-  private Date startTime;
-
-  /**
-   * 结束时间
-   */
-  private Date endTime;
-
-  public SensorAverage(String sensorId, Calendar startCalendar, Calendar endCalendar,
-                       int samplesCount,
-                       float average) {
-    this.sensorId = sensorId;
-    this.startTime = startCalendar.getTime();
-    this.endTime = endCalendar.getTime();
-    this.samplesCount = samplesCount;
-    this.average = average;
-  }
-
-  public SensorAverage() {
-  }
+    /**
+     * 最大值
+     */
+    private float maximum;
+    /**
+     * 最小值
+     */
+    private float minimum;
 
 
-  public Date getStartTime() {
-    return startTime;
-  }
+    /**
+     * 采样数量
+     */
+    private int samplesCount;
 
-  public void setStartTime(Date startTime) {
-    this.startTime = startTime;
-  }
+    /**
+     * 开始时间
+     */
+    private Date startTime;
 
-  public float getAverage() {
-    return average;
-  }
+    /**
+     * 结束时间
+     */
+    private Date endTime;
 
-  public void setAverage(float average) {
-    this.average = average;
-  }
+    public SensorAverage(String sensorId, Calendar startCalendar, Calendar endCalendar,
+                         int samplesCount,
+                         float average) {
+        this.sensorId = sensorId;
+        this.startTime = startCalendar.getTime();
+        this.endTime = endCalendar.getTime();
+        this.samplesCount = samplesCount;
+        this.average = average;
+    }
 
-  public String getSensorId() {
-    return sensorId;
-  }
+    public SensorAverage() {
+    }
 
-  public void setSensorId(String sensorId) {
-    this.sensorId = sensorId;
-  }
 
-  public int getSamplesCount() {
-    return samplesCount;
-  }
+    public Date getStartTime() {
+        return startTime;
+    }
 
-  public void setSamplesCount(int samplesCount) {
-    this.samplesCount = samplesCount;
-  }
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
 
-  public Date getEndTime() {
-    return endTime;
-  }
+    public float getAverage() {
+        return average;
+    }
 
-  public void setEndTime(Date endTime) {
-    this.endTime = endTime;
-  }
+    public void setAverage(float average) {
+        this.average = average;
+    }
 
-  public float getMaximum() {
-    return maximum;
-  }
+    public String getSensorId() {
+        return sensorId;
+    }
 
-  public void setMaximum(float maximum) {
-    this.maximum = maximum;
-  }
+    public void setSensorId(String sensorId) {
+        this.sensorId = sensorId;
+    }
 
-  public float getMinimum() {
-    return minimum;
-  }
+    public int getSamplesCount() {
+        return samplesCount;
+    }
 
-  public void setMinimum(float minimum) {
-    this.minimum = minimum;
-  }
+    public void setSamplesCount(int samplesCount) {
+        this.samplesCount = samplesCount;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
+    public float getMaximum() {
+        return maximum;
+    }
+
+    public void setMaximum(float maximum) {
+        this.maximum = maximum;
+    }
+
+    public float getMinimum() {
+        return minimum;
+    }
+
+    public void setMinimum(float minimum) {
+        this.minimum = minimum;
+    }
 }
