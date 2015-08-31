@@ -2,7 +2,7 @@ package com.lingya.farmintell.activities;
 
 import android.test.AndroidTestCase;
 
-import com.lingya.farmintell.adapters.LineChartAdapter;
+import com.lingya.farmintell.adapters.MPLineChartAdapter;
 import com.lingya.farmintell.models.RealmFactory;
 import com.lingya.farmintell.models.SensorSummary;
 
@@ -23,7 +23,7 @@ public class LineChartActivityTest extends AndroidTestCase {
     }
 
     public void testOnCreate() throws Exception {
-        LineChartAdapter adpater = new LineChartAdapter(getContext());
+        MPLineChartAdapter adpater = new MPLineChartAdapter(getContext());
 
         Realm realm = RealmFactory.getInstance(getContext());
         assertNotNull(realm);

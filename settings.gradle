@@ -1,2 +1,7 @@
 include ':app', ':farmintell.modbus', ':farmintell.mqttclient', ':farmintell.httpserver', ':Gauge',
-        ':qrcode.encoder', ':AChartSDK-release'
+        ':qrcode.encoder'
+project(':farmintell.modbus').projectDir = new File('libs/farmintell.modbus')
+project(':farmintell.mqttclient').projectDir = new File('libs/farmintell.mqttclient')
+project(':farmintell.httpserver').projectDir = new File('libs/farmintell.httpserver')
+project(':Gauge').projectDir = new File('libs/Gauge')
+project(':qrcode.encoder').projectDir = new File('libs/qrcode.encoder')

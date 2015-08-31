@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AChartSDK-release/AChartSDK-release.iml" filepath="$PROJECT_DIR$/AChartSDK-release/AChartSDK-release.iml" />
       <module fileurl="file://$PROJECT_DIR$/FarmIntell.iml" filepath="$PROJECT_DIR$/FarmIntell.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Gauge/Gauge.iml" filepath="$PROJECT_DIR$/Gauge/Gauge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/Gauge/Gauge.iml" filepath="$PROJECT_DIR$/libs/Gauge/Gauge.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/farmintell.httpserver/farmintell.httpserver.iml" filepath="$PROJECT_DIR$/farmintell.httpserver/farmintell.httpserver.iml" />
-      <module fileurl="file://$PROJECT_DIR$/farmintell.modbus/farmintell.modbus.iml" filepath="$PROJECT_DIR$/farmintell.modbus/farmintell.modbus.iml" />
-      <module fileurl="file://$PROJECT_DIR$/farmintell.mqttclient/farmintell.mqttclient.iml" filepath="$PROJECT_DIR$/farmintell.mqttclient/farmintell.mqttclient.iml" />
-      <module fileurl="file://$PROJECT_DIR$/qrcode.encoder/qrcode.encoder.iml" filepath="$PROJECT_DIR$/qrcode.encoder/qrcode.encoder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/farmintell.httpserver/farmintell.httpserver.iml" filepath="$PROJECT_DIR$/libs/farmintell.httpserver/farmintell.httpserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/farmintell.modbus/farmintell.modbus.iml" filepath="$PROJECT_DIR$/libs/farmintell.modbus/farmintell.modbus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/farmintell.mqttclient/farmintell.mqttclient.iml" filepath="$PROJECT_DIR$/libs/farmintell.mqttclient/farmintell.mqttclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/qrcode.encoder/qrcode.encoder.iml" filepath="$PROJECT_DIR$/libs/qrcode.encoder/qrcode.encoder.iml" />
     </modules>
   </component>
 </project>

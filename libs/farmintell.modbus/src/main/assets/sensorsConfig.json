@@ -1,0 +1,72 @@
+{
+  "hostId": "0001",
+  "hostName": "1# 大棚",
+  "stations": [
+    {
+      "slaveId": 1,
+      "model": "温湿度CO2光照变送器",
+      "sensors": [
+        {
+          "id": "1-0",
+          "name": "temp",
+          "displayName": "温度",
+          "unit": "℃",
+          "min": -20,
+          "max": 80,
+          "factor": 0.1
+        },
+        {
+          "id": "1-1",
+          "name": "hum",
+          "displayName": "湿度",
+          "unit": "%rh",
+          "min": 0,
+          "max": 100,
+          "factor": 0.1
+        },
+        {
+          "id": "1-2",
+          "name": "co2",
+          "displayName": "CO2",
+          "unit": "ppm",
+          "min": 0,
+          "max": 5000,
+          "factor": 1
+        },
+        {
+          "id": "1-3",
+          "name": "light",
+          "displayName": "光照",
+          "unit": "lux",
+          "min": -0,
+          "max": 200000,
+          "factor": 10
+        }
+      ]
+    },
+    {
+      "slaveId": 2,
+      "model": "土壤温湿度传感器",
+      "sensors": [
+        {
+          "id": "2-0",
+          "name": "soilWater",
+          "displayName": "土壤含水率",
+          "unit": "%(m3/m3)",
+          "min": 0,
+          "max": 100,
+          "factor": 0.1
+        },
+        {
+          "id": "2-1",
+          "name": "soilTemp",
+          "displayName": "土壤温度",
+          "unit": "℃",
+          "min": -30,
+          "max": 70,
+          "factor": 0.1
+        }
+      ]
+    }
+  ]
+}

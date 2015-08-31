@@ -3,7 +3,7 @@
     <color name="black_overlay">#66000000</color>
     <array name="colorPalttes">
         <item>#E91E63</item>
-        <item>#F44336</item>
+        <item>#006600</item>
         <item>#9C27B0</item>
         <item>#673AB7</item>
         <item>#2196F3</item>
@@ -12,5 +12,7 @@
         <item>#FFEB3B</item>
         <item>#FF9800</item>
         <item>#FF5722</item>
+        <item>#737CA1</item>
+        <item>#8EEBEC</item>
     </array>
 </resources>

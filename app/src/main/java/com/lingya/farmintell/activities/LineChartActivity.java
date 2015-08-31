@@ -2,15 +2,15 @@ package com.lingya.farmintell.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.ViewGroup;
 
+import com.github.mikephil.charting.charts.LineChart;
 import com.lingya.farmintell.R;
-import com.lingya.farmintell.adapters.LineChartAdapter;
+import com.lingya.farmintell.adapters.MPLineChartAdapter;
 import com.lingya.farmintell.adapters.SensorAdapterFactory;
 
 public class LineChartActivity extends AppCompatActivity {
 
-    private LineChartAdapter chartAdapter;
+    private MPLineChartAdapter chartAdapter;
     private SensorAdapterFactory adapterFactory;
 
     @Override
@@ -21,11 +21,16 @@ public class LineChartActivity extends AppCompatActivity {
     }
 
     protected void showChart() {
-        chartAdapter = new LineChartAdapter(this);
-        chartAdapter.bindView((ViewGroup) this.findViewById(R.id.chartView));
+        this.adapterFactory = SensorAdapterFactory.getInstance(this);
+        adapterFactory.bindService();
+
+        LineChart lineChart = (LineChart) this.findViewById(R.id.chart);
+        chartAdapter = new MPLineChartAdapter(this, lineChart);
+
+        //chartAdapter.bindView((ViewGroup) this.findViewById(R.id.chartView));
+        chartAdapter.setViewData(adapterFactory.getBinder());
 
         adapterFactory.registViewAdapter(chartAdapter);
-
 
     }
 

@@ -14,7 +14,6 @@ import com.lingya.farmintell.services.SensorService;
 import com.lingya.farmintell.ui.SensorCardView;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by zwq00000 on 2015/7/10.
@@ -80,16 +79,16 @@ public class SensorStatusViewAdapter implements ViewAdapter<SensorService.ISenso
       SensorsConfig
           config =
           SensorsConfigFactory.getDefaultInstance(context);
-      SensorsConfig.Sensor[] sensors = config.getSensors();
+      SensorsConfig.SensorConfig[] sensorConfigs = config.getSensors();
       Palettes palettes = Palettes.getInstance(context);
-      for (int i = 0; i < sensors.length; i++) {
+      for (int i = 0; i < sensorConfigs.length; i++) {
         int viewId = viewIds[i];
-        SensorsConfig.Sensor sensor = sensors[i];
+        SensorsConfig.SensorConfig sensorConfig = sensorConfigs[i];
         SensorCardView cardView = ((SensorCardView) containerView.findViewById(viewId));
-        cardView.setHeaderText(sensor.getDisplayName());
-        cardView.setNumberFormat(sensor.getNumberFormat());
-        cardView.setMaxValue(sensor.getMax());
-        cardView.setMinValue(sensor.getMin());
+        cardView.setHeaderText(sensorConfig.getDisplayName());
+        cardView.setNumberFormat(sensorConfig.getNumberFormat());
+        cardView.setMaxValue(sensorConfig.getMax());
+        cardView.setMinValue(sensorConfig.getMin());
         cardView.setGaugeColor(palettes.get(i));
       }
     } catch (IOException e) {
@@ -130,13 +129,11 @@ public class SensorStatusViewAdapter implements ViewAdapter<SensorService.ISenso
     final SensorStatusCollection statusCollection = viewData.getStatus();
 
     int count = Math.min(viewIds.length, statusCollection.size());
-    List<SensorStatus>
-        statuses =
-        statusCollection.getStatuses();
+    SensorStatus[] statuses = statusCollection.getStatuses();
     for (int i = 0; i < count; i++) {
       int viewId = viewIds[i];
       SensorCardView cardView = ((SensorCardView) containerView.findViewById(viewId));
-      SensorStatus status = statuses.get(i);
+      SensorStatus status = statuses[i];
       cardView.setValue(status.getValue());
       cardView.setTag(status.getId());
     }

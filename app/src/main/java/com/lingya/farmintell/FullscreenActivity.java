@@ -1,7 +1,5 @@
 package com.lingya.farmintell;
 
-import com.google.zxing.WriterException;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -21,6 +19,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.zxing.WriterException;
 import com.lingya.farmintell.services.SensorService;
 import com.lingya.farmintell.util.SystemUiHider;
 import com.lingya.qrcodegenerator.QRCodeFactory;
@@ -58,6 +57,16 @@ public class FullscreenActivity extends Activity {
   private static final String TAG = "FullscreenActivity";
   Handler mHideHandler = new Handler();
   /**
+   * The instance of the {@link SystemUiHider} for this activity.
+   */
+  private SystemUiHider mSystemUiHider;
+  Runnable mHideRunnable = new Runnable() {
+    @Override
+    public void run() {
+      mSystemUiHider.hide();
+    }
+  };
+  /**
    * Touch gestureListener to use for in-layout UI controls to delay hiding the system UI. This is to
    * prevent the jarring behavior of controls going away while interacting with activity UI.
    */
@@ -68,16 +77,6 @@ public class FullscreenActivity extends Activity {
         delayedHide(AUTO_HIDE_DELAY_MILLIS);
       }
       return false;
-    }
-  };
-  /**
-   * The instance of the {@link SystemUiHider} for this activity.
-   */
-  private SystemUiHider mSystemUiHider;
-  Runnable mHideRunnable = new Runnable() {
-    @Override
-    public void run() {
-      mSystemUiHider.hide();
     }
   };
   private SensorService.ISensorBinder sensorServiceBinder;
@@ -211,14 +210,14 @@ public class FullscreenActivity extends Activity {
   }
 
   private void startSensorServer() {
-    Log.e(TAG, "start Sensor Server ...");
+    Log.e(TAG, "start SensorConfig Server ...");
     Intent intent = new Intent(SensorService.START_SERVICE, Uri.EMPTY, this, SensorService.class);
     this.bindService(intent, senserServiceConnection, BIND_AUTO_CREATE);
     registReceiver();
   }
 
   private void fillQrCode() {
-    ImageView imageView = (ImageView) this.findViewById(R.id.barcodeImageView);
+    ImageView imageView = (ImageView) this.findViewById(R.id.barCodeView);
     try {
       imageView.setImageBitmap(QRCodeFactory.renderToBitmap("http://192.168.0.196/index.html"));
     } catch (WriterException e) {

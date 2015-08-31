@@ -9,13 +9,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/AChartSDK-release" />
-            <option value="$PROJECT_DIR$/Gauge" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/farmintell.httpserver" />
-            <option value="$PROJECT_DIR$/farmintell.modbus" />
-            <option value="$PROJECT_DIR$/farmintell.mqttclient" />
-            <option value="$PROJECT_DIR$/qrcode.encoder" />
+            <option value="$PROJECT_DIR$/libs/Gauge" />
+            <option value="$PROJECT_DIR$/libs/farmintell.httpserver" />
+            <option value="$PROJECT_DIR$/libs/farmintell.modbus" />
+            <option value="$PROJECT_DIR$/libs/farmintell.mqttclient" />
+            <option value="$PROJECT_DIR$/libs/qrcode.encoder" />
           </set>
         </option>
       </GradleProjectSettings>

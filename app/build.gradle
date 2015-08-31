@@ -1,19 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
-
-apt {
-    arguments {
-        androidManifestFile variant.outputs[0].processResources.manifestFile
-        // if you have multiple outputs (when using splits), you may want to have other index than 0
-
-        // you should set your package name here if you are using different application IDs
-        // resourcePackageName "your.package.name"
-
-        // You can set optional annotation processing options here, like these commented options:
-        // logLevel 'INFO'
-        // logFile '/var/log/aa.log'
-    }
-}
 
 android {
     signingConfigs {
@@ -39,27 +24,19 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
     dexOptions {
-        incremental true
+        incremental false
     }
 }
 def AAVersion = '3.3.2'
 dependencies {
-    //compile fileTree(dir: 'libs', include: ['*.jar'])
-    // compile 'com.android.support:cardview-v7:22.2.0'
-    compile project(':farmintell.modbus')
-    //compile project(':farmintell.mqttclient')
-    compile project(':qrcode.encoder')
-    //compile project(':farmintell.httpserver')
-    //compile files('libs/achartengine-1.1.0.jar')
-    //compile files('libs/xUtils-2.6.13.jar')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:cardview-v7:22.2.1'
     compile project(':farmintell.httpserver')
+    compile project(':farmintell.modbus')
+    compile project(':farmintell.mqttclient')
     compile project(':Gauge')
-    apt "org.androidannotations:androidannotations:$AAVersion"
-    compile "org.androidannotations:androidannotations-api:$AAVersion"
+    compile project(':qrcode.encoder')
+    compile 'com.github.PhilJay:MPAndroidChart:v2.1.3'
     compile 'com.android.support:support-v4:22.2.1'
     compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'com.android.support:cardview-v7:22.2.1'
-    //compile 'com.diogobernardino:williamchart:2.0'
-    //compile project(':AChartSDK-release')
-    compile files('libs/achartengine-1.1.0.jar')
 }
