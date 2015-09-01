@@ -20,7 +20,6 @@ import com.lingya.farmintell.models.SensorLog;
 import com.lingya.farmintell.models.SensorStatusCollection;
 import com.lingya.farmintell.models.SensorSummary;
 import com.lingya.farmintell.models.SensorsConfig;
-import com.lingya.farmintell.models.SensorsConfigFactory;
 
 import org.json.JSONException;
 
@@ -163,7 +162,7 @@ public class SensorService extends Service {
         }
         SensorsConfig
                 config =
-                SensorsConfigFactory.getDefaultInstance(this);
+                SensorsConfig.getDefaultInstance(this);
         // modbus 传感器集合
         Register[] registers = config.getRegisters();
         if (registers == null) {

@@ -52,7 +52,7 @@ public class SensorAverageHelper {
             Realm realm = null;
             try {
                 realm = RealmFactory.getInstance(context);
-                SensorsConfig sensors = SensorsConfigFactory.getDefaultInstance(context);
+                SensorsConfig sensors = SensorsConfig.getDefaultInstance(context);
                 String[] ids = sensors.getSensorIds();
                 Log.d(TAG, "append sensors AVG " + nextUpdateTime.toLocaleString());
                 SensorAverageHelper.appendAverage(realm, ids, nextUpdateTime);
@@ -76,7 +76,7 @@ public class SensorAverageHelper {
         Realm realm = null;
         try {
             realm = RealmFactory.getInstance(context);
-            SensorsConfig sensors = SensorsConfigFactory.getDefaultInstance(context);
+            SensorsConfig sensors = SensorsConfig.getDefaultInstance(context);
             String[] ids = sensors.getSensorIds();
             Date nextTime = getNextUpdateTime(context).getTime();
             while (endTime >= nextTime.getTime()) {

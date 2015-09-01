@@ -9,7 +9,6 @@ import com.lingya.farmintell.models.RealmFactory;
 import com.lingya.farmintell.models.SensorStatus;
 import com.lingya.farmintell.models.SensorStatusCollection;
 import com.lingya.farmintell.models.SensorsConfig;
-import com.lingya.farmintell.models.SensorsConfigFactory;
 
 import org.json.JSONException;
 
@@ -240,7 +239,7 @@ public class RegisterFactoryTest extends AndroidTestCase {
 
     public void testUpdateSensorStatus() throws Exception {
         Register[] registers = new Register[]{createInstance()};
-        SensorsConfig config = SensorsConfigFactory.getDefaultInstance(getContext());
+        SensorsConfig config = SensorsConfig.getDefaultInstance(getContext());
         SensorStatusCollection statusList = new SensorStatusCollection(config);
         RealmFactory.updateSensorStatus(registers, statusList);
         assertEquals(statusList.size(), 4);

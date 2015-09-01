@@ -1,12 +1,18 @@
 package com.lingya.farmintell.models;
 
+import android.content.Context;
+
 import com.lingya.farmintell.modbus.Register;
+import com.lingya.farmintell.utils.JsonUtils;
+
+import java.io.IOException;
 
 /**
  * 传感器配置信息
  * Created by zwq00000 on 2015/7/29.
  */
 public class SensorsConfig {
+
 
     /**
      * 主机 Id
@@ -31,6 +37,39 @@ public class SensorsConfig {
     private Register[] registers;
     private String[] sensorIds;
     private SensorConfig[] sensorConfigCache;
+
+    /*******************************************************************************************
+     * 静态工厂方法
+     *
+     *******************************************************************************************/
+
+    /**
+     * 默认配置文件
+     */
+    private static final String configJsonFile = "sensorsConfig.json";
+    /**
+     * 默认实例
+     */
+    private static SensorsConfig defaultInstance;
+
+    /**
+     * 从 Json 文件加载配置
+     */
+    public static SensorsConfig loadFromJson(Context context) throws IOException {
+        defaultInstance = JsonUtils.loadFromJson(context, configJsonFile, SensorsConfig.class);
+        return defaultInstance;
+    }
+
+    /**
+     * 获取默认实例
+     */
+    public static SensorsConfig getDefaultInstance(Context context) throws IOException {
+        if (defaultInstance == null) {
+            loadFromJson(context);
+        }
+        return defaultInstance;
+    }
+
 
     public String getHostId() {
         return hostId;

@@ -5,7 +5,6 @@ import android.content.pm.ApplicationInfo;
 import android.util.Log;
 
 import com.lingya.farmintell.models.SensorsConfig;
-import com.lingya.farmintell.models.SensorsConfigFactory;
 import com.redriver.modbus.Holder;
 
 import java.io.Closeable;
@@ -202,7 +201,7 @@ public abstract class ModbusRegisterReader<H extends Holder> implements Closeabl
 
         public ModbusRegisterReaderMock(Holder<Short>[] holders, Context context) throws IOException {
             super(holders);
-            this.config = SensorsConfigFactory.getDefaultInstance(context);
+            this.config = SensorsConfig.getDefaultInstance(context);
             this.period = 1000;
         }
 

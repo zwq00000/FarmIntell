@@ -27,7 +27,7 @@ public class RealmFactoryTest extends AndroidTestCase {
     public void setUp() throws Exception {
         super.setUp();
         realm = RealmFactory.getInstance(getContext());
-        config = SensorsConfigFactory.getDefaultInstance(getContext());
+        config = SensorsConfig.getDefaultInstance(getContext());
     }
 
     public void tearDown() throws Exception {

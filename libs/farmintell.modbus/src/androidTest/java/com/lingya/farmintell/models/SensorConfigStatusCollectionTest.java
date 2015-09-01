@@ -11,7 +11,7 @@ public class SensorConfigStatusCollectionTest extends AndroidTestCase {
 
     public void setUp() throws Exception {
         super.setUp();
-        config = SensorsConfigFactory.getDefaultInstance(getContext());
+        config = SensorsConfig.getDefaultInstance(getContext());
 
     }
 
@@ -21,7 +21,7 @@ public class SensorConfigStatusCollectionTest extends AndroidTestCase {
 
 
     public void testGetStatuses() throws Exception {
-        SensorsConfig config = SensorsConfigFactory.getDefaultInstance(getContext());
+        SensorsConfig config = SensorsConfig.getDefaultInstance(getContext());
         SensorStatusCollection collection = new SensorStatusCollection(config);
         assertNotNull(collection);
         assertNotNull(collection.getStatuses());

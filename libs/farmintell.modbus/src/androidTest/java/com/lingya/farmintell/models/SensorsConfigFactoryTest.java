@@ -13,7 +13,7 @@ public class SensorsConfigFactoryTest extends AndroidTestCase {
     }
 
     public void testLoadFromJson() throws Exception {
-        SensorsConfig config = SensorsConfigFactory.loadFromJson(getContext());
+        SensorsConfig config = SensorsConfig.loadFromJson(getContext());
         assertNotNull(config);
         assertEquals(config.getHostId(), "0001");
         assertEquals(config.getHostName(), "1# 大棚");
@@ -25,10 +25,10 @@ public class SensorsConfigFactoryTest extends AndroidTestCase {
     }
 
     public void testGetDefaultInstance() throws Exception {
-        SensorsConfig config = SensorsConfigFactory.loadFromJson(getContext());
+        SensorsConfig config = SensorsConfig.loadFromJson(getContext());
         assertNotNull(config);
-        assertNotNull(SensorsConfigFactory.getDefaultInstance(getContext()));
-        assertEquals(config, SensorsConfigFactory.getDefaultInstance(getContext()));
+        assertNotNull(SensorsConfig.getDefaultInstance(getContext()));
+        assertEquals(config, SensorsConfig.getDefaultInstance(getContext()));
         assertEquals(config.getHostId(), "0001");
         assertEquals(config.getSensorsCount(), 6);
 

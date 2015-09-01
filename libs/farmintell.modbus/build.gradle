@@ -28,7 +28,7 @@ android {
 
 dependencies {
     compile files('libs/realm-0.81.1.jar')
-    compile files('libs/gson-2.3.1.jar')
     compile files('libs/Ychmi.jar')
     compile files('libs/nanomodbus-1.0.jar')
+    compile 'com.google.code.gson:gson:2.3.1'
 }

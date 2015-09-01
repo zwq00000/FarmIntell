@@ -23,7 +23,7 @@ public class SensorConfigLogTest extends AndroidTestCase {
         //RealmConfiguration config = new RealmConfiguration.Builder(getContext()).build();
         //Realm.deleteRealm(config);
         realm = RealmFactory.getInstance(getContext());
-        config = SensorsConfigFactory.getDefaultInstance(getContext());
+        config = SensorsConfig.getDefaultInstance(getContext());
     }
 
     public void tearDown() throws Exception {
