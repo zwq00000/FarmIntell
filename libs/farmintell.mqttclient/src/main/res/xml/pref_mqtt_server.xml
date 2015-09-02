@@ -8,8 +8,10 @@
                             android:marqueeRepeatLimit="marquee_forever"
             android:title="@string/caption_mqtt_address"
                 />
-        <EditTextPreference android:key="@string/key_mqtt_client_id"
-                            android:title="@string/mqtt_client_id"
+        <EditTextPreference
+            android:key="@string/key_client_id"
+            android:text="@string/mqtt_client_id"
+            android:title="@string/mqtt_client_id"
                 />
     </PreferenceCategory>
 </PreferenceScreen>

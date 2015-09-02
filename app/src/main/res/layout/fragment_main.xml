@@ -31,9 +31,13 @@
                             android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:background="#ff009688"
+                        android:gravity="center"
                         android:text="更新时间"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
                         android:textSize="@dimen/abc_text_size_display_1_material"
-                        tools:targetApi="jelly_bean_mr1" />
+                        tools:targetApi="jelly_droidbean_mr1" />
 
                     <ImageView
                         android:id="@+id/barCodeView"

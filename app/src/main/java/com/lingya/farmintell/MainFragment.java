@@ -1,6 +1,5 @@
 package com.lingya.farmintell;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,15 +24,5 @@ public class MainFragment extends Fragment {
                            Bundle savedInstanceState) {
     // Inflate the layout for this fragment
     return inflater.inflate(R.layout.fragment_main, container, false);
-  }
-
-  @Override
-  public void onAttach(Activity activity) {
-    super.onAttach(activity);
-  }
-
-  @Override
-  public void onDetach() {
-    super.onDetach();
   }
 }

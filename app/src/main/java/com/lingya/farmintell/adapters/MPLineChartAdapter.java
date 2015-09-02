@@ -20,7 +20,6 @@ import com.lingya.farmintell.models.SensorStatus;
 import com.lingya.farmintell.models.SensorStatusCollection;
 import com.lingya.farmintell.models.SensorSummary;
 import com.lingya.farmintell.models.SensorsConfig;
-import com.lingya.farmintell.models.SensorsConfigFactory;
 import com.lingya.farmintell.services.SensorService;
 
 import java.io.IOException;
@@ -400,7 +399,7 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
      */
     private int getSensorIndex(String sensorId) {
         try {
-            SensorsConfig config = SensorsConfigFactory.getDefaultInstance(context);
+            SensorsConfig config = SensorsConfig.getDefaultInstance(context);
             String[] ids = config.getSensorIds();
             for (int i = 0; i < ids.length; i++) {
                 if (ids[i].equals(sensorId)) {
@@ -449,7 +448,7 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
             return;
         }
 
-        SensorsConfig.SensorConfig config = SensorsConfigFactory.getDefaultInstance(this.context).
+        SensorsConfig.SensorConfig config = SensorsConfig.getDefaultInstance(this.context).
                 findSensorConfig(sensorSummary.getSensorId());
 
         updateYAxis(config);

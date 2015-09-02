@@ -13,7 +13,7 @@
       </config>
     </shared>
     <layouts>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_fragment_master.xml">
         <config>
           <state>Landscape</state>
           <theme>@style/AppTheme</theme>
@@ -45,7 +45,7 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="DEBUG" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="WARN" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="BookmarkManager">
@@ -53,208 +53,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab585bf6-77f6-459d-a331-3123eead3394" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AChartSDK-release/AChartSDK-release.aar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AChartSDK-release/AChartSDK-release.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AChartSDK-release/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Gauge/src/main/res/values/styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/achartengine-1.1.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/lingya/farmintell/adapters/LineChartAdapterTest.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Gauge/.gitignore" afterPath="$PROJECT_DIR$/libs/Gauge/.gitignore" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Gauge/Gauge.iml" afterPath="$PROJECT_DIR$/libs/Gauge/Gauge.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Gauge/build.gradle" afterPath="$PROJECT_DIR$/libs/Gauge/build.gradle" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Gauge/proguard-rules.pro" afterPath="$PROJECT_DIR$/libs/Gauge/proguard-rules.pro" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Gauge/src/androidTest/java/com/lingya/ui/HsvTest.java" afterPath="$PROJECT_DIR$/libs/Gauge/src/androidTest/java/com/lingya/ui/HsvTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Gauge/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/libs/Gauge/src/main/AndroidManifest.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Gauge/src/main/java/com/lingya/ui/GaugeView.java" afterPath="$PROJECT_DIR$/libs/Gauge/src/main/java/com/lingya/ui/GaugeView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Gauge/src/main/java/com/lingya/ui/Hsv.java" afterPath="$PROJECT_DIR$/libs/Gauge/src/main/java/com/lingya/ui/Hsv.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Gauge/src/main/res/layout/sample_gauge_view.xml" afterPath="$PROJECT_DIR$/libs/Gauge/src/main/res/layout/sample_gauge_view.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Gauge/src/main/res/values/attrs_gauge_view.xml" afterPath="$PROJECT_DIR$/libs/Gauge/src/main/res/values/attrs_gauge_view.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Gauge/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/libs/Gauge/src/main/res/values/colors.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Gauge/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/libs/Gauge/src/main/res/values/strings.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/LineChartAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MPLineChartAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/.gitignore" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/.gitignore" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/build.gradle" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/build.gradle" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/farmintell.httpserver.iml" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/farmintell.httpserver.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/libs/androidasync-2.1.6.jar" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/libs/androidasync-2.1.6.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/proguard-rules.pro" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/proguard-rules.pro" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/ApplicationTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/ApplicationTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/HttpServerTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/HttpServerTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/HttpServiceTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/HttpServiceTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/SharedPreferencesRequestCallbackTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/SharedPreferencesRequestCallbackTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/adapters/JsonAdapterTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/adapters/JsonAdapterTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/AndroidManifest.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/.idea/.name" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/.idea/.name" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/.idea/assets.iml" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/.idea/assets.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/.idea/misc.xml" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/.idea/misc.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/.idea/modules.xml" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/.idea/modules.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/.idea/vcs.xml" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/.idea/vcs.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/.idea/workspace.xml" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/css/bootstrap-theme.css" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/css/bootstrap-theme.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/css/bootstrap-theme.css.map" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/css/bootstrap-theme.css.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/css/bootstrap-theme.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/css/bootstrap.css" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/css/bootstrap.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/css/bootstrap.css.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/css/bootstrap.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/css/docs.css" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/css/docs.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/css/docs.min.css" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/css/docs.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/fonts/glyphicons-halflings-regular.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/fonts/glyphicons-halflings-regular.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/fonts/glyphicons-halflings-regular.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/index.html" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/js/angular.js" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/js/angular.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/js/bootstrap.js" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/js/bootstrap.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/js/bootstrap.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/js/docs.min.js" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/js/docs.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/js/ember.js" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/js/ember.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/js/ember.min.js" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/js/ember.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/js/jquery.js" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/js/jquery.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/js/jquery.min.js" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/js/jquery.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/js/jquery.min.map" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/js/jquery.min.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/js/justgage.1.0.1.js" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/js/justgage.1.0.1.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/js/npm.js" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/js/npm.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/assets/js/raphael.2.1.0.min.js" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/js/raphael.2.1.0.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/HttpService.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/HttpService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/SensorStatusReceiver.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/SensorStatusReceiver.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/SharedPreferencesRequestCallback.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/SharedPreferencesRequestCallback.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/WebSiteFactory.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/WebSiteFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/DefaultDocumentAdapter.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/DefaultDocumentAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/JsonAdapter.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/JsonAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/WebSocketAdapter.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/WebSocketAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/WebSocketFactory.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/WebSocketFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.httpserver/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/res/values/strings.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/.gitignore" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/.gitignore" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/build.gradle" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/build.gradle" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/farmintell.modbus.iml" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/farmintell.modbus.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/libs/Ychmi.jar" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/libs/Ychmi.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/libs/gson-2.3.1.jar" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/libs/gson-2.3.1.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/libs/nanomodbus-1.0.jar" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/libs/nanomodbus-1.0.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/libs/realm-0.81.1.jar" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/libs/realm-0.81.1.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/proguard-rules.pro" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/proguard-rules.pro" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/modbus/ApplicationTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/modbus/ApplicationTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/modbus/ModbusRTUTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/modbus/ModbusRTUTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/modbus/ModbusRegisterReaderImplTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/modbus/ModbusRegisterReaderImplTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/modbus/RegisterFactoryTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/modbus/RegisterFactoryTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/modbus/RegisterTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/modbus/RegisterTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/FloatCircleQueueTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/FloatCircleQueueTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/RealmFactoryTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/RealmFactoryTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/SensorAverageHelperTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/SensorConfigAverageHelperTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/SensorLogTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/SensorConfigLogTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/SensorStatusCollectionTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/SensorConfigStatusCollectionTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/SensorStatusTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/SensorConfigStatusTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/SensorsConfigFactoryTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/SensorsConfigFactoryTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/services/SensorServiceTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/services/SensorConfigServiceTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/utils/JsonUtilsTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/utils/JsonUtilsTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/AndroidManifest.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/assets/registers.json" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/assets/registers.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/assets/sensorsConfig.json" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/assets/sensorsConfig.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/ModbusRegisterReader.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/ModbusRegisterReader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/ModbusRegisterReaderImpl.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/ModbusRegisterReaderImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/Register.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/Register.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/RegisterFactory.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/RegisterFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/SerialPortFactory.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/SerialPortFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/models/FloatCircleQueue.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/FloatCircleQueue.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/models/RealmFactory.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/RealmFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorAverage.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorAverage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorAverageHelper.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorAverageHelper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorLog.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorLog.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorStatus.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorStatus.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorStatusCollection.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorStatusCollection.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorSummary.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorSummary.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorsConfig.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorsConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorsConfigFactory.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorsConfigFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/services/SensorService.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/services/SensorService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/utils/CalendarUtils.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/utils/CalendarUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/utils/JsonUtils.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/utils/JsonUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/res/values/strings.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.modbus/src/release/res/values/configs.xml" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/release/res/values/configs.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/.gitignore" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/.gitignore" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/build.gradle" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/build.gradle" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/farmintell.mqttclient.iml" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/farmintell.mqttclient.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/libs/mqtt_android.jar" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/libs/mqtt_android.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/proguard-rules.pro" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/proguard-rules.pro" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/src/androidTest/java/com/lingya/farmintell/ClientAdapterTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/androidTest/java/com/lingya/farmintell/ClientAdapterTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/src/androidTest/java/com/lingya/farmintell/WeatherData.java" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/androidTest/java/com/lingya/farmintell/WeatherData.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/src/androidTest/java/com/lingya/farmintell/mqttclient/ApplicationTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/androidTest/java/com/lingya/farmintell/mqttclient/ApplicationTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/src/androidTest/java/com/lingya/farmintell/mqttclient/MqttClientAdapterTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/androidTest/java/com/lingya/farmintell/mqttclient/MqttClientAdapterTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/AndroidManifest.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/src/main/java/com/lingya/farmintell/mqttclient/MqttClientAdapter.java" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/java/com/lingya/farmintell/mqttclient/MqttClientAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/src/main/java/com/lingya/farmintell/mqttclient/MqttPreferences.java" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/java/com/lingya/farmintell/mqttclient/MqttPreferences.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/src/main/java/com/lingya/farmintell/mqttclient/SensorStatusUpdatedReceiver.java" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/java/com/lingya/farmintell/mqttclient/SensorStatusUpdatedReceiver.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/res/values/strings.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/farmintell.mqttclient/src/main/res/xml/pref_mqtt_server.xml" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/res/xml/pref_mqtt_server.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/.gitignore" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/.gitignore" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/build.gradle" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/build.gradle" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/proguard-rules.pro" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/proguard-rules.pro" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/qrcode.encoder.iml" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/qrcode.encoder.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/androidTest/java/com/google/zxing/qrcode/QRCodeWriterTest.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/androidTest/java/com/google/zxing/qrcode/QRCodeWriterTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/androidTest/java/com/lingya/qrcodegenerator/ApplicationTest.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/androidTest/java/com/lingya/qrcodegenerator/ApplicationTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/AndroidManifest.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/BarcodeFormat.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/BarcodeFormat.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/Dimension.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/Dimension.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/EncodeHintType.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/EncodeHintType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/FormatException.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/FormatException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/ReaderException.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/ReaderException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/Writer.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/Writer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/WriterException.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/WriterException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/common/BitArray.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/BitArray.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/common/BitMatrix.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/BitMatrix.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/common/CharacterSetECI.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/CharacterSetECI.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/GenericGF.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/GenericGF.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/GenericGFPoly.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/GenericGFPoly.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/ReedSolomonDecoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/ReedSolomonDecoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/ReedSolomonEncoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/ReedSolomonEncoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/ReedSolomonException.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/ReedSolomonException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/DataMatrixWriter.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/DataMatrixWriter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/ASCIIEncoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/ASCIIEncoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/Base256Encoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/Base256Encoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/C40Encoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/C40Encoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/DataMatrixSymbolInfo144.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/DataMatrixSymbolInfo144.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/DefaultPlacement.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/DefaultPlacement.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/EdifactEncoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/EdifactEncoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/Encoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/Encoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/EncoderContext.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/EncoderContext.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/ErrorCorrection.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/ErrorCorrection.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/HighLevelEncoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/HighLevelEncoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/SymbolInfo.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/SymbolInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/SymbolShapeHint.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/SymbolShapeHint.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/TextEncoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/TextEncoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/X12Encoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/X12Encoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/qrcode/QRCodeWriter.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/QRCodeWriter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/BitMatrixParser.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/BitMatrixParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/DataBlock.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/DataBlock.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/DataMask.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/DataMask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/ErrorCorrectionLevel.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/ErrorCorrectionLevel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/FormatInformation.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/FormatInformation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/Mode.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/Mode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/Version.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/Version.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/BlockPair.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/BlockPair.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/ByteMatrix.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/ByteMatrix.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/Encoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/Encoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/MaskUtil.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/MaskUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/MatrixUtil.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/MatrixUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/QRCode.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/QRCode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/java/com/lingya/qrcodegenerator/QRCodeFactory.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/lingya/qrcodegenerator/QRCodeFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qrcode.encoder/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/res/values/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/MainActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorLogListAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/listitem_sensorlog.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_fragment_master.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/FragmentMasterActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/FragmentMasterActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/FullscreenActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/FullscreenActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/activities/LineChartActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/activities/LineChartActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/lingya/farmintell/activities/LineChartActivityTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/lingya/farmintell/activities/LineChartActivityTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MPLineChartAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MPLineChartAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MainClockAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MainClockAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/MainFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/MainFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/MonitorFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/MonitorFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/java/com/lingya/farmintell/mqttclient/MqttPreferences.java" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/java/com/lingya/farmintell/mqttclient/MqttPreferences.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/RealmFactory.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/RealmFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/services/SensorService.java" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/services/SensorService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusViewAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusViewAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_fullscreen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_fullscreen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_line_chart.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_line_chart.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/res/xml/pref_mqtt_server.xml" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/res/xml/pref_mqtt_server.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FarmIntell.iws" />
@@ -1127,61 +946,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LineDataSet.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/data/LineDataSet.java">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="303" column="16" selection-start-line="303" selection-start-column="16" selection-end-line="303" selection-end-column="16" />
-              <folding>
-                <element signature="e#4490#4491#0" expanded="true" />
-                <element signature="e#4533#4534#0" expanded="true" />
-                <element signature="e#4963#4964#0" expanded="true" />
-                <element signature="e#4999#5000#0" expanded="true" />
-                <element signature="e#8423#8424#0" expanded="true" />
-                <element signature="e#8464#8465#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Color.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/graphics/Color.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
-              <folding>
-                <element signature="e#2260#2261#0" expanded="true" />
-                <element signature="e#2295#2296#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FragmentMasterActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/FragmentMasterActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="229" column="0" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.067669176">
+              <caret line="107" column="67" selection-start-line="107" selection-start-column="67" selection-end-line="107" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/view/View.java">
+      <file leaf-file-name="FragmentPagerAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/22.2.1/support-v4-22.2.1-sources.jar!/android/support/v4/app/FragmentPagerAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14105" column="0" selection-start-line="14105" selection-start-column="0" selection-end-line="14105" selection-end-column="0" />
+              <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MPLineChartAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MPLineChartAdapter.java">
+      <file leaf-file-name="PagerAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/22.2.1/support-v4-22.2.1-sources.jar!/android/support/v4/view/PagerAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="463" column="36" selection-start-line="463" selection-start-column="36" selection-end-line="463" selection-end-column="36" />
+              <caret line="122" column="79" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SensorLogListAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorLogListAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="41" column="70" selection-start-line="41" selection-start-column="70" selection-end-line="41" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1189,25 +988,65 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sensorsConfig.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/assets/sensorsConfig.json">
+      <file leaf-file-name="DecimalFormat.java" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/java/text/DecimalFormat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.85472155">
-              <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="503" column="26" selection-start-line="503" selection-start-column="13" selection-end-line="503" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Hsv.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/Gauge/src/main/java/com/lingya/ui/Hsv.java">
+      <file leaf-file-name="ListAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/widget/ListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
-              <folding>
-                <element signature="e#1481#1482#0" expanded="true" />
-                <element signature="e#1552#1553#0" expanded="true" />
-              </folding>
+              <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Adapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/widget/Adapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RealmBaseAdapter.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/libs/farmintell.modbus/libs/realm-0.81.1.jar!/io/realm/RealmBaseAdapter.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/widget/BaseAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listitem_sensorlog.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/listitem_sensorlog.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1221,8 +1060,8 @@
         <option value="layoutResourceFile" />
         <option value="resourceFile" />
         <option value="valueResourceFile" />
-        <option value="Class" />
         <option value="JUnit3 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -5208,7 +5047,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="11522947713358" />
+        <entry key="$PROJECT_DIR$" value="11523575001724" />
         <entry key="D:\Projects\Java\FarmIntell" value="11510744261047" />
       </map>
     </option>
@@ -5553,7 +5392,6 @@
                             <option value="$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/22.2.1/support-v4-22.2.1.aar" />
                             <option value="$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/appcompat-v7/22.2.1/appcompat-v7-22.2.1.aar" />
                             <option value="$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar" />
-                            <option value="$MODULE_DIR$/libs/achartengine-1.1.0.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/app" />
@@ -6063,8 +5901,8 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar" />
                             <option value="$MODULE_DIR$/libs/realm-0.81.1.jar" />
-                            <option value="$MODULE_DIR$/libs/gson-2.3.1.jar" />
                             <option value="$MODULE_DIR$/libs/Ychmi.jar" />
                             <option value="$MODULE_DIR$/libs/nanomodbus-1.0.jar" />
                           </list>
@@ -6706,18 +6544,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Gauge/src/androidTest/java/com/lingya/ui/ApplicationTest.java" />
-        <option value="$PROJECT_DIR$/Gauge/src/androidTest/java/com/lingya/ui/HsvTest.java" />
-        <option value="$PROJECT_DIR$/Gauge/src/main/java/com/lingya/ui/Hsv.java" />
-        <option value="$PROJECT_DIR$/Gauge/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/Gauge/src/main/java/com/lingya/ui/GaugeView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/sensor_label.xml" />
-        <option value="$PROJECT_DIR$/farmintell.mqttclient/src/main/java/com/lingya/farmintell/MqttClientAdapter.java" />
-        <option value="$PROJECT_DIR$/farmintell.mqttclient/build.gradle" />
-        <option value="$PROJECT_DIR$/farmintell.mqttclient/src/androidTest/java/com/lingya/farmintell/ClientAdapterTest.java" />
-        <option value="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/SensorStatusCollectionTest.java" />
-        <option value="$PROJECT_DIR$/farmintell.modbus/src/androidTest/java/com/lingya/farmintell/models/SensorLogTest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/activities/LineChartAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/ViewAdapter.java" />
         <option value="$PROJECT_DIR$/Gauge/build.gradle" />
         <option value="$PROJECT_DIR$/farmintell.modbus/src/main/java/com/lingya/farmintell/services/SensorService.java" />
@@ -6740,23 +6566,35 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/LineChartAdapter.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_line_chart.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/activities/LineChartActivity.java" />
         <option value="$PROJECT_DIR$/libs/Gauge/build.gradle" />
         <option value="$PROJECT_DIR$/libs/Gauge/src/main/res/layout/sample_gauge_view.xml" />
         <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values-v23/values-v23.xml" />
         <option value="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/ModbusRegisterReader.java" />
-        <option value="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorsConfig.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_fullscreen.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/FragmentMasterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/FullscreenActivity.java" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/com/lingya/farmintell/activities/LineChartActivityTest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MPLineChartAdapter.java" />
         <option value="$PROJECT_DIR$/libs/farmintell.modbus/src/main/assets/sensorsConfig.json" />
+        <option value="$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/java/com/lingya/farmintell/ClientAdapter.java" />
+        <option value="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorsConfig.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/MainFragment.java" />
+        <option value="$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/res/xml/pref_mqtt_server.xml" />
+        <option value="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/RealmFactory.java" />
+        <option value="$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/services/SensorService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/FragmentMasterActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/MonitorFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MainClockAdapter.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/ui/SensorLogListFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/listitem_sensorlog.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorLogListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -6821,74 +6659,25 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="AndroidView">
+      <pane id="Scratches">
+        <subPane />
+      </pane>
+      <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="farmintell.modbus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="farmintell.modbus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -6980,39 +6769,178 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches">
-        <subPane />
-      </pane>
-      <pane id="ProjectPane">
+      <pane id="AndroidView">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell.mqttclient" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell.modbus" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell.modbus" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -7032,7 +6960,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="android.project.structure.last.selected" value="app" />
+    <property name="android.project.structure.last.selected" value="farmintell.modbus" />
     <property name="android.project.structure.proportion" value="0.3175" />
     <property name="android.sdk.path" value="E:/Android" />
     <property name="recentsLimit" value="5" />
@@ -7049,7 +6977,7 @@
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="344" />
-    <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.SHOW" value="false" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.SHOW" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="170" />
     <property name="dynamic.classpath" value="false" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="800x600_Pad_API_19" />
@@ -7087,6 +7015,7 @@
       <recent name="android.test.ServiceTestCase" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lingya.farmintell" />
       <recent name="com.lingya.farmintell.adapters" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -7100,14 +7029,15 @@
       <recent name="com.lingya.farmintell.services" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="com.lingya.farmintell.models.SensorsConfig" />
       <recent name="com.lingya.farmintell.utils.CalendarUtils" />
       <recent name="com.lingya.farmintell.utils.Utils" />
     </key>
     <key name="android.template.packageName">
+      <recent name="com.lingya.farmintell" />
       <recent name="com.lingya.farmintell.activities" />
       <recent name="com.lingya.ui" />
       <recent name="com.lingya.farmintell.ui" />
-      <recent name="com.lingya.farmintell" />
       <recent name="com.lingya.farmintell.httpserver" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -7132,36 +7062,6 @@
       <option name="TESTING_TYPE" value="2" />
       <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
       <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="com.lingya.farmintell.adapters.LineChartAdapterTest" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="true" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
-      <method />
-    </configuration>
-    <configuration default="false" name="testShowSensorHist...()" type="AndroidTestRunConfigurationType" factoryName="Android Tests" temporary="true" nameIsGenerated="true">
-      <module name="app" />
-      <option name="TESTING_TYPE" value="3" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="testShowSensorHistory" />
       <option name="CLASS_NAME" value="com.lingya.farmintell.adapters.LineChartAdapterTest" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
@@ -7250,6 +7150,35 @@
     <configuration default="false" name="LineChartActivity" type="AndroidRunConfigurationType" factoryName="Android Application" temporary="true">
       <module name="app" />
       <option name="ACTIVITY_CLASS" value="com.lingya.farmintell.activities.LineChartActivity" />
+      <option name="MODE" value="specific_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <method />
+    </configuration>
+    <configuration default="false" name="MainActivity" type="AndroidRunConfigurationType" factoryName="Android Application" temporary="true">
+      <module name="app" />
+      <option name="ACTIVITY_CLASS" value="com.lingya.farmintell.MainActivity" />
       <option name="MODE" value="specific_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
@@ -7454,18 +7383,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Android Application.app" />
       <item index="1" class="java.lang.String" itemvalue="Android Tests.LineChartAdapterTest..." />
-      <item index="2" class="java.lang.String" itemvalue="Android Tests.testShowSensorHist...()" />
-      <item index="3" class="java.lang.String" itemvalue="Android Tests.Tests in 'com.lingya.farmintell'" />
-      <item index="4" class="java.lang.String" itemvalue="Android Tests.Tests in 'com.lingya.farmintell.models'" />
-      <item index="5" class="java.lang.String" itemvalue="Android Application.LineChartActivity" />
+      <item index="2" class="java.lang.String" itemvalue="Android Tests.Tests in 'com.lingya.farmintell'" />
+      <item index="3" class="java.lang.String" itemvalue="Android Tests.Tests in 'com.lingya.farmintell.models'" />
+      <item index="4" class="java.lang.String" itemvalue="Android Application.LineChartActivity" />
+      <item index="5" class="java.lang.String" itemvalue="Android Application.MainActivity" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Android Application.LineChartActivity" />
-        <item index="1" class="java.lang.String" itemvalue="Android Tests.Tests in 'com.lingya.farmintell.models'" />
-        <item index="2" class="java.lang.String" itemvalue="Android Tests.Tests in 'com.lingya.farmintell'" />
-        <item index="3" class="java.lang.String" itemvalue="Android Tests.LineChartAdapterTest..." />
-        <item index="4" class="java.lang.String" itemvalue="Android Tests.testShowSensorHist...()" />
+        <item index="0" class="java.lang.String" itemvalue="Android Application.MainActivity" />
+        <item index="1" class="java.lang.String" itemvalue="Android Application.LineChartActivity" />
+        <item index="2" class="java.lang.String" itemvalue="Android Tests.Tests in 'com.lingya.farmintell.models'" />
+        <item index="3" class="java.lang.String" itemvalue="Android Tests.Tests in 'com.lingya.farmintell'" />
+        <item index="4" class="java.lang.String" itemvalue="Android Tests.LineChartAdapterTest..." />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
@@ -7520,7 +7449,19 @@
       <option name="project" value="LOCAL" />
       <updated>1440683589457</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="删除 SensorsConfigFactory 转移到 SensorsConfig 中">
+      <created>1441112343866</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1441112343866</updated>
+    </task>
+    <task id="LOCAL-00006" summary="构建 抽象的 web client 适配器,隐藏实现，根据配置自动选择 Mqtt 客户端和 WebApi 客户端">
+      <created>1441112430645</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1441112430645</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -7538,29 +7479,29 @@
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40026596" sideWeight="0.8433087" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48537233" sideWeight="0.83120376" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861954" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48537233" sideWeight="0.8527236" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37898937" sideWeight="0.1869536" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5013298" sideWeight="0.58776057" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53457445" sideWeight="0.47478145" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4556804" sideWeight="0.22229381" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2526596" sideWeight="0.23537323" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.267653" sideWeight="0.8135593" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34574467" sideWeight="0.4142569" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37898937" sideWeight="0.8130464" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34574467" sideWeight="0.41022193" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2526596" sideWeight="0.76462674" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14893617" sideWeight="0.6845999" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25891057" sideWeight="0.47477064" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31069267" sideWeight="0.47477064" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18224613" sideWeight="0.18644068" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5731383" sideWeight="0.5810356" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24613315" sideWeight="0.18644068" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38962767" sideWeight="0.56287825" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.134499" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3444149" sideWeight="0.667115" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17619368" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44148937" sideWeight="0.6402152" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39908952" sideWeight="0.49676377" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -7614,7 +7555,9 @@
     <MESSAGE value="更新仪表盘特性，修订过度色算法" />
     <MESSAGE value="切换到 Develope 分支" />
     <MESSAGE value="修订 LineChartAdapter 问题&#10;修订 SensorSummary 统计问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修订 LineChartAdapter 问题&#10;修订 SensorSummary 统计问题" />
+    <MESSAGE value="删除 SensorsConfigFactory 转移到 SensorsConfig 中" />
+    <MESSAGE value="构建 抽象的 web client 适配器,隐藏实现，根据配置自动选择 Mqtt 客户端和 WebApi 客户端" />
+    <option name="LAST_COMMIT_MESSAGE" value="构建 抽象的 web client 适配器,隐藏实现，根据配置自动选择 Mqtt 客户端和 WebApi 客户端" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.74005306" />
   </component>
   <component name="XDebuggerManager">
@@ -7668,13 +7611,19 @@
           <properties />
           <option name="timeStamp" value="32" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/MonitorFragment.java</url>
+          <line>2</line>
+          <properties />
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml</url>
           <line>30</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="57" />
+      <option name="time" value="58" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
@@ -7714,199 +7663,52 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.mqttclient/build.gradle">
+    <entry file="jar://$PROJECT_DIR$/libs/farmintell.mqttclient/libs/mqtt_android.jar!/org/eclipse/paho/client/mqttv3/MqttException.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1198157">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/java/com/lingya/farmintell/mqttclient/SensorStatusUpdatedReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="28" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="31" />
+          <caret line="56" column="24" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/java/com/lingya/farmintell/mqttclient/MqttClientAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <caret line="77" column="28" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.mqttclient/src/androidTest/java/com/lingya/farmintell/WeatherData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27213824">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.mqttclient/src/androidTest/java/com/lingya/farmintell/ClientAdapterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3218143">
+          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorsConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.7494601">
+          <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/CamMonitorActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.3.2/43da9d925486416134e7ae4cdd3ea05e3d950534/androidannotations-api-3.3.2-sources.jar!/org/androidannotations/api/view/OnViewChangedListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.3.2/43da9d925486416134e7ae4cdd3ea05e3d950534/androidannotations-api-3.3.2-sources.jar!/org/androidannotations/api/view/HasViews.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/view/GestureDetector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="116" column="24" selection-start-line="116" selection-start-column="24" selection-end-line="116" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/anim/left_in.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/activities/LineChartActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/charts/LineChart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="20" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="117" column="16" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/data/BarLineScatterCandleDataSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="79" selection-start-line="12" selection-start-column="79" selection-end-line="12" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/data/BarLineScatterCandleData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="68" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/data/LineData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-57.064518">
-          <caret line="138" column="25" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/Gauge/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.793103">
-          <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/Gauge/src/main/res/layout/sample_gauge_view.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9354838">
-          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.032467533">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/data/LineRadarDataSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6549451">
-          <caret line="78" column="16" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0703297">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/ModbusRegisterReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1472528">
-          <caret line="205" column="31" selection-start-line="205" selection-start-column="31" selection-end-line="205" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/utils/ColorTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.29011">
-          <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/ModbusRegisterReaderImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.73333335">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/data/Entry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.501099">
-          <caret line="108" column="17" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/text/TextUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6505495">
-          <caret line="459" column="26" selection-start-line="459" selection-start-column="26" selection-end-line="459" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/components/YAxis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27178425">
-          <caret line="397" column="0" selection-start-line="397" selection-start-column="0" selection-end-line="397" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_line_chart.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="19" selection-end-column="51" />
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -7917,20 +7719,168 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5391061">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_fullscreen.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8137931">
-          <caret line="157" column="55" selection-start-line="157" selection-start-column="55" selection-end-line="157" selection-end-column="55" />
+        <state vertical-scroll-proportion="2.903226">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/java/com/lingya/farmintell/mqttclient/MqttPreferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/utils/JsonUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/activities/SettingsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/util/SystemUiHider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/java/com/lingya/farmintell/ClientAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="96" column="40" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.62068963">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="11" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.mqttclient/src/main/res/xml/pref_mqtt_server.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="66" selection-start-line="11" selection-start-column="66" selection-end-line="12" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorAverage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorAverageHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/services/SensorService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.419354">
+          <caret line="214" column="80" selection-start-line="214" selection-start-column="80" selection-end-line="214" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/RealmFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="57" selection-start-line="79" selection-start-column="57" selection-end-line="79" selection-end-column="57" />
+          <folding>
+            <element signature="e#2273#2873#0" expanded="false" />
+            <element signature="e#2872#2873#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorStatusCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="35" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/widget/ViewFlipper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/FullscreenActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="119" column="4" selection-start-line="119" selection-start-column="4" selection-end-line="119" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_fragment_master.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/app/Fragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="351" column="13" selection-start-line="351" selection-start-column="13" selection-end-line="351" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/FragmentMasterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="231" column="0" selection-start-line="198" selection-start-column="4" selection-end-line="231" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.483871">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -7939,172 +7889,184 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6697819">
-          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_fullscreen.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6697819">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/FullscreenActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.7653632">
-          <caret line="220" column="72" selection-start-line="220" selection-start-column="72" selection-end-line="220" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/lingya/farmintell/activities/LineChartActivityTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75139666">
-          <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorsConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/charts/Chart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="309" column="20" selection-start-line="309" selection-start-column="20" selection-end-line="309" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/RealmFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="148" column="36" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/data/ChartData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="951" column="16" selection-start-line="951" selection-start-column="16" selection-end-line="951" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/buffer/CircleBuffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/renderer/LineChartRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="460" column="0" selection-start-line="460" selection-start-column="0" selection-end-line="460" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/charts/BarLineChartBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="247" column="0" selection-start-line="247" selection-start-column="0" selection-end-line="247" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorAdapterFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.21226415">
-          <caret line="70" column="18" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/models/SensorSummary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/data/DataSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="834" column="16" selection-start-line="834" selection-start-column="16" selection-end-line="834" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/FragmentMasterActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="229" column="0" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/view/View.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/MonitorFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14105" column="0" selection-start-line="14105" selection-start-column="0" selection-end-line="14105" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/graphics/Color.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
-          <folding>
-            <element signature="e#2260#2261#0" expanded="true" />
-            <element signature="e#2295#2296#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.1.3/88784d8975af27eb6a284345a3bea7e65c88a81e/MPAndroidChart-v2.1.3-sources.jar!/com/github/mikephil/charting/data/LineDataSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="303" column="16" selection-start-line="303" selection-start-column="16" selection-end-line="303" selection-end-column="16" />
-          <folding>
-            <element signature="e#4490#4491#0" expanded="true" />
-            <element signature="e#4533#4534#0" expanded="true" />
-            <element signature="e#4963#4964#0" expanded="true" />
-            <element signature="e#4999#5000#0" expanded="true" />
-            <element signature="e#8423#8424#0" expanded="true" />
-            <element signature="e#8464#8465#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/Gauge/src/main/java/com/lingya/ui/Hsv.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
-          <folding>
-            <element signature="e#1481#1482#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MPLineChartAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="463" column="36" selection-start-line="463" selection-start-column="36" selection-end-line="463" selection-end-column="36" />
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/assets/sensorsConfig.json">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MainClockAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85472155">
-          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="62" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/color/abc_background_cache_hint_selector_material_dark.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.387097">
+          <caret line="38" column="63" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
+          <folding>
+            <element signature="e#1579#1620#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.716666">
+          <caret line="52" column="41" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_monitor.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/MainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/22.2.1/support-v4-22.2.1-sources.jar!/android/support/v4/app/ListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="25" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/22.2.1/support-v4-22.2.1-sources.jar!/android/support/v4/app/FragmentManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="923" column="66" selection-start-line="923" selection-start-column="66" selection-end-line="923" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/22.2.1/support-v4-22.2.1-sources.jar!/android/support/v4/app/Fragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="932" column="26" selection-start-line="932" selection-start-column="26" selection-end-line="932" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/listitem_sensorlog.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/java/text/DecimalFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="503" column="26" selection-start-line="503" selection-start-column="13" selection-end-line="503" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/widget/Adapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/widget/ListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/widget/BaseAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/farmintell.modbus/libs/realm-0.81.1.jar!/io/realm/RealmBaseAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/22.2.1/support-v4-22.2.1-sources.jar!/android/support/v4/app/FragmentPagerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/22.2.1/support-v4-22.2.1-sources.jar!/android/support/v4/view/PagerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="122" column="79" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorLogListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="70" selection-start-line="41" selection-start-column="70" selection-end-line="41" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.067669176">
+          <caret line="107" column="67" selection-start-line="107" selection-start-column="67" selection-end-line="107" selection-end-column="67" />
           <folding />
         </state>
       </provider>

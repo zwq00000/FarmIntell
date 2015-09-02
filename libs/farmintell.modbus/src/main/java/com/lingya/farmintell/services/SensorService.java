@@ -45,7 +45,8 @@ public class SensorService extends Service {
     public static final String UPDATE_SENSOR_STATUS = "SensorService.UPDATE_SENSOR_STATUS";
     private static final String TAG = "SensorService";
     //private static final String STOP_SERVICE = "SensorService.STOP_SERVICE";
-
+    // 追加日志 间隔时间（毫秒）
+    private static final int APPEND_LOG_INTERVAL = 1000 * 60;
     private Realm defaultRealm;
     private ModbusRegisterReader registerReader;
     private SensorStatusCollection statusCollection;
@@ -206,21 +207,11 @@ public class SensorService extends Service {
     private void updateSensorStatus(Register... holders) {
         Log.v(TAG, "update sensor status");
         RealmFactory.updateSensorStatus(holders, this.statusCollection);
-        if (isAllowAppendLog()) {
+        if (System.currentTimeMillis() >= lastAppendLogTime) {
             RealmFactory.appendSensorLog(defaultRealm, statusCollection);
+            lastAppendLogTime = System.currentTimeMillis() + APPEND_LOG_INTERVAL;
         }
         sendBroadcast(statusCollection);
-    }
-
-    /**
-     * 是否 允许 追加日志 超过 上次更新 一分钟 后允许增加日志
-     */
-    private boolean isAllowAppendLog() {
-        if (System.currentTimeMillis() >= (lastAppendLogTime + TimeUnit.MINUTES.toMillis(1))) {
-            lastAppendLogTime = System.currentTimeMillis();
-            return true;
-        }
-        return false;
     }
 
     /**

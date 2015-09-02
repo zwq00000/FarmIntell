@@ -15,7 +15,6 @@ import java.text.SimpleDateFormat;
 public class MainClockAdapter implements ViewAdapter<SensorService.ISensorBinder> {
 
   private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
-  private ViewGroup container;
   private TextView clockView;
   private SensorService.ISensorBinder viewData;
 
@@ -34,7 +33,6 @@ public class MainClockAdapter implements ViewAdapter<SensorService.ISensorBinder
    */
   @Override
   public void bindView(ViewGroup container) {
-    this.container = container;
     clockView = (TextView) container.findViewById(R.id.updateClock);
 
   }
@@ -48,6 +46,6 @@ public class MainClockAdapter implements ViewAdapter<SensorService.ISensorBinder
       return;
     }
     SensorStatusCollection statuses = viewData.getStatus();
-    clockView.setText("最后更新:" + TIME_FORMAT.format(statuses.getUpdateTime()));
+    clockView.setText(TIME_FORMAT.format(statuses.getUpdateTime()));
   }
 }

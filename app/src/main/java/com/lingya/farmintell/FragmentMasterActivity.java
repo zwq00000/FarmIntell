@@ -123,7 +123,7 @@ public class FragmentMasterActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_fragment_master);
         viewFlipper = (ViewFlipper) this.findViewById(R.id.viewFlipper);
         anim_right_out = AnimationUtils.loadAnimation(this, R.anim.right_out);
         anim_left_out = AnimationUtils.loadAnimation(this, R.anim.left_out);

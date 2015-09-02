@@ -1,7 +1,6 @@
 package com.lingya.farmintell;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +10,7 @@ import android.widget.VideoView;
 
 /**
  */
-public class MonitorFragment extends Fragment {
+public class MonitorFragment extends android.support.v4.app.Fragment {
 
   private static final String TAG = MonitorFragment.class.getSimpleName();
 

@@ -23,7 +23,7 @@ public class MqttPreferences {
     Resources resource = context.getResources();
     KEY_MQTT_ADDRESS = resource.getString(R.string.key_mqtt_address);
     KEY_MQTT_PORT = resource.getString(R.string.key_mqtt_port);
-    KEY_MQTT_CLIENT_ID = resource.getString(R.string.key_mqtt_client_id);
+    KEY_MQTT_CLIENT_ID = resource.getString(R.string.key_client_id);
   }
 
   /**

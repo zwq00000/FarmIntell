@@ -9,7 +9,6 @@ import com.lingya.farmintell.R;
 import com.lingya.farmintell.models.SensorStatus;
 import com.lingya.farmintell.models.SensorStatusCollection;
 import com.lingya.farmintell.models.SensorsConfig;
-import com.lingya.farmintell.models.SensorsConfigFactory;
 import com.lingya.farmintell.services.SensorService;
 import com.lingya.farmintell.ui.SensorCardView;
 
@@ -78,7 +77,7 @@ public class SensorStatusViewAdapter implements ViewAdapter<SensorService.ISenso
       Context context = containerView.getContext();
       SensorsConfig
           config =
-          SensorsConfigFactory.getDefaultInstance(context);
+              SensorsConfig.getDefaultInstance(context);
       SensorsConfig.SensorConfig[] sensorConfigs = config.getSensors();
       Palettes palettes = Palettes.getInstance(context);
       for (int i = 0; i < sensorConfigs.length; i++) {

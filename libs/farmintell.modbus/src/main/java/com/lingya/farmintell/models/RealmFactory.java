@@ -80,6 +80,7 @@ public class RealmFactory {
                     log.setTime(statusCollection.getUpdateTime());
                     log.setValue(status.getValue());
                 }
+                Log.v(TAG, "append sensorLogs");
                 clearExpiredData(realm);
             }
         });
