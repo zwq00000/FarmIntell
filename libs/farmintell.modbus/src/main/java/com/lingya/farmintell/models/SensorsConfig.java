@@ -6,6 +6,7 @@ import com.lingya.farmintell.modbus.Register;
 import com.lingya.farmintell.utils.JsonUtils;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 /**
  * 传感器配置信息
@@ -15,35 +16,6 @@ public class SensorsConfig {
 
 
     /**
-     * 主机 Id
-     */
-    private String hostId;
-
-    /**
-     * 主机 名称
-     */
-    private String hostName;
-
-    /**
-     * modbus 从站配置
-     */
-    private Station[] stations;
-
-    private int sensorCount;
-
-    /**
-     * 寄存器配置
-     */
-    private Register[] registers;
-    private String[] sensorIds;
-    private SensorConfig[] sensorConfigCache;
-
-    /*******************************************************************************************
-     * 静态工厂方法
-     *
-     *******************************************************************************************/
-
-    /**
      * 默认配置文件
      */
     private static final String configJsonFile = "sensorsConfig.json";
@@ -51,6 +23,30 @@ public class SensorsConfig {
      * 默认实例
      */
     private static SensorsConfig defaultInstance;
+    /**
+     * 主机 Id
+     */
+    private String hostId;
+    /**
+     * 主机 名称
+     */
+    private String hostName;
+    /**
+     * modbus 从站配置
+     */
+    private Station[] stations;
+    private int sensorCount;
+    /**
+     * 寄存器配置
+     */
+    private Register[] registers;
+
+    /*******************************************************************************************
+     * 静态工厂方法
+     *
+     *******************************************************************************************/
+    private String[] sensorIds;
+    private SensorConfig[] sensorConfigCache;
 
     /**
      * 从 Json 文件加载配置
@@ -247,6 +243,10 @@ public class SensorsConfig {
          * 量程 最大值
          */
         private int max;
+        /**
+         * 格式化数值
+         */
+        private DecimalFormat valueFormat;
 
         public String getId() {
             return id;
@@ -300,6 +300,13 @@ public class SensorsConfig {
          */
         public float getRange() {
             return Math.abs(max - min);
+        }
+
+        public String formatValue(float value) {
+            if (valueFormat == null) {
+                valueFormat = new DecimalFormat(getNumberFormat());
+            }
+            return valueFormat.format(value);
         }
     }
 }

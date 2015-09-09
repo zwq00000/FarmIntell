@@ -1,14 +1,10 @@
 package com.lingya.farmintell.models;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-
 /**
  * 传感器状态 Created by zwq00000 on 2015/6/22.
  */
 public class SensorStatus {
 
-    private static final NumberFormat VALUE_FORMAT = new DecimalFormat("#.00");
     private static final String NaNValue = "-";
     private final SensorsConfig.SensorConfig config;
     /**
@@ -56,7 +52,7 @@ public class SensorStatus {
         if (Float.isNaN(value)) {
             return NaNValue;
         }
-        return VALUE_FORMAT.format(value);
+        return getConfig().formatValue(value);
     }
 
     public String getDisplayName() {

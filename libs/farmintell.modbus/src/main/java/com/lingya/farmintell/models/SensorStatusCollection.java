@@ -1,6 +1,7 @@
 package com.lingya.farmintell.models;
 
 import com.lingya.farmintell.modbus.Register;
+import com.lingya.farmintell.utils.JsonUtils;
 
 import org.json.JSONException;
 import org.json.JSONStringer;
@@ -16,6 +17,11 @@ public class SensorStatusCollection {
      * 空集合
      */
     public static final SensorStatusCollection Empty = new SensorStatusCollection();
+
+    /**
+     * 通讯秘钥
+     */
+    private String token;
 
     /**
      * 传感器状态集合
@@ -53,6 +59,7 @@ public class SensorStatusCollection {
 
     private SensorStatusCollection() {
         this.updateTime = new Date();
+        statuses = new SensorStatus[0];
     }
 
     public SensorStatus[] getStatuses() {
@@ -95,11 +102,11 @@ public class SensorStatusCollection {
     public String toJson() throws JSONException {
         JSONStringer stringer = new JSONStringer();
         stringer.object()
+                .key("key").value(JsonUtils.genSecretkey(this.updateTime))
                 .key("hostId").value(hostId)
                 .key("hostName").value(hostName)
                 .key("type").value("SensorStatus")
                 .key("time").value("/Date(" + updateTime.getTime() + ")/")
-                //.key("time").value(updateTime.getTime())
                 .key("statuses")
                 .array();
         for (SensorStatus status : this.statuses) {

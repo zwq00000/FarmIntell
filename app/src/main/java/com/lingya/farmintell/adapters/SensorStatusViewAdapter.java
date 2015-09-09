@@ -88,7 +88,6 @@ public class SensorStatusViewAdapter implements ViewAdapter<SensorService.ISenso
         cardView.setNumberFormat(sensorConfig.getNumberFormat());
         cardView.setMaxValue(sensorConfig.getMax());
         cardView.setMinValue(sensorConfig.getMin());
-        cardView.setGaugeColor(palettes.get(i));
       }
     } catch (IOException e) {
       e.printStackTrace();

@@ -3,8 +3,8 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="com.lingya.farmintell.activities.SettingsActivity$GeneralPreferenceFragment"
-        android:title="@string/pref_header_general" />
+        android:fragment="com.lingya.farmintell.activities.ClientSettingsFragment"
+        android:title="@string/pref_header_client_settings" />
 
     <header
         android:fragment="com.lingya.farmintell.activities.SettingsActivity$NotificationPreferenceFragment"

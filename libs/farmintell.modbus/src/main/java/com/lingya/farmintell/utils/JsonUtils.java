@@ -1,6 +1,7 @@
 package com.lingya.farmintell.utils;
 
 import android.content.Context;
+import android.util.Base64;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
@@ -12,6 +13,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by zwq00000 on 2015/7/29.
@@ -19,10 +24,16 @@ import java.io.OutputStream;
 public class JsonUtils {
 
     static final Gson gson = new Gson();
+    //通讯秘钥 日期转换格式
+    static final DateFormat SECRET_KEY_DATE_FORMAT = new SimpleDateFormat("yyyyMMddhhmmss");
     /**
      * 配置文件 存放目录
      */
     private static final String SETTINGS_FILE_DIR = "settings";
+    // 通讯秘钥 字符串长度
+    private static final int SECRET_KEY_LENGTH = 10;
+    //加密算法
+    private static final String DIGEST_ALGORITHM = "SHA-1";
 
     /**
      * 复制 流 从 source 到 target,并关闭两个数据流
@@ -64,5 +75,33 @@ public class JsonUtils {
         } finally {
             stream.close();
         }
+    }
+
+    /**
+     * 生成 通讯秘钥
+     *
+     * @param date
+     * @return
+     * @throws NoSuchAlgorithmException
+     */
+    public static String genSecretkey(Date date) {
+        if (date == null) {
+            throw new IllegalArgumentException("data is not been null");
+        }
+        try {
+            return toBase64(digest(SECRET_KEY_DATE_FORMAT.format(date))).substring(0, SECRET_KEY_LENGTH);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return "No Key";
+    }
+
+    private static String toBase64(byte[] bytes) {
+        return Base64.encodeToString(bytes, Base64.DEFAULT); //ByteUtils.toHexString(bytes);
+    }
+
+    private static byte[] digest(String string) throws NoSuchAlgorithmException {
+        java.security.MessageDigest sha1 = java.security.MessageDigest.getInstance(DIGEST_ALGORITHM);
+        return sha1.digest(string.getBytes());
     }
 }

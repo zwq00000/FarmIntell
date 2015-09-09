@@ -46,7 +46,6 @@ public class GaugeView extends View {
   private int maxValue;
   private float value;
   private int mPointColor;
-  private String valueFormatPattern;
   /**
    * 指示部分大小
    */
@@ -62,7 +61,6 @@ public class GaugeView extends View {
   private float mTextWidth;
   private float mTextHeight;
   private float valueRange;
-  private String numberFormat;
   private Hsv[] percentColors;
 
   public GaugeView(Context context) {
@@ -87,7 +85,7 @@ public class GaugeView extends View {
     mStrokeColor = a.getColor(R.styleable.GaugeView_strokeColor, mStrokeColor);
     int index = a.getInt(R.styleable.GaugeView_strokeCap, -1);
     if (index > -1) {
-      setCapIndex(index);
+      setStrokeCap(index);
     }
 
     // angel start and sweep (opposite direction 0, 270, 180, 90)
@@ -101,14 +99,12 @@ public class GaugeView extends View {
     // pointer size and color
     mPointSize = a.getInt(R.styleable.GaugeView_pointSize, 0);
     pointColor = a.getColor(R.styleable.GaugeView_pointColor, Color.WHITE);
-    //gradientPointColor = HsvHelper.pure(pointColor).darker().toColor();
 
     // calculating one point sweep
     initPointAngle();
 
     String pattern = a.getString(R.styleable.GaugeView_valueFormatPattern);
     if (!TextUtils.isEmpty(pattern)) {
-      this.valueFormatPattern = pattern;
       this.valueFormat = new DecimalFormat(pattern);
     } else {
       this.valueFormat = new DecimalFormat("#");
@@ -205,6 +201,9 @@ public class GaugeView extends View {
     drawText(canvas, mRect);
   }
 
+  /**
+   * 重新测算 绘图参数
+   */
   private void invalidateTextPaintAndMeasurements() {
     if (text == null) {
       return;
@@ -256,6 +255,10 @@ public class GaugeView extends View {
   }
 
 
+  /**
+   * 计算 仪表指示盘 颜色
+   * @return
+   */
   int getPointColor() {
     float percent = Math.abs(this.value - this.minValue) / Math.abs(maxValue - minValue);
     if (percent < 0.5f) {
@@ -264,30 +267,47 @@ public class GaugeView extends View {
     return percentColors[1].gradient(percentColors[2], percent * 2 - 1).toColor();
   }
 
-  public void setPointColor(int pointColor) {
-    this.pointColor = pointColor;
-  }
-
+  /**
+   * 获取 仪表数值
+   * @return 仪表数值
+   */
   public float getValue() {
     return value;
   }
 
+  /**
+   * 设置 仪表 数值
+   * @param value
+   */
   public void setValue(float value) {
     this.value = value;
     setText(valueFormat.format(value));
     invalidate();
   }
 
+  /**
+   * 获取 仪表盘 文字内容
+   * @return
+   */
   public String getText() {
     return text;
   }
 
+  /**
+   * 设置 仪表盘 文字
+   * @param text
+   */
   public void setText(String text) {
     this.text = text;
     invalidateTextPaintAndMeasurements();
   }
 
-  public void setCapIndex(int capIndex) {
+  /**
+   * 设置 顶端样式 @eee Paint.Cap
+   *
+   * @param capIndex
+   */
+  public void setStrokeCap(int capIndex) {
     switch (capIndex) {
       case 0:
         this.mStrokeCap = Paint.Cap.BUTT;
@@ -317,8 +337,11 @@ public class GaugeView extends View {
     valueRange = Math.abs(maxValue - minValue);
   }
 
+  /**
+   * 设置 数值格式
+   * @param numberFormat
+   */
   public void setNumberFormat(String numberFormat) {
-    this.numberFormat = numberFormat;
     this.valueFormat.applyPattern(numberFormat);
 
   }
