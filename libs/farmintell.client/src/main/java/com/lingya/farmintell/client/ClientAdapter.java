@@ -1,12 +1,10 @@
-package com.lingya.farmintell;
+package com.lingya.farmintell.client;
 
 import android.content.Context;
 import android.os.PowerManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.URLUtil;
-
-import com.lingya.farmintell.mqttclient.MqttPreferences;
 
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -20,17 +18,62 @@ import java.io.Closeable;
 import java.io.IOException;
 
 import retrofit.RestAdapter;
+import retrofit.http.Body;
 import retrofit.http.Field;
 import retrofit.http.POST;
 
 /**
- * MQTT 客户端 适配器
+ * 客户端 适配器
  * Created by zwq00000 on 2015/6/22.
  */
 public abstract class ClientAdapter implements Closeable {
 
+    static WebApiClientAdapter webApiClientAdapter;
+    static MqttClientAdapter mqttClientAdapter;
+
+    /**
+     * 获取默认适配器
+     *
+     * @param context
+     * @return
+     * @throws MqttException
+     */
+    public static ClientAdapter getInstance(Context context) {
+        ClientAdapterPreferences preferences = ClientAdapterPreferences.getInstance(context);
+        String serverUrl = preferences.getServerUrl();
+        if (TextUtils.isEmpty(serverUrl)) {
+            return null;
+        }
+
+        if (preferences.isMqttServer()) {
+
+            if (mqttClientAdapter == null) {
+                try {
+                    mqttClientAdapter = new MqttClientAdapter(context, serverUrl);
+                } catch (MqttException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                mqttClientAdapter.setServerUrl(serverUrl);
+            }
+            return mqttClientAdapter;
+        } else {
+            if (webApiClientAdapter == null) {
+                try {
+                    webApiClientAdapter = new WebApiClientAdapter(context, serverUrl);
+                } catch (MqttException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                webApiClientAdapter.setServerUrl(serverUrl);
+            }
+            return webApiClientAdapter;
+        }
+    }
+
+
     private static final String TAG = "ClientAdapter";
-    private String serverUrl;
+    protected String serverUrl;
 
     private Context context;
 
@@ -79,10 +122,14 @@ public abstract class ClientAdapter implements Closeable {
     @Override
     public abstract void close() throws IOException;
 
+    public Context getContext() {
+        return context;
+    }
+
     /**
      * WebApi 客户端
      */
-    class WebApiClientAdapter extends ClientAdapter {
+    static class WebApiClientAdapter extends ClientAdapter {
 
         private FarmIntellWebApi webApi;
 
@@ -125,27 +172,34 @@ public abstract class ClientAdapter implements Closeable {
 
         @Override
         public void close() throws IOException {
-
         }
 
         /**
          * 发布数据
          */
         public void publish(String json) throws IOException {
-            if (webApi != null) {
-                webApi.postSensorStatus(json);
+            if (webApi == null) {
+                connect();
             }
+            if (webApi == null) {
+                return;
+            }
+            webApi.postSensorStatus(json);
         }
-
-
     }
 
+    /**
+     * WebApi 访问接口
+     */
     interface FarmIntellWebApi {
-        @POST("/Sensors")
-        void postSensorStatus(@Field("value") String json);
+        @POST("/api/Sensors")
+        String postSensorStatus(@Body String json);
     }
 
-    class MqttClientAdapter extends ClientAdapter {
+    /**
+     * MQTT 客户端适配器
+     */
+    static class MqttClientAdapter extends ClientAdapter {
 
         private MqttCallback callback = new MqttCallback() {
             @Override
@@ -179,7 +233,7 @@ public abstract class ClientAdapter implements Closeable {
          * 获取 发布主题
          */
         private String getTopic(Context context) {
-            return context.getPackageName().replace('.', '/') + "/" + MqttPreferences.getInstance(context)
+            return context.getPackageName().replace('.', '/') + "/" + ClientAdapterPreferences.getInstance(context)
                     .getClientId() + "/Sensors";
         }
 
@@ -206,7 +260,7 @@ public abstract class ClientAdapter implements Closeable {
                     //url 不合法
                     return;
                 }
-                PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+                PowerManager pm = (PowerManager) super.getContext().getSystemService(Context.POWER_SERVICE);
                 PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "mqtt client");
                 client = new MqttClient(serverUrl, "userId", new MemoryPersistence(), wl);
                 client.setCallback(this.callback);
@@ -239,13 +293,13 @@ public abstract class ClientAdapter implements Closeable {
          */
         @Override
         public void publish(String json) throws IOException {
-            if (client == null || !client.isConnected()) {
-                Log.e(TAG, "mqtt client is null or not connected");
-                return;
-            }
+
             if (json == null) {
                 Log.e(TAG, "publish content is not been null");
                 return;
+            }
+            if (client == null || !client.isConnected()) {
+                this.connect();
             }
             message.setPayload(json.getBytes());
             try {

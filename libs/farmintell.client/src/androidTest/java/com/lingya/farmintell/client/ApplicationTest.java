@@ -1,4 +1,4 @@
-package com.lingya.farmintell.mqttclient;
+package com.lingya.farmintell.client;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

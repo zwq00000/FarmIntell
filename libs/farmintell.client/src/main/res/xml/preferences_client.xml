@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/category_server">
+        <SwitchPreference
+            android:key="@string/key_server_type"
+            android:switchTextOff="@string/use_webapi"
+            android:switchTextOn="@string/use_mqtt"
+            android:title="@string/title_server_type" />
+        <EditTextPreference
+            android:dependency="@string/key_server_type"
+            android:editable="true"
+            android:key="@string/key_mqtt_address"
+            android:lines="1"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:title="@string/title_mqtt_address" />
+        <EditTextPreference
+            android:editable="true"
+            android:key="@string/key_server_url"
+            android:lines="1"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:title="@string/title_server_url"></EditTextPreference>
+        <EditTextPreference
+            android:key="@string/key_client_id"
+            android:text="@string/title_client_id"
+            android:title="@string/title_client_id" />
+
+        <!-- 发送间隔时间 -->
+        <ListPreference
+            android:defaultValue="@string/default_send_interval"
+            android:entries="@array/entries_interval"
+            android:entryValues="@array/entries_values_interval"
+            android:key="@string/key_send_interval"
+            android:title="@string/title_send_interval" />
+    </PreferenceCategory>
+</PreferenceScreen>

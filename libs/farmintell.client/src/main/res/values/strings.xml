@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">FarmIntell.Client</string>
+    <string name="title_mqtt_address">MQTT 服务器地址</string>
+    <string name="caption_mqtt_port">服务器端口</string>
+    <string name="caption_sencers">传感器设置</string>
+    <string name="category_server">服务器设置</string>
+
+    <string name="key_server_url">mqtt_server_address</string>
+    <string name="key_mqtt_port">mqtt_server_port</string>
+    <string name="key_client_id">mqtt_client_id</string>
+    <string name="title_client_id">本机Id</string>
+    <string name="pref_header_mqtt_server">MQTT 服务端设置</string>
+
+    <string name="use_webapi">使用WebAPI</string>
+    <string name="use_mqtt">使用 MQTT</string>
+    <string name="title_server_type">服务端类型</string>
+    <string name="key_server_type">server_type</string>
+    <string name="title_server_url">服务器Url</string>
+    <string name="key_mqtt_address">mqtt_address</string>
+    <string name="title_send_interval">发送间隔时间</string>
+    <string name="key_send_interval">send_interval</string>
+    <string name="default_send_interval">30</string>
+</resources>
