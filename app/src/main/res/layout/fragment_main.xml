@@ -59,24 +59,28 @@
                         android:layout_weight="1"
                         android:orientation="horizontal">
 
-                    <com.lingya.farmintell.ui.SensorCardView android:id="@+id/tv11"
+                    <com.lingya.farmintell.ui.SensorCardView
+                        android:id="@+id/tv11"
                         style="@style/CardView.Light"
                                                              android:layout_width="0dp"
                                                              android:layout_height="match_parent"
                                                              android:layout_weight="1"
                         android:orientation="vertical" />
-                    <com.lingya.farmintell.ui.SensorCardView android:id="@+id/tv12"
+                    <com.lingya.farmintell.ui.SensorCardView
+                        android:id="@+id/tv12"
                                                              android:layout_width="0dp"
                                                              android:layout_height="match_parent"
                                                              android:layout_weight="1"
                                                              android:orientation="vertical"
                             />
-                    <com.lingya.farmintell.ui.SensorCardView android:id="@+id/tv13"
+                    <com.lingya.farmintell.ui.SensorCardView
+                        android:id="@+id/tv13"
                                                              android:layout_width="0dp"
                                                              android:layout_height="match_parent"
                                                              android:layout_weight="1"
                                                              android:orientation="vertical"/>
-                    <com.lingya.farmintell.ui.SensorCardView android:id="@+id/tv14"
+                    <com.lingya.farmintell.ui.SensorCardView
+                        android:id="@+id/tv14"
                                                              android:layout_width="0dp"
                                                              android:layout_height="match_parent"
                                                              android:layout_weight="1"
@@ -89,25 +93,29 @@
                         android:layout_weight="1"
                         android:orientation="horizontal">
 
-                    <com.lingya.farmintell.ui.SensorCardView android:id="@+id/tv21"
+                    <com.lingya.farmintell.ui.SensorCardView
+                        android:id="@+id/tv21"
                                                              android:layout_width="0dp"
                                                              android:layout_height="match_parent"
                                                              android:layout_weight="1"
                                                              android:orientation="vertical"
                             />
-                    <com.lingya.farmintell.ui.SensorCardView android:id="@+id/tv22"
+                    <com.lingya.farmintell.ui.SensorCardView
+                        android:id="@+id/tv22"
                                                              android:layout_width="0dp"
                                                              android:layout_height="match_parent"
                                                              android:layout_weight="1"
                                                              android:orientation="vertical"
                             />
-                    <com.lingya.farmintell.ui.SensorCardView android:id="@+id/tv23"
+                    <com.lingya.farmintell.ui.SensorCardView
+                        android:id="@+id/tv23"
                                                              android:layout_width="0dp"
                                                              android:layout_height="match_parent"
                                                              android:layout_weight="1"
                                                              android:orientation="vertical"
                             />
-                    <com.lingya.farmintell.ui.SensorCardView android:id="@+id/tv24"
+                    <com.lingya.farmintell.ui.SensorCardView
+                        android:id="@+id/tv24"
                                                              android:layout_width="0dp"
                                                              android:layout_height="match_parent"
                                                              android:layout_weight="1"
@@ -121,25 +129,29 @@
                         android:layout_weight="1"
                         android:orientation="horizontal">
 
-                    <com.lingya.farmintell.ui.SensorCardView android:id="@+id/tv31"
+                    <com.lingya.farmintell.ui.SensorCardView
+                        android:id="@+id/tv31"
                                                              android:layout_width="0dp"
                                                              android:layout_height="match_parent"
                                                              android:layout_weight="1"
                                                              android:orientation="vertical"
                             />
-                    <com.lingya.farmintell.ui.SensorCardView android:id="@+id/tv32"
+                    <com.lingya.farmintell.ui.SensorCardView
+                        android:id="@+id/tv32"
                                                              android:layout_width="0dp"
                                                              android:layout_height="match_parent"
                                                              android:layout_weight="1"
                                                              android:orientation="vertical"
                             />
-                    <com.lingya.farmintell.ui.SensorCardView android:id="@+id/tv33"
+                    <com.lingya.farmintell.ui.SensorCardView
+                        android:id="@+id/tv33"
                                                              android:layout_width="0dp"
                                                              android:layout_height="match_parent"
                                                              android:layout_weight="1"
                                                              android:orientation="vertical"
                             />
-                    <com.lingya.farmintell.ui.SensorCardView android:id="@+id/tv34"
+                    <com.lingya.farmintell.ui.SensorCardView
+                        android:id="@+id/tv34"
                                                              android:layout_width="0dp"
                                                              android:layout_height="match_parent"
                                                              android:layout_weight="1"

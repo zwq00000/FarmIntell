@@ -3,7 +3,7 @@
         xmlns:gauge="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <com.lingya.farmintell.ui.SensorCardView
+    <com.lingya.farmintell.client.ui.SensorCardView
             android:background="#ccc"
             android:layout_width="490dp"
             android:layout_height="405dp"

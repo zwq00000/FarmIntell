@@ -29,10 +29,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".CamMonitorActivity"
-            android:label="@string/title_activity_cam_monitor">
-        </activity>
+
+        <activity android:name=".activities.ClientSettingsFragment"
+            android:label="@string/label_client_settings"></activity>
 
         <!-- Http server websocket broadcast -->
         <receiver

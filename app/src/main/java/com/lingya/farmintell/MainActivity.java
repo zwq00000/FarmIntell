@@ -1,34 +1,24 @@
 package com.lingya.farmintell;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.mikephil.charting.charts.LineChart;
-import com.lingya.farmintell.adapters.MPLineChartAdapter;
-import com.lingya.farmintell.adapters.MainClockAdapter;
 import com.lingya.farmintell.adapters.SensorAdapterFactory;
-import com.lingya.farmintell.adapters.SensorLogListAdapter;
-import com.lingya.farmintell.adapters.SensorStatusViewAdapter;
-import com.lingya.farmintell.models.RealmFactory;
-
-import java.util.Locale;
-
-import io.realm.Realm;
+import com.lingya.farmintell.activities.ClientSettingsFragment;
+import com.lingya.farmintell.ui.MainFragment;
+import com.lingya.farmintell.ui.SensorListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -43,12 +33,15 @@ public class MainActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     ViewPager mViewPager;
+    private SensorAdapterFactory sensorAdapterFactory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        sensorAdapterFactory = SensorAdapterFactory.getInstance(this);
+        sensorAdapterFactory.bindService();
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -57,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
+        mViewPager.addOnPageChangeListener(mSectionsPagerAdapter);
     }
 
 
@@ -77,105 +70,23 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            this.startActivity(new Intent(this, ClientSettingsFragment.class));
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    public static class MainFragment extends android.support.v4.app.Fragment {
-        // TODO: Rename parameter arguments, choose names that match
-        // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
-        // TODO: Rename and change types of parameters
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        private View view;
-        private SensorAdapterFactory adapterFactory;
-        private SensorStatusViewAdapter sensorAdapter;
-
-        public MainFragment() {
-            // Required empty public constructor
-        }
-
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @return A new instance of fragment MainFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        static MainFragment newInstance(int sectionNum) {
-            MainFragment fragment = new MainFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNum);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            if (view == null) {
-                view = inflater.inflate(R.layout.fragment_main, container, false);
-            }
-            return view;
-        }
-
-        @Override
-        public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-            super.onActivityCreated(savedInstanceState);
-            initSensorStatusViewAdapter();
-        }
-
-        /**
-         * 初始化 传感器状态 适配器
-         */
-        void initSensorStatusViewAdapter() {
-
-            this.adapterFactory = SensorAdapterFactory.getInstance(this.getActivity());
-            adapterFactory.bindService();
-
-            this.sensorAdapter = new SensorStatusViewAdapter();
-            sensorAdapter.bindView((ViewGroup) this.getView().findViewById(R.id.statusView));
-            sensorAdapter.setViewData(adapterFactory.getBinder());
-            adapterFactory.registViewAdapter(sensorAdapter);
-
-            MainClockAdapter mainBlock = new MainClockAdapter();
-            mainBlock.bindView((ViewGroup) this.getView().findViewById(R.id.mainView));
-            mainBlock.setViewData(adapterFactory.getBinder());
-            adapterFactory.registViewAdapter(mainBlock);
-
-
-            final MPLineChartAdapter lineChart = new MPLineChartAdapter(this.getActivity(),
-                    (LineChart) this.getView().findViewById(R.id.chart));
-            lineChart.setViewData(adapterFactory.getBinder());
-            sensorAdapter.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Object tag = v.getTag();
-                    if (tag != null && tag instanceof String) {
-                        lineChart.showSensorHistory(tag.toString());
-                    }
-                }
-            });
-            adapterFactory.registViewAdapter(lineChart);
-        }
-
-    }
-
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    public class SectionsPagerAdapter extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
 
-        private Realm realm;
+        Fragment[] fagments = new Fragment[]{
+                MainFragment.newInstance(0, sensorAdapterFactory),
+                SensorListFragment.newInstance(1, sensorAdapterFactory)
+        };
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -187,16 +98,9 @@ public class MainActivity extends AppCompatActivity {
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0:
-                    return MainFragment.newInstance(position);
+                    return fagments[0];
                 case 1:
-                    ListFragment listFragment = new ListFragment();
-                    Context context = MainActivity.this;
-                    if (realm == null) {
-                        realm = RealmFactory.getInstance(context);
-                    }
-                    SensorLogListAdapter listAdapter = SensorLogListAdapter.createInstance(context, realm);
-                    listFragment.setListAdapter(listAdapter);
-                    return listFragment;
+                    return fagments[1];
             }
             return null;
         }
@@ -204,12 +108,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
             super.destroyItem(container, position, object);
-            if (position == 1) {
-                if (realm != null) {
-                    realm.close();
-                    realm = null;
-                }
-            }
         }
 
         @Override
@@ -220,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            Locale l = Locale.getDefault();
+            //Locale l = Locale.getDefault();
             switch (position) {
                 case 0:
                     return "";
@@ -230,6 +128,23 @@ public class MainActivity extends AppCompatActivity {
                     return "";
             }
             return null;
+        }
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            if (position == 1) {
+                ((SensorListFragment) fagments[1]).notifyDataSetChanged();
+            }
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
         }
     }
 

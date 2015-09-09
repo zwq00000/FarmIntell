@@ -53,6 +53,7 @@ public class SensorStatusCollection {
 
     private SensorStatusCollection() {
         this.updateTime = new Date();
+        statuses = new SensorStatus[0];
     }
 
     public SensorStatus[] getStatuses() {
