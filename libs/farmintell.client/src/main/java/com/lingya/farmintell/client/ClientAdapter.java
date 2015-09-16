@@ -19,7 +19,6 @@ import java.io.IOException;
 
 import retrofit.RestAdapter;
 import retrofit.http.Body;
-import retrofit.http.Field;
 import retrofit.http.POST;
 
 /**
@@ -28,15 +27,26 @@ import retrofit.http.POST;
  */
 public abstract class ClientAdapter implements Closeable {
 
+    private static final String TAG = "ClientAdapter";
     static WebApiClientAdapter webApiClientAdapter;
     static MqttClientAdapter mqttClientAdapter;
+    protected String serverUrl;
+    private Context context;
+
+    public ClientAdapter(Context context, String serverUrl) throws IOException {
+        this(context);
+        this.serverUrl = serverUrl;
+    }
+
+    public ClientAdapter(Context context) throws IOException {
+        this.context = context;
+    }
 
     /**
      * 获取默认适配器
      *
      * @param context
      * @return
-     * @throws MqttException
      */
     public static ClientAdapter getInstance(Context context) {
         ClientAdapterPreferences preferences = ClientAdapterPreferences.getInstance(context);
@@ -50,7 +60,7 @@ public abstract class ClientAdapter implements Closeable {
             if (mqttClientAdapter == null) {
                 try {
                     mqttClientAdapter = new MqttClientAdapter(context, serverUrl);
-                } catch (MqttException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             } else {
@@ -61,7 +71,7 @@ public abstract class ClientAdapter implements Closeable {
             if (webApiClientAdapter == null) {
                 try {
                     webApiClientAdapter = new WebApiClientAdapter(context, serverUrl);
-                } catch (MqttException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             } else {
@@ -71,21 +81,9 @@ public abstract class ClientAdapter implements Closeable {
         }
     }
 
-
-    private static final String TAG = "ClientAdapter";
-    protected String serverUrl;
-
-    private Context context;
-
-    public ClientAdapter(Context context, String serverUrl) throws MqttException {
-        this(context);
-        this.serverUrl = serverUrl;
+    public String getServerUrl() {
+        return serverUrl;
     }
-
-    public ClientAdapter(Context context) throws MqttException {
-        this.context = context;
-    }
-
 
     /**
      * 设置 服务端 地址
@@ -98,11 +96,6 @@ public abstract class ClientAdapter implements Closeable {
         }
         this.serverUrl = serverUrl;
     }
-
-    public String getServerUrl() {
-        return serverUrl;
-    }
-
 
     /**
      * 建立 连接
@@ -127,14 +120,28 @@ public abstract class ClientAdapter implements Closeable {
     }
 
     /**
+     * WebApi 访问接口
+     */
+    interface FarmIntellWebApi {
+        @POST("/api/Sensors")
+        String postSensorStatus(@Body String json);
+    }
+
+    /**
      * WebApi 客户端
      */
     static class WebApiClientAdapter extends ClientAdapter {
 
         private FarmIntellWebApi webApi;
+        private RestAdapter.LogLevel logLevel = RestAdapter.LogLevel.BASIC;
+        ;
 
-        public WebApiClientAdapter(Context context, String serverUrl) throws MqttException {
+        public WebApiClientAdapter(Context context, String serverUrl) throws IOException {
             super(context, serverUrl);
+
+            //if ("debug".equals(BuildConfig.BUILD_TYPE)) {
+            logLevel = RestAdapter.LogLevel.FULL;
+            //}
         }
 
         /**
@@ -156,8 +163,12 @@ public abstract class ClientAdapter implements Closeable {
             if (!isValidUrl(getServerUrl())) {
                 return;
             }
-            RestAdapter adapter = new RestAdapter.Builder().setEndpoint(getServerUrl())
-                    .setLogLevel(RestAdapter.LogLevel.FULL)
+
+
+            RestAdapter adapter = new RestAdapter.Builder()
+                    .setConverter(new JsonStringConvert())
+                    .setEndpoint(getServerUrl())
+                    .setLogLevel(logLevel)
                     .build();
             webApi = adapter.create(FarmIntellWebApi.class);
         }
@@ -189,14 +200,6 @@ public abstract class ClientAdapter implements Closeable {
     }
 
     /**
-     * WebApi 访问接口
-     */
-    interface FarmIntellWebApi {
-        @POST("/api/Sensors")
-        String postSensorStatus(@Body String json);
-    }
-
-    /**
      * MQTT 客户端适配器
      */
     static class MqttClientAdapter extends ClientAdapter {
@@ -224,7 +227,7 @@ public abstract class ClientAdapter implements Closeable {
         private String topic;
         private MqttClient client;
 
-        public MqttClientAdapter(Context context, String serverUrl) throws MqttException {
+        public MqttClientAdapter(Context context, String serverUrl) throws IOException {
             super(context, serverUrl);
             this.topic = getTopic(context);
         }

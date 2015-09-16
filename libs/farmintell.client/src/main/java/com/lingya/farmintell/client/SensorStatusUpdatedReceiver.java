@@ -73,7 +73,7 @@ public class SensorStatusUpdatedReceiver extends BroadcastReceiver {
                     adapter.publish(jsonStr);
                 } catch (IOException e) {
                     e.printStackTrace();
-                }catch (Exception ex){
+                } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
