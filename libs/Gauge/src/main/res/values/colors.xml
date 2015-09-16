@@ -4,4 +4,37 @@
         <item>#FFEB3B</item>
         <item>#FF5722</item>
     </array >
+
+    <array name="testColors">
+        <item>#9f38b0</item>
+        <item>#a149b0</item>
+        <item>#a45bb0</item>
+        <item>#a66db0</item>
+        <item>#a97fb0</item>
+        <item>#ac91b0</item>
+        <item>#aea2b0</item>
+        <item>#b0b0b0</item>
+        <item>#b0b0b0</item>
+        <item>#b0b0b0</item>
+        <item>#8b139f</item>
+        <item>#7b028f</item>
+        <item>#6d0080</item>
+        <item>#620073</item>
+        <item>#590068</item>
+        <item>#50005d</item>
+        <item>#480054</item>
+        <item>#41004c</item>
+        <item>#3a0044</item>
+        <item>#34003d</item>
+        <item>#8d239f</item>
+        <item>#7f1f8f</item>
+        <item>#711c80</item>
+        <item>#661973</item>
+        <item>#5c1668</item>
+        <item>#52145d</item>
+        <item>#4b1254</item>
+        <item>#43104c</item>
+        <item>#3c0f44</item>
+        <item>#360d3d</item>
+    </array>
 </resources>

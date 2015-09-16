@@ -18,6 +18,7 @@ public class Hsv {
      * HSV 结构中 亮度 位置
      */
     private static final int VALUE = 2;
+    private static final char[] Hexes = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     private static Hsv defaultInstance = new Hsv(0);
     float[] hsv = new float[3];
 
@@ -166,5 +167,11 @@ public class Hsv {
     Hsv setColor(int color) {
         Color.colorToHSV(color, this.hsv);
         return this;
+    }
+
+    @Override
+    public String toString() {
+        int color = toColor();
+        return "#" + Integer.toHexString(color).substring(2);
     }
 }
