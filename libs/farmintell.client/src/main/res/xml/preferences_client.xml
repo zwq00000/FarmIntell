@@ -6,19 +6,14 @@
             android:switchTextOff="@string/use_webapi"
             android:switchTextOn="@string/use_mqtt"
             android:title="@string/title_server_type" />
-        <EditTextPreference
-            android:dependency="@string/key_server_type"
-            android:editable="true"
-            android:key="@string/key_mqtt_address"
-            android:lines="1"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:title="@string/title_mqtt_address" />
+
         <EditTextPreference
             android:editable="true"
-            android:key="@string/key_server_url"
+            android:key="@string/key_server_address"
             android:lines="1"
             android:marqueeRepeatLimit="marquee_forever"
-            android:title="@string/title_server_url"></EditTextPreference>
+            android:title="@string/title_server_address" />
+
         <EditTextPreference
             android:key="@string/key_client_id"
             android:text="@string/title_client_id"

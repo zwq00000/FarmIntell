@@ -7,23 +7,20 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 
-import com.lingya.farmintell.client.R;
-
 
 /**
  * MQTT client 设置首选 Created by zwq00000 on 2015/6/12.
  */
 public class ClientAdapterPreferences {
 
-  private static String KEY_SEND_INTERVAL;
-  private static String KEY_MQTT_ADDRESS  ;
+  private static final String EMPTY_STRING = "";
   public static String KEY_CLIENT_ID;
   public static String KEY_MQTT_PORT;
-  public static String KEY_SERVER_URL;
+  private static String KEY_SEND_INTERVAL;
   private static ClientAdapterPreferences mInstance;
-  protected final SharedPreferences preferences;
+  private static String KEY_SERVER_ADDRESS;
   private static String KEY_SERVER_TYPE;
-  private static final String EMPTY_STRING = "";
+  protected final SharedPreferences preferences;
 
   protected ClientAdapterPreferences(Context context) {
     preferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -36,11 +33,10 @@ public class ClientAdapterPreferences {
     if (mInstance == null) {
       mInstance = new ClientAdapterPreferences(context);
       Resources resource = context.getResources();
-      KEY_SERVER_URL = resource.getString(R.string.key_server_url);
+      KEY_SERVER_ADDRESS = resource.getString(R.string.key_server_address);
       KEY_SERVER_TYPE = resource.getString(R.string.key_server_type);
       KEY_MQTT_PORT = resource.getString(R.string.key_mqtt_port);
       KEY_CLIENT_ID = resource.getString(R.string.key_client_id);
-      KEY_MQTT_ADDRESS = resource.getString(R.string.key_mqtt_address);
       KEY_SEND_INTERVAL = resource.getString(R.string.key_send_interval);
     }
     return mInstance;
@@ -53,14 +49,14 @@ public class ClientAdapterPreferences {
   public String getServerUrl() {
     String url;
     if(isMqttServer()) {
-      String address = preferences.getString(KEY_MQTT_ADDRESS, EMPTY_STRING);
+      String address = preferences.getString(KEY_SERVER_ADDRESS, EMPTY_STRING);
       if (TextUtils.isEmpty(address)) {
         return EMPTY_STRING;
       }
       int port = preferences.getInt(KEY_MQTT_PORT, 1883);
       url = "tcp://" + address + ":" + port;
     }else{
-       url = preferences.getString(KEY_SERVER_URL, EMPTY_STRING);
+      url = "http://" + preferences.getString(KEY_SERVER_ADDRESS, EMPTY_STRING);
     }
     if(URLUtil.isValidUrl(url)){
       return url;
@@ -73,7 +69,7 @@ public class ClientAdapterPreferences {
   }
 
   /**
-   * ���� �ַ� Ĭ��ֵ
+   * 设置 首选项值
    */
   protected void setValue(String key, String value) {
     SharedPreferences.Editor editor = preferences.edit();

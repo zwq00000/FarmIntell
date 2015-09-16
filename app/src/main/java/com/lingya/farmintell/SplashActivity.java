@@ -24,7 +24,7 @@ public class SplashActivity extends Activity {
   }
 
   public void mainClick(View view) {
-    Intent mainIntent = new Intent(this, FragmentMasterActivity.class);
+    Intent mainIntent = new Intent(this, MainActivity.class);
     this.startActivity(mainIntent);
     this.finish();
   }

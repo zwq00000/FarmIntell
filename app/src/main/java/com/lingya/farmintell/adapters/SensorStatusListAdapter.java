@@ -26,7 +26,6 @@ import java.util.Date;
 
 import io.realm.Realm;
 import io.realm.RealmQuery;
-import io.realm.RealmResults;
 
 /**
  * 传感器状态 列表 适配器
@@ -38,9 +37,7 @@ public class SensorStatusListAdapter extends BaseAdapter {
     private final LayoutInflater inflater;
     private final Realm realm;
     private final SensorService.ISensorBinder sensorBinder;
-    private TextView sensorId;
     private TextView sensorName;
-    private TextView updateTime;
 
     private NumberFormat numberFormat = DecimalFormat.getCurrencyInstance();
 
@@ -97,18 +94,19 @@ public class SensorStatusListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.listitem_sensorlog, null);
+            ((ImageView) convertView.findViewById(R.id.list_item_icon)).setImageDrawable(null);
         }
         //updateTime = (TextView) convertView.findViewById(R.id.list_item_time);
         sensorName = (TextView) convertView.findViewById(R.id.list_item_name);
         ImageView iconView = (ImageView) convertView.findViewById(R.id.list_item_icon);
 
-        SensorStatus status = (SensorStatus) this.getItem(position);
+        final SensorStatus status = (SensorStatus) this.getItem(position);
         //传感器名称
         sensorName.setText(status.getDisplayName() + "  " + status.getFormatedValue() + " " + status.getConfig().getUnit());
 
         //设置 icon
         if (iconView.getDrawable() == null) {
-            iconView.setImageDrawable(getIcon(status.getName()));
+            iconView.setImageResource(getIcon(status.getName()));
         }
 
         //更新时间
@@ -119,38 +117,41 @@ public class SensorStatusListAdapter extends BaseAdapter {
         sensorValue.post(new Runnable() {
             @Override
             public void run() {
-                sensorValue.setText(query(sensorId));
+                sensorValue.setText(query(status.getConfig()));
             }
         });//.setText(numberFormat.format(sensorLog.getValue()));
         return convertView;
     }
 
-    private String query(String sensorId) {
-        //new SensorLog().getSensorId()
-        RealmQuery<SensorLog> query = realm.where(SensorLog.class).equalTo("sensorId", sensorId)
+    private String query(SensorsConfig.SensorConfig config) {
+        RealmQuery<SensorLog> query = realm.where(SensorLog.class).equalTo("sensorId", config.getId())
                 .greaterThan("time", new Date(System.currentTimeMillis() - 1000 * 60 * 24));
-        //query.maximumFloat("value");
-        //query.minimumFloat("value");
-        return "最大值:" + query.maximumFloat("value") + " 最小值" + query.minimumFloat("value");
+        return "最大值:" + config.formatValue(query.maximumFloat("value")) + " 最小值" + config.formatValue(query.minimumFloat("value"));
 
     }
 
-    private Drawable getIcon(String sensorName) {
+    /**
+     * 根据 传感器类型 获取 图标
+     *
+     * @param sensorName
+     * @return
+     */
+    private int getIcon(String sensorName) {
         switch (sensorName) {
             case "temp":
-                return this.context.getResources().getDrawable(R.drawable.thermometer_3_4);
+                return (R.drawable.thermometer_3_4);
             case "hum":
-                return context.getResources().getDrawable(R.drawable.fog);
+                return (R.drawable.fog);
             case "co2":
-                return context.getResources().getDrawable(R.drawable.co2);
+                return (R.drawable.co2);
             case "light":
-                return context.getResources().getDrawable(R.drawable.sun);
+                return (R.drawable.sun);
             case "soilWater":
-                return context.getResources().getDrawable(R.drawable.umbrella);
+                return (R.drawable.umbrella);
             case "soilTemp":
-                return context.getResources().getDrawable(R.drawable.thermometer_full);
+                return (R.drawable.thermometer_full);
         }
-        return null;
+        return 0;
     }
 
     private Drawable getAssetsIcon(String iconName) {
