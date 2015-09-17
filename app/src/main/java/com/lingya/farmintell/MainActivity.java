@@ -11,8 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 
-import com.lingya.farmintell.adapters.SensorAdapterFactory;
 import com.lingya.farmintell.activities.ClientSettingsFragment;
+import com.lingya.farmintell.adapters.SensorAdapterFactory;
 import com.lingya.farmintell.ui.MainFragment;
 import com.lingya.farmintell.ui.SensorListFragment;
 
@@ -137,9 +137,9 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onPageSelected(int position) {
-            if (position == 1) {
-                ((SensorListFragment) fagments[1]).notifyDataSetChanged();
-            }
+            //if (position == 1) {
+            ((SensorListFragment) fagments[1]).setShown(position == 1);
+            //}
         }
 
         @Override

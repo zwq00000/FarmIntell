@@ -13,6 +13,8 @@ import retrofit.mime.TypedInput;
 import retrofit.mime.TypedOutput;
 
 /**
+ * retrofit RestAdapter Converter
+ * 如果 发送数据是 字符串 类型，则当做 Json 数据发送，否则 使用 @see GsonConverter 进行转换
  * Created by zwq00000 on 15-9-16.
  */
 class JsonStringConvert implements Converter {

@@ -3,12 +3,14 @@ package com.lingya.farmintell.ui;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.lingya.farmintell.adapters.SensorAdapterFactory;
 import com.lingya.farmintell.adapters.SensorStatusListAdapter;
+import com.lingya.farmintell.adapters.ViewAdapter;
 
 /**
  * Created by zwq00000 on 15-9-8.
@@ -19,6 +21,7 @@ public class SensorListFragment extends ListFragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     private SensorStatusListAdapter listAdapter;
     private SensorAdapterFactory adapterFactory;
+    private boolean isShown;
 
     public SensorListFragment() {
 
@@ -41,7 +44,24 @@ public class SensorListFragment extends ListFragment {
 
         listAdapter = SensorStatusListAdapter.createInstance(context, adapterFactory.getBinder());
         this.setListAdapter(listAdapter);
+        adapterFactory.registViewAdapter(new ViewAdapter() {
+            @Override
+            public void setViewData(Object viewData) {
 
+            }
+
+            @Override
+            public void bindView(ViewGroup container) {
+
+            }
+
+            @Override
+            public void notifyDataChanged() {
+                if (isShown) {
+                    listAdapter.notifyDataSetChanged();
+                }
+            }
+        });
         return view;
     }
 
@@ -58,7 +78,11 @@ public class SensorListFragment extends ListFragment {
      * Notifies the attached observers that the underlying data has been changed
      * and any View reflecting the data set should refresh itself.
      */
-    public void notifyDataSetChanged() {
-        this.listAdapter.notifyDataSetChanged();
+    public void setShown(boolean isShown) {
+        this.isShown = isShown;
+        Log.d(TAG, "isShown:" + isShown + " isVisible:" + isVisible());
+        if (isShown) {
+            this.listAdapter.notifyDataSetChanged();
+        }
     }
 }

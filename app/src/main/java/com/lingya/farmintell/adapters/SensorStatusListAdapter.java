@@ -2,8 +2,8 @@ package com.lingya.farmintell.adapters;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +18,6 @@ import com.lingya.farmintell.models.SensorStatus;
 import com.lingya.farmintell.models.SensorsConfig;
 import com.lingya.farmintell.services.SensorService;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.Date;
 
 import io.realm.Realm;
@@ -33,13 +29,18 @@ import io.realm.RealmQuery;
  */
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class SensorStatusListAdapter extends BaseAdapter {
+    /**
+     * 统计数据 更新间隔
+     */
+    private static final int UPDATE_SUMMARY_INTERVAL = 1000 * 60;
     private final Context context;
     private final LayoutInflater inflater;
     private final Realm realm;
     private final SensorService.ISensorBinder sensorBinder;
-    private TextView sensorName;
-
-    private NumberFormat numberFormat = DecimalFormat.getCurrencyInstance();
+    /**
+     * 下一次更新统计数据时间
+     */
+    private long lastUpdateTime = System.currentTimeMillis();
 
 
     public SensorStatusListAdapter(Context context, SensorService.ISensorBinder sensorBinder) {
@@ -92,41 +93,38 @@ public class SensorStatusListAdapter extends BaseAdapter {
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        final SensorStatus status = (SensorStatus) this.getItem(position);
+
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.listitem_sensorlog, null);
-            ((ImageView) convertView.findViewById(R.id.list_item_icon)).setImageDrawable(null);
-        }
-        //updateTime = (TextView) convertView.findViewById(R.id.list_item_time);
-        sensorName = (TextView) convertView.findViewById(R.id.list_item_name);
-        ImageView iconView = (ImageView) convertView.findViewById(R.id.list_item_icon);
 
-        final SensorStatus status = (SensorStatus) this.getItem(position);
-        //传感器名称
-        sensorName.setText(status.getDisplayName() + "  " + status.getFormatedValue() + " " + status.getConfig().getUnit());
-
-        //设置 icon
-        if (iconView.getDrawable() == null) {
+            ImageView iconView = (ImageView) convertView.findViewById(R.id.list_item_icon);
             iconView.setImageResource(getIcon(status.getName()));
+
+            ((TextView) convertView.findViewById(R.id.list_item_value)).setText("");
         }
 
-        //更新时间
-        //updateTime.setText(DateFormat.getTimeFormat(context).format(new Date()));
-        //值
-        final String sensorId = status.getId();
+        TextView sensorNameView = (TextView) convertView.findViewById(R.id.list_item_name);
+        //传感器名称
+        sensorNameView.setText(status.getDisplayName() + "  " + status.getFormatedValue() + " " + status.getConfig().getUnit());
+
         final TextView sensorValue = (TextView) convertView.findViewById(R.id.list_item_value);
-        sensorValue.post(new Runnable() {
-            @Override
-            public void run() {
-                sensorValue.setText(query(status.getConfig()));
-            }
-        });//.setText(numberFormat.format(sensorLog.getValue()));
+        if (lastUpdateTime < System.currentTimeMillis() || TextUtils.isEmpty(sensorValue.getText())) {
+            sensorValue.post(new Runnable() {
+                @Override
+                public void run() {
+                    sensorValue.setText(query(status.getConfig()));
+                }
+            });
+            lastUpdateTime += UPDATE_SUMMARY_INTERVAL;
+        }
         return convertView;
     }
 
     private String query(SensorsConfig.SensorConfig config) {
         RealmQuery<SensorLog> query = realm.where(SensorLog.class).equalTo("sensorId", config.getId())
                 .greaterThan("time", new Date(System.currentTimeMillis() - 1000 * 60 * 24));
-        return "最大值:" + config.formatValue(query.maximumFloat("value")) + " 最小值" + config.formatValue(query.minimumFloat("value"));
+        return "最大值:" + config.formatValue(query.maximumFloat("value")) + " 最小值:" + config.formatValue(query.minimumFloat("value"));
 
     }
 
@@ -152,26 +150,6 @@ public class SensorStatusListAdapter extends BaseAdapter {
                 return (R.drawable.thermometer_full);
         }
         return 0;
-    }
-
-    private Drawable getAssetsIcon(String iconName) {
-        InputStream stream = null;
-        try {
-            stream = this.context.getAssets().open("icons/" + iconName + ".png");
-            return Drawable.createFromStream(stream, iconName);
-        } catch (IOException e) {
-            e.printStackTrace();
-
-        } finally {
-            if (stream != null) {
-                try {
-                    stream.close();
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-            }
-        }
-        return null;
     }
 
     public void onDestroy() {
