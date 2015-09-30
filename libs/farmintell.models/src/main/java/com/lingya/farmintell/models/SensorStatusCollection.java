@@ -1,12 +1,12 @@
 package com.lingya.farmintell.models;
 
-import com.lingya.farmintell.modbus.Register;
 import com.lingya.farmintell.utils.JsonUtils;
 
 import org.json.JSONException;
 import org.json.JSONStringer;
 
 import java.util.Date;
+import java.util.Iterator;
 
 /**
  * 传感器状态集合 Created by zwq00000 on 2015/6/29.
@@ -28,9 +28,6 @@ public class SensorStatusCollection {
      */
     private SensorStatus[] statuses;
 
-    /**
-     * 更新时间
-     */
     private Date updateTime;
 
     /**
@@ -58,7 +55,7 @@ public class SensorStatusCollection {
     }
 
     private SensorStatusCollection() {
-        this.updateTime = new Date();
+        this.setUpdateTime(new Date());
         statuses = new SensorStatus[0];
     }
 
@@ -66,30 +63,35 @@ public class SensorStatusCollection {
         return this.statuses;
     }
 
+    /**
+     * 更新时间
+     */
     public Date getUpdateTime() {
         return updateTime;
     }
 
+    /**
+     * 设置更新时间
+     *
+     * @param updateTime
+     */
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
 
     /**
      * 更新传感器状态值
      *
-     * @param registers
+     * @param values
      */
-    public void updateSensorStatus(Register[] registers) {
-        if (registers == null) {
+    public void updateSensorStatus(Iterator<Float> values) {
+        if (values == null) {
             throw new IllegalArgumentException("registers is not been null");
         }
-        this.updateTime = new Date();
-        int index = 0;
-        for (Register register : registers) {
-            Register.Sensor[] sensores = register.getSensors();
-            for (int s = 0; s < sensores.length; s++) {
-                Register.Sensor sensor = sensores[s];
-                SensorStatus status = statuses[index];
-                status.setValue(sensor.getValue());
-                index++;
-            }
+
+        int i = 0;
+        while (values.hasNext()) {
+            statuses[i++].setValue(values.next());
         }
     }
 
@@ -102,11 +104,11 @@ public class SensorStatusCollection {
     public String toJson() throws JSONException {
         JSONStringer stringer = new JSONStringer();
         stringer.object()
-                .key("key").value(JsonUtils.genSecretkey(this.updateTime))
+                .key("key").value(JsonUtils.genSecretkey(this.getUpdateTime()))
                 .key("hostId").value(hostId)
                 .key("hostName").value(hostName)
                 .key("type").value("SensorStatus")
-                .key("time").value("/Date(" + updateTime.getTime() + ")/")
+                .key("time").value("/Date(" + getUpdateTime().getTime() + ")/")
                 .key("statuses")
                 .array();
         for (SensorStatus status : this.statuses) {

@@ -4,9 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.lingya.farmintell.modbus.Register;
-import com.lingya.farmintell.utils.CalendarUtils;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -49,19 +46,6 @@ public class RealmFactory {
         }
     }
 
-    /**
-     * 更新 传感器状态
-     */
-    public static void updateSensorStatus(Register[] registers,
-                                          SensorStatusCollection statusCollection) {
-        if (registers == null) {
-            throw new IllegalArgumentException("registers is not been null");
-        }
-        if (statusCollection == null) {
-            throw new IllegalArgumentException("statusCollection is not been null");
-        }
-        statusCollection.updateSensorStatus(registers);
-    }
 
     /**
      * 寄存器数组 转换为 传感器记录
@@ -160,6 +144,7 @@ public class RealmFactory {
         RealmQuery<SensorAverage>
                 query =
                 SensorAverageHelper.query(realm, sensorId, startCalendar, endCalendar);
+
         float max = query.maximumFloat("maximum");
         float min = query.minimumFloat("minimum");
         RealmResults<SensorAverage> queryResults = query.findAll();

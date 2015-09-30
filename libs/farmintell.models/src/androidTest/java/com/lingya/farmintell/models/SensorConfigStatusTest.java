@@ -3,7 +3,6 @@ package com.lingya.farmintell.models;
 import android.test.AndroidTestCase;
 
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
 
 /**
  * 测试传感器状态 Created by zwq00000 on 2015/6/22.
@@ -24,8 +23,8 @@ public class SensorConfigStatusTest extends AndroidTestCase {
         if (realm != null) {
             realm.close();
         }
-        RealmConfiguration config = new RealmConfiguration.Builder(getContext()).build();
-        Realm.deleteRealm(config);
+        //RealmConfiguration config = new RealmConfiguration.Builder(getContext()).build();
+        //Realm.deleteRealm(config);
     }
 
 }

@@ -6,12 +6,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
 
-import com.lingya.farmintell.utils.CalendarUtils;
-
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 import io.realm.Realm;
 import io.realm.RealmQuery;
@@ -27,20 +24,26 @@ public class SensorAverageHelper {
      * 下一次更新时间
      */
     private static Date nextUpdateTime;
+    // 批量更新 工作现场
+    private static Thread batchUpdateThread;
     private static BroadcastReceiver averageUpdateOnTimeTick = new BroadcastReceiver() {
         @Override
         public void onReceive(final Context context, Intent intent) {
             Log.d(TAG, "averageUpdateOnTimeTick");
             final long currentTime = System.currentTimeMillis();
             if (nextUpdateTime == null) {
-                nextUpdateTime = getNextUpdateTime(context).getTime();
+                nextUpdateTime = getLatestUpdateTime(context).getTime();
                 Log.d(TAG, "update average " + nextUpdateTime.toLocaleString());
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        batchUpdateAverages(context, currentTime);
-                    }
-                });
+                if (batchUpdateThread == null) {
+                    batchUpdateThread = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            batchUpdateAverages(context, currentTime);
+                            batchUpdateThread = null;
+                        }
+                    });
+                    batchUpdateThread.start();
+                }
                 return;
             }
 
@@ -55,7 +58,7 @@ public class SensorAverageHelper {
                 SensorsConfig sensors = SensorsConfig.getDefaultInstance(context);
                 String[] ids = sensors.getSensorIds();
                 Log.d(TAG, "append sensors AVG " + nextUpdateTime.toLocaleString());
-                SensorAverageHelper.appendAverage(realm, ids, nextUpdateTime);
+                nextUpdateTime = SensorAverageHelper.appendAverage(realm, ids, nextUpdateTime);
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
@@ -74,11 +77,11 @@ public class SensorAverageHelper {
      */
     public static void batchUpdateAverages(Context context, long endTime) {
         Realm realm = null;
+        Date nextTime = getLatestUpdateTime(context).getTime();
         try {
             realm = RealmFactory.getInstance(context);
             SensorsConfig sensors = SensorsConfig.getDefaultInstance(context);
             String[] ids = sensors.getSensorIds();
-            Date nextTime = getNextUpdateTime(context).getTime();
             while (endTime >= nextTime.getTime()) {
                 Log.d(TAG, "append sensors AVG " + nextTime.toLocaleString());
                 nextTime = SensorAverageHelper.appendAverage(realm, ids, nextTime);
@@ -89,13 +92,15 @@ public class SensorAverageHelper {
             if (realm != null) {
                 realm.close();
             }
+            nextUpdateTime = nextTime;
         }
     }
 
     /**
-     * 获取下一次更新时间
+     * 获取 最近一次 平均值 统计时间
+     * 如果 平均值 表为空，则 返回 传感器日志最早的时间 作为 计算统计表的开始时间
      */
-    private static Calendar getNextUpdateTime(Context context) {
+    public static Calendar getLatestUpdateTime(Context context) {
         Realm realm = null;
         try {
             Calendar endCalendar = CalendarUtils.getStartCalendar(new Date());
@@ -157,19 +162,6 @@ public class SensorAverageHelper {
     }
 
     /**
-     * 追加 平均值
-     */
-    public static void appendAverage(Realm realm, final SensorStatusCollection statusCollection) {
-        SensorStatus[] statuses = statusCollection.getStatuses();
-        String[] ids = new String[statuses.length];
-
-        for (int i = 0; i < statuses.length; i++) {
-            ids[i] = statuses[i].getId();
-        }
-        appendAverage(realm, ids, statusCollection.getUpdateTime());
-    }
-
-    /**
      * 追加平均值记录
      *
      * @param realm
@@ -181,6 +173,9 @@ public class SensorAverageHelper {
                                      final Date updateTime) {
         final Calendar startCalendar = CalendarUtils.getStartCalendar(updateTime);
         final Calendar endCalendar = CalendarUtils.getEndCalendar(updateTime);
+        //DEBUG
+        Log.d(TAG, "startCalendar:" + startCalendar.getTime().toLocaleString() + " endCalendar:" + endCalendar.getTime().toLocaleString());
+
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -188,6 +183,10 @@ public class SensorAverageHelper {
                     RealmQuery<SensorLog> query = realm.where(SensorLog.class)
                             .equalTo("sensorId", sensorId)
                             .between("time", startCalendar.getTime(), endCalendar.getTime());
+                    if (query.count() == 0) {
+                        Log.d(TAG, "SenserLog " + sensorId + " is Empty");
+                        continue;
+                    }
                     float value = (float) query.averageFloat("value");
                     SensorAverage instance = realm.createObject(SensorAverage.class);
                     instance.setSensorId(sensorId);
@@ -200,8 +199,7 @@ public class SensorAverageHelper {
                 }
             }
         });
-        nextUpdateTime = endCalendar.getTime();
-        return nextUpdateTime;
+        return endCalendar.getTime();
     }
 
     public static RealmQuery<SensorAverage> query(Realm realm, String sensorId, Date startTime,
@@ -211,6 +209,15 @@ public class SensorAverageHelper {
         return query(realm, sensorId, startCalendar, endCalendar);
     }
 
+    /**
+     * 根据所给 开始时间 和结束 时间 查询 @see SensorAverage
+     *
+     * @param realm
+     * @param sensorId
+     * @param startCalendar
+     * @param endCalendar
+     * @return
+     */
     public static RealmQuery<SensorAverage> query(Realm realm, String sensorId,
                                                   Calendar startCalendar,
                                                   Calendar endCalendar) {
@@ -221,26 +228,9 @@ public class SensorAverageHelper {
             endCalendar.setTimeInMillis(temp);
         }
 
-        RealmQuery<SensorAverage> query = realm.where(SensorAverage.class).equalTo("sensorId", sensorId)
+        return realm.where(SensorAverage.class)
+                .equalTo("sensorId", sensorId)
                 .greaterThanOrEqualTo("startTime", startCalendar.getTime())
-                .lessThan("endTime", endCalendar.getTime());
-        long
-                hours =
-                TimeUnit.MILLISECONDS
-                        .toHours(Math.abs(endCalendar.getTimeInMillis() - startCalendar.getTimeInMillis()));
-        if (hours < query.count()) {
-            Calendar calendar = (Calendar) startCalendar.clone();
-            for (int i = 0; i < hours; i++) {
-                if (!hasInstance(realm, sensorId, calendar.getTime())) {
-                    appendAverage(realm, new String[]{sensorId}, calendar.getTime());
-                }
-                calendar.add(Calendar.HOUR, 1);
-            }
-
-            query = realm.where(SensorAverage.class).equalTo("sensorId", sensorId)
-                    .greaterThanOrEqualTo("startTime", startCalendar.getTime())
-                    .lessThanOrEqualTo("endTime", endCalendar.getTime());
-        }
-        return query;
+                .lessThanOrEqualTo("endTime", endCalendar.getTime());
     }
 }

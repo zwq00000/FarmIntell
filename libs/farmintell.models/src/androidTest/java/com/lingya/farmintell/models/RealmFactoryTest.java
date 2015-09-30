@@ -65,7 +65,7 @@ public class RealmFactoryTest extends AndroidTestCase {
             //collection.setUpdateTime(startCalendar.getTime());
             RealmFactory.appendSensorLog(realm, collection);
             startCalendar.add(Calendar.MINUTE, 1);
-            Log.d(TAG, "insert SensorLog " + i);
+            //Log.d(TAG, "insert SensorLog " + i);
         }
 
         assertEquals(realm.getTable(SensorLog.class).size(), orgSize + 24 * 60 * 5 * 4);
@@ -75,12 +75,7 @@ public class RealmFactoryTest extends AndroidTestCase {
         Calendar startCalendar = GregorianCalendar.getInstance();
 
         String[] ids = new String[]{
-                "1-0",
-                "1-1",
-                "1-2",
-                "1-3",
-                "2-0",
-                "2-1",
+                "1-1"
         };
 
         for (String id : ids) {
@@ -92,7 +87,13 @@ public class RealmFactoryTest extends AndroidTestCase {
 
             Gson gson = new GsonBuilder().serializeSpecialFloatingPointValues().create();
             TypeAdapter<SensorSummary> adapter = gson.getAdapter(SensorSummary.class);
-            System.out.println(adapter.toJson(summary));
+            Log.d(TAG, adapter.toJson(summary));
+
+            for (float value : summary.getAverages()
+                    ) {
+                assertFalse(Float.isInfinite(value));
+            }
+            assertEquals(summary.getAverages().length, 23);
         }
     }
 }

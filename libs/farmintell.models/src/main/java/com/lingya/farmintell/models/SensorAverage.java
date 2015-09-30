@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import io.realm.RealmObject;
+import io.realm.annotations.Index;
 
 /**
  * 传感器平均值 Created by zwq00000 on 2015/8/2.
@@ -13,6 +14,7 @@ public class SensorAverage extends RealmObject {
     /**
      * 传感器Id
      */
+    @Index
     private String sensorId;
 
     /**
@@ -38,11 +40,13 @@ public class SensorAverage extends RealmObject {
     /**
      * 开始时间
      */
+    @Index
     private Date startTime;
 
     /**
      * 结束时间
      */
+    @Index
     private Date endTime;
 
     public SensorAverage(String sensorId, Calendar startCalendar, Calendar endCalendar,

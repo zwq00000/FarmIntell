@@ -20,6 +20,7 @@ public class SensorLog extends RealmObject {
     /**
      * 测量时间
      */
+    @Index
     private Date time;
 
     /**

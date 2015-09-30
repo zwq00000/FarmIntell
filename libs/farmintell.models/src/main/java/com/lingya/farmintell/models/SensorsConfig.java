@@ -2,7 +2,6 @@ package com.lingya.farmintell.models;
 
 import android.content.Context;
 
-import com.lingya.farmintell.modbus.Register;
 import com.lingya.farmintell.utils.JsonUtils;
 
 import java.io.IOException;
@@ -36,10 +35,6 @@ public class SensorsConfig {
      */
     private Station[] stations;
     private int sensorCount;
-    /**
-     * 寄存器配置
-     */
-    private Register[] registers;
 
     /*******************************************************************************************
      * 静态工厂方法
@@ -140,22 +135,6 @@ public class SensorsConfig {
     }
 
     /**
-     * 获取 寄存器配置
-     */
-    public Register[] getRegisters() {
-        if (this.stations == null) {
-            throw new NullPointerException("stations is not been null");
-        }
-        if (registers == null) {
-            registers = new Register[this.stations.length];
-            for (int i = 0; i < stations.length; i++) {
-                registers[i] = stations[i].toRegister();
-            }
-        }
-        return registers;
-    }
-
-    /**
      * modbus Slave station
      */
     public class Station {
@@ -192,16 +171,6 @@ public class SensorsConfig {
             return sensors;
         }
 
-        /**
-         * 转换为 寄存器配置
-         */
-        Register toRegister() {
-            Register.Sensor mSensors[] = new Register.Sensor[this.sensors.length];
-            for (int i = 0; i < mSensors.length; i++) {
-                mSensors[i] = this.sensors[i].toSensor();
-            }
-            return new Register(this.slaveId, this.model, mSensors);
-        }
     }
 
     /**
@@ -270,10 +239,6 @@ public class SensorsConfig {
 
         public int getMax() {
             return max;
-        }
-
-        Register.Sensor toSensor() {
-            return new Register.Sensor(this.getId(), this.getName(), this.getFactor());
         }
 
         public float getFactor() {

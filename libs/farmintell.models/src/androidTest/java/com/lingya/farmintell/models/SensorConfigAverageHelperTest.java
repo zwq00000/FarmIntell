@@ -2,11 +2,13 @@ package com.lingya.farmintell.models;
 
 import android.test.AndroidTestCase;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 import io.realm.Realm;
+import io.realm.RealmObject;
 import io.realm.RealmResults;
 
 /**
@@ -59,14 +61,28 @@ public class SensorConfigAverageHelperTest extends AndroidTestCase {
         assertFalse(result);
     }
 
+    //清理 SensorLog 表
+    private void clearTable(final Class<? extends RealmObject> clazz) {
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                realm.getTable(clazz).clear();
+                assertEquals(realm.getTable(clazz).size(), 0);
+            }
+        });
+    }
+
     public void testAppendAverage() throws Exception {
         String[] ids = new String[]{"1-0", "1-1", "1-2", "1-3", "2-0", "2-1"};
-        int lastSize = realm.where(SensorAverage.class).findAll().size();
+        clearTable(SensorAverage.class);
+
+        testAppendSensorLog();
+
         SensorAverageHelper.appendAverage(realm, ids, new Date());
-        assertEquals(realm.where(SensorAverage.class).findAll().size(), lastSize + 6);
+
+        assertEquals(realm.where(SensorAverage.class).findAll().size(), ids.length);
         RealmResults<SensorAverage> all = realm.where(SensorAverage.class).findAll();
-        for (SensorAverage average :
-                all) {
+        for (SensorAverage average : all) {
             System.out.println(
                     average.getSensorId() + "\t" + average.getAverage() + "\t" + average.getStartTime() + "\t"
                             + average.getEndTime());
@@ -74,8 +90,18 @@ public class SensorConfigAverageHelperTest extends AndroidTestCase {
         assertTrue(SensorAverageHelper.hasInstance(realm, "1-0", new Date()));
     }
 
-    public void testAppendAverage1() throws Exception {
+    public void testAppendSensorLog() throws Exception {
+        clearTable(SensorLog.class);
 
+        SensorsConfig config = SensorsConfig.getDefaultInstance(getContext());
+        SensorStatusCollection coll = new SensorStatusCollection(config);
+        ArrayList<Float> values = new ArrayList<Float>();
+        for (int i = 0; i < coll.size(); i++) {
+            values.add(new Float(i));
+        }
+        coll.updateSensorStatus(values.iterator());
+        RealmFactory.appendSensorLog(realm, coll);
+        assertEquals(realm.getTable(SensorLog.class).size(), config.getSensorsCount());
     }
 
     public void testGetStartCalendar() throws Exception {
