@@ -14,6 +14,7 @@ import android.util.Log;
 
 import com.lingya.farmintell.modbus.ModbusRegisterReader;
 import com.lingya.farmintell.modbus.Register;
+import com.lingya.farmintell.modbus.RegisterFactory;
 import com.lingya.farmintell.models.RealmFactory;
 import com.lingya.farmintell.models.SensorAverageHelper;
 import com.lingya.farmintell.models.SensorLog;
@@ -85,6 +86,23 @@ public class SensorService extends Service {
                     }
                 }
             };
+
+    /**
+     * 更新 传感器状态
+     */
+    private static void updateSensorStatus(Register[] registers,
+                                           SensorStatusCollection statusCollection) {
+        if (registers == null) {
+            throw new IllegalArgumentException("registers is not been null");
+        }
+        if (statusCollection == null) {
+            throw new IllegalArgumentException("statusCollection is not been null");
+        }
+        if (registers == null) {
+            throw new IllegalArgumentException("registers is not been null");
+        }
+        statusCollection.updateSensorStatus(RegisterFactory.toValueIterator(registers));
+    }
 
     @Override
     public void onCreate() {
@@ -165,7 +183,7 @@ public class SensorService extends Service {
                 config =
                 SensorsConfig.getDefaultInstance(this);
         // modbus 传感器集合
-        Register[] registers = config.getRegisters();
+        Register[] registers = RegisterFactory.createRegisters(config);
         if (registers == null) {
             throw new IOException("初始化失败,没有设置 传感器");
         }
@@ -206,7 +224,7 @@ public class SensorService extends Service {
      */
     private void updateSensorStatus(Register... holders) {
         Log.v(TAG, "update sensor status");
-        RealmFactory.updateSensorStatus(holders, this.statusCollection);
+        updateSensorStatus(holders, this.statusCollection);
         if (System.currentTimeMillis() >= lastAppendLogTime) {
             RealmFactory.appendSensorLog(defaultRealm, statusCollection);
             lastAppendLogTime = System.currentTimeMillis() + APPEND_LOG_INTERVAL;

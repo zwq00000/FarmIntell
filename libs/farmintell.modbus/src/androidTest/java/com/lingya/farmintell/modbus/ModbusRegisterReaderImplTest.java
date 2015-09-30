@@ -2,6 +2,7 @@ package com.lingya.farmintell.modbus;
 
 import android.test.AndroidTestCase;
 
+import com.lingya.farmintell.models.SensorsConfig;
 import com.redriver.modbus.Holder;
 import com.redriver.modbus.ReadHoldingRegistersRequest;
 import com.redriver.modbus.ReadInputRegistersRequest;
@@ -56,7 +57,9 @@ public class ModbusRegisterReaderImplTest extends AndroidTestCase {
     }
 
     public void testOpen() throws Exception {
-        Register[] registers = RegisterFactory.loadFromJson(getContext());
+        SensorsConfig config = SensorsConfig.getDefaultInstance(getContext());
+
+        Register[] registers = RegisterFactory.createRegisters(config);
         assertNotNull(registers);
         assertEquals(registers.length, 2);
         SerialPortFactory portFactory = SerialPortFactory.getInstance();
