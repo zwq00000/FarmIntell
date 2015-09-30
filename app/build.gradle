@@ -30,7 +30,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:cardview-v7:22.2.1'
     compile project(':farmintell.httpserver')
     compile project(':farmintell.modbus')

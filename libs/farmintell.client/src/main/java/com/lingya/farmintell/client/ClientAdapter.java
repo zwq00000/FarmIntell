@@ -164,7 +164,6 @@ public abstract class ClientAdapter implements Closeable {
                 return;
             }
 
-
             RestAdapter adapter = new RestAdapter.Builder()
                     .setConverter(new JsonStringConvert())
                     .setEndpoint(getServerUrl())
@@ -174,10 +173,23 @@ public abstract class ClientAdapter implements Closeable {
         }
 
         /**
+         * 设置 服务端 地址
+         *
+         * @param serverUrl
+         */
+        @Override
+        public void setServerUrl(String serverUrl) {
+            if (!TextUtils.equals(serverUrl, super.serverUrl)) {
+                super.setServerUrl(serverUrl);
+                disconnect();
+            }
+        }
+
+        /**
          * 断开连接
          */
         @Override
-        public void disconnect() throws IOException {
+        public void disconnect() {
             webApi = null;
         }
 

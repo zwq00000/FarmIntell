@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/libs/farmintell.client" />
             <option value="$PROJECT_DIR$/libs/farmintell.httpserver" />
             <option value="$PROJECT_DIR$/libs/farmintell.modbus" />
+            <option value="$PROJECT_DIR$/libs/farmintell.models" />
             <option value="$PROJECT_DIR$/libs/qrcode.encoder" />
           </set>
         </option>

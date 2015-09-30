@@ -1,7 +1,8 @@
-include ':app', ':farmintell.modbus', ':farmintell.client', ':farmintell.httpserver', ':Gauge',
+include ':app', ':farmintell.modbus', ':farmintell.client', ':farmintell.httpserver', ':Gauge', ':farmintell.models',
         ':qrcode.encoder'
 project(':farmintell.modbus').projectDir = new File('libs/farmintell.modbus')
 project(':farmintell.client').projectDir = new File('libs/farmintell.client')
+project(':farmintell.models').projectDir = new File('libs/farmintell.models')
 project(':farmintell.httpserver').projectDir = new File('libs/farmintell.httpserver')
 project(':Gauge').projectDir = new File('libs/Gauge')
 project(':qrcode.encoder').projectDir = new File('libs/qrcode.encoder')
