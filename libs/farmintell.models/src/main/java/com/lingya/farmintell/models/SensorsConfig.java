@@ -61,6 +61,16 @@ public class SensorsConfig {
         return defaultInstance;
     }
 
+    /**
+     * 获取默认 配置实例
+     * 返回值可能为空
+     *
+     * @return @Nullable
+     */
+    public static SensorsConfig getDefaultInstance() {
+        return defaultInstance;
+    }
+
 
     public String getHostId() {
         return hostId;

@@ -159,14 +159,6 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
         leftAxis.setTextColor(ColorTemplate.getHoloBlue());
         leftAxis.setAxisMaxValue(200f);
         leftAxis.setDrawGridLines(true);
-
-        /*YAxis rightAxis = lineChart.getAxisRight();
-        //rightAxis.setTypeface(tf);
-        rightAxis.setTextColor(Color.RED);
-        rightAxis.setAxisMaxValue(900);
-        rightAxis.setStartAtZero(false);
-        rightAxis.setAxisMinValue(-200);
-        rightAxis.setDrawGridLines(false);*/
     }
 
     public void setViewData(SensorSummary sensorSummary) {
@@ -279,13 +271,6 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
         axisLeft.setAxisMinValue(config.getMin());
         axisLeft.setDrawAxisLine(true);
         axisLeft.setStartAtZero(false);
-
-        /*YAxis rightAxis = lineChart.getAxisRight();
-        rightAxis.setAxisMaxValue(config.getMax());
-        rightAxis.setStartAtZero(false);
-        rightAxis.setAxisMinValue(config.getMin());
-        rightAxis.setDrawGridLines(false);
-        */
     }
 
     private LineData initLineData(SensorsConfig.SensorConfig config) {
@@ -431,12 +416,11 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
             SensorAdapterFactory factory = SensorAdapterFactory.getInstance(this.context);
             SensorSummary summary = factory.getBinder().get24HourlySummary(sensorId);
 
-
             if (summary.size() > 1) {
                 setViewData(summary);
             }
-
-            Toast.makeText(context, sensorId + " 数量:" + summary.size()
+            SensorsConfig.SensorConfig config = summary.getSensorConfog();
+            Toast.makeText(context, config.getDisplayName() + " 数量:" + summary.size()
                     + " 最大:" + summary.getMaximum()
                     + " 最小:" + summary.getMinimum()
                     , Toast.LENGTH_SHORT).show();
@@ -447,10 +431,7 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
         if (sensorSummary == null || lineChart == null) {
             return;
         }
-
-        SensorsConfig.SensorConfig config = SensorsConfig.getDefaultInstance(this.context).
-                findSensorConfig(sensorSummary.getSensorId());
-
+        SensorsConfig.SensorConfig config = sensorSummary.getSensorConfog();
         updateYAxis(config);
         LineData lineData = createLineData(config);
         LineDataSet lineDataSet = lineData.getDataSets().get(0);

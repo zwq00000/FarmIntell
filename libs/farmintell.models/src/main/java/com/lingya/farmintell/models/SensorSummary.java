@@ -12,6 +12,10 @@ public class SensorSummary {
 
     private static final SimpleDateFormat SHORT_TIME_FORMAT = new SimpleDateFormat("HH");
     /**
+     * 传感器配置
+     */
+    private SensorsConfig.SensorConfig sensorConfog;
+    /**
      * 传感器Id
      */
     private String sensorId;
@@ -50,6 +54,11 @@ public class SensorSummary {
         this();
         this.sensorId = sensorId;
         startCalendar.setTime(beginTime);
+        SensorsConfig config = SensorsConfig.getDefaultInstance();
+        if (config != null) {
+            sensorConfog = config.findSensorConfig(sensorId);
+        }
+
     }
 
     public String getSensorId() {
@@ -120,5 +129,9 @@ public class SensorSummary {
             return 0;
         }
         return averages.length;
+    }
+
+    public SensorsConfig.SensorConfig getSensorConfog() {
+        return sensorConfog;
     }
 }
