@@ -20,6 +20,7 @@ import com.lingya.farmintell.models.SensorsConfig;
 import com.lingya.farmintell.services.SensorService;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import io.realm.Realm;
 import io.realm.RealmQuery;
@@ -155,8 +156,10 @@ public class SensorStatusListAdapter extends BaseAdapter {
      * @return
      */
     private String query(SensorsConfig.SensorConfig config) {
-        RealmQuery<SensorLog> query = realm.where(SensorLog.class).equalTo("name", config.getName())
-                .greaterThan("time", new Date(System.currentTimeMillis() - 1000 * 60 * 24));
+        RealmQuery<SensorLog> query = realm.where(SensorLog.class)
+                .equalTo("name", config.getName())
+                .greaterThan("time", new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(1)));
+
         return "最大值:" + config.formatValue(query.maximumFloat("value")) + " 最小值:" + config.formatValue(query.minimumFloat("value"));
     }
 

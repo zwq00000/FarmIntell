@@ -45,13 +45,8 @@
     <bookmark url="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MPLineChartAdapter.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab585bf6-77f6-459d-a331-3123eead3394" name="Default" comment="按照传感器类型 分组显示 数据,增加 SensorType 枚举类型，默认配置 设定为 2组传感器">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorStatusCollection.java" afterPath="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorStatusCollection.java" />
+    <list default="true" id="ab585bf6-77f6-459d-a331-3123eead3394" name="Default" comment="修订 历史数据查询条件，从1天前开始">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.models/build.gradle" afterPath="$PROJECT_DIR$/libs/farmintell.models/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.modbus/farmintell.modbus.iml" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/farmintell.modbus.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.models/farmintell.models.iml" afterPath="$PROJECT_DIR$/libs/farmintell.models/farmintell.models.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="2e665e17-9880-4ab0-9493-8ab1fc39c4e5" name="Failed commit: Default" comment="更新WebApi 通讯功能和传感器列表">
@@ -949,14 +944,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SensorStatusListAdapter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SensorStatusListAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16113745">
-              <caret line="149" column="5" selection-start-line="149" selection-start-column="5" selection-end-line="149" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="160" column="93" selection-start-line="160" selection-start-column="93" selection-end-line="160" selection-end-column="93" />
               <folding>
-                <element signature="e#2354#2355#0" expanded="true" />
-                <element signature="e#2405#2406#0" expanded="true" />
+                <element signature="e#2369#2370#0" expanded="true" />
+                <element signature="e#2420#2421#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimeUnit.java" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/java/util/concurrent/TimeUnit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5876777">
+              <caret line="201" column="16" selection-start-line="201" selection-start-column="16" selection-end-line="201" selection-end-column="16" />
+              <folding>
+                <element signature="e#9111#9112#0" expanded="true" />
+                <element signature="e#9158#9159#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -986,11 +994,11 @@
         <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorStatusCollection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="118" column="26" selection-start-line="118" selection-start-column="26" selection-end-line="118" selection-end-column="26" />
+              <caret line="116" column="26" selection-start-line="116" selection-start-column="26" selection-end-line="116" selection-end-column="26" />
               <folding>
-                <element signature="e#1815#1829#0" expanded="true" />
-                <element signature="e#2392#2393#0" expanded="true" />
-                <element signature="e#2428#2429#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#2347#2348#0" expanded="true" />
+                <element signature="e#2383#2384#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1037,19 +1045,6 @@
               <folding>
                 <element signature="e#3116#3117#0" expanded="true" />
                 <element signature="e#3157#3158#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SensorsConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorsConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="151" column="5" selection-start-line="151" selection-start-column="5" selection-end-line="151" selection-end-column="5" />
-              <folding>
-                <element signature="e#1779#1780#0" expanded="true" />
-                <element signature="e#1810#1811#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -9044,7 +9039,13 @@
       <option name="project" value="LOCAL" />
       <updated>1447227921253</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="按照传感器类型 分组显示 数据,增加 SensorType 枚举类型，默认配置 设定为 2组传感器&#10;修订 相关性能问题，增加 根据类型查找 传感器状态">
+      <created>1447233534316</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1447233534316</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -9067,7 +9068,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3823934" sideWeight="0.15321924" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24678664" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3823934" sideWeight="0.8467808" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3823934" sideWeight="0.8467808" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49243465" sideWeight="0.6748166" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48280606" sideWeight="0.7991038" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41403025" sideWeight="0.72336614" order="13" side_tool="false" content_ui="tabs" />
@@ -9132,7 +9133,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
     <MESSAGE value="First commit" />
@@ -9149,7 +9149,8 @@
     <MESSAGE value="更新WebApi 通讯功能和传感器列表" />
     <MESSAGE value="图表提示信息 显示 Sensor Name,SensorSummary 类型增加 getSensorConfig 方法" />
     <MESSAGE value="按照传感器类型 分组显示 数据,增加 SensorType 枚举类型，默认配置 设定为 2组传感器" />
-    <option name="LAST_COMMIT_MESSAGE" value="按照传感器类型 分组显示 数据,增加 SensorType 枚举类型，默认配置 设定为 2组传感器" />
+    <MESSAGE value="按照传感器类型 分组显示 数据,增加 SensorType 枚举类型，默认配置 设定为 2组传感器&#10;修订 相关性能问题，增加 根据类型查找 传感器状态" />
+    <option name="LAST_COMMIT_MESSAGE" value="按照传感器类型 分组显示 数据,增加 SensorType 枚举类型，默认配置 设定为 2组传感器&#10;修订 相关性能问题，增加 根据类型查找 传感器状态" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -9264,13 +9265,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/Register.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="233" column="21" selection-start-line="233" selection-start-column="21" selection-end-line="233" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/utils/JsonUtilsTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -9659,22 +9653,33 @@
     <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorStatusCollection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="118" column="26" selection-start-line="118" selection-start-column="26" selection-end-line="118" selection-end-column="26" />
+          <caret line="116" column="26" selection-start-line="116" selection-start-column="26" selection-end-line="116" selection-end-column="26" />
           <folding>
-            <element signature="e#1815#1829#0" expanded="true" />
-            <element signature="e#2392#2393#0" expanded="true" />
-            <element signature="e#2428#2429#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2347#2348#0" expanded="true" />
+            <element signature="e#2383#2384#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16113745">
-          <caret line="149" column="5" selection-start-line="149" selection-start-column="5" selection-end-line="149" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="160" column="93" selection-start-line="160" selection-start-column="93" selection-end-line="160" selection-end-column="93" />
           <folding>
-            <element signature="e#2354#2355#0" expanded="true" />
-            <element signature="e#2405#2406#0" expanded="true" />
+            <element signature="e#2369#2370#0" expanded="true" />
+            <element signature="e#2420#2421#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/java/util/concurrent/TimeUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5876777">
+          <caret line="201" column="16" selection-start-line="201" selection-start-column="16" selection-end-line="201" selection-end-column="16" />
+          <folding>
+            <element signature="e#9111#9112#0" expanded="true" />
+            <element signature="e#9158#9159#0" expanded="true" />
           </folding>
         </state>
       </provider>
