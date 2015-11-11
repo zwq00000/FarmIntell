@@ -1,5 +1,7 @@
 package com.lingya.farmintell.models;
 
+import android.support.v4.util.ArrayMap;
+
 import com.lingya.farmintell.utils.JsonUtils;
 
 import org.json.JSONException;
@@ -8,7 +10,7 @@ import org.json.JSONStringer;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.List;
+import java.util.Map;
 
 /**
  * 传感器状态集合 Created by zwq00000 on 2015/6/29.
@@ -42,6 +44,8 @@ public class SensorStatusCollection {
      */
     private String hostName;
 
+    private Map<String, SensorStatus[]> statusMap;
+
     public SensorStatusCollection(SensorsConfig config) {
         this();
         if (config == null) {
@@ -49,16 +53,37 @@ public class SensorStatusCollection {
         }
         this.hostId = config.getHostId();
         this.hostName = config.getHostName();
+        this.statusMap = new ArrayMap<String, SensorStatus[]>(6);
         this.statuses = new SensorStatus[config.getSensorsCount()];
         SensorsConfig.SensorConfig[] sensorConfigs = config.getSensors();
         for (int i = 0; i < sensorConfigs.length; i++) {
-            statuses[i] = new SensorStatus(sensorConfigs[i]);
+            SensorsConfig.SensorConfig item = sensorConfigs[i];
+            statuses[i] = new SensorStatus(item);
         }
+        buildStatusMap();
     }
 
     private SensorStatusCollection() {
         this.setUpdateTime(new Date());
         statuses = new SensorStatus[0];
+        this.statusMap = new ArrayMap<>(0);
+    }
+
+    /**
+     * 构建 状态Map
+     */
+    private void buildStatusMap() {
+        statusMap.clear();
+        for (SensorType type : SensorType.values()) {
+            String sensorName = type.name();
+            ArrayList<SensorStatus> list = new ArrayList<SensorStatus>(2);
+            for (SensorStatus status : this.statuses) {
+                if (status.getName().equalsIgnoreCase(sensorName)) {
+                    list.add(status);
+                }
+            }
+            statusMap.put(type.name(), list.toArray(new SensorStatus[list.size()]));
+        }
     }
 
     /**
@@ -76,15 +101,21 @@ public class SensorStatusCollection {
      * @param sensorName
      * @return
      */
-    public List<SensorStatus> find(String sensorName) {
-        List<SensorStatus> findResult = new ArrayList<SensorStatus>(2);
-        for (SensorStatus status :
-                this.statuses) {
-            if (status.getName().equalsIgnoreCase(sensorName)) {
-                findResult.add(status);
-            }
+    public SensorStatus[] findByName(String sensorName) {
+        if (statusMap.containsKey(sensorName)) {
+            return statusMap.get(sensorName);
         }
-        return findResult;
+        return new SensorStatus[0];
+    }
+
+    /**
+     * 根据 传感器名称 返回 传感器集合
+     *
+     * @param sensorType
+     * @return
+     */
+    public SensorStatus[] findByName(SensorType sensorType) {
+        return findByName(sensorType.name());
     }
 
     /**
@@ -114,7 +145,7 @@ public class SensorStatusCollection {
         }
 
         int i = 0;
-        while (values.hasNext()) {
+        while (values.hasNext() && i < statuses.length) {
             statuses[i++].setValue(values.next());
         }
     }

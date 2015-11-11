@@ -45,119 +45,13 @@
     <bookmark url="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MPLineChartAdapter.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab585bf6-77f6-459d-a331-3123eead3394" name="Default" comment="图表提示信息 显示 Sensor Name,SensorSummary 类型增加 getSensorConfig 方法">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SensorTypesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/ASCIIEncoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/ASCIIEncoder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/Gauge/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/libs/Gauge/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/lingya/farmintell/ApplicationTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/lingya/farmintell/ApplicationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/ApplicationTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/ApplicationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/androidTest/java/com/lingya/qrcodegenerator/ApplicationTest.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/androidTest/java/com/lingya/qrcodegenerator/ApplicationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/BarcodeFormat.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/BarcodeFormat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/Base256Encoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/Base256Encoder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/BitArray.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/BitArray.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/BitMatrix.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/BitMatrix.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/BitMatrixParser.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/BitMatrixParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/BlockPair.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/BlockPair.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/ByteMatrix.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/ByteMatrix.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/C40Encoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/C40Encoder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/CharacterSetECI.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/CharacterSetECI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/DataBlock.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/DataBlock.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/DataMask.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/DataMask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/DataMatrixSymbolInfo144.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/DataMatrixSymbolInfo144.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/DataMatrixWriter.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/DataMatrixWriter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/DefaultDocumentAdapter.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/DefaultDocumentAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/DefaultPlacement.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/DefaultPlacement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/Dimension.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/Dimension.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/EdifactEncoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/EdifactEncoder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/EncodeHintType.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/EncodeHintType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/Encoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/Encoder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/Encoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/Encoder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/EncoderContext.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/EncoderContext.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/ErrorCorrection.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/ErrorCorrection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/ErrorCorrectionLevel.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/ErrorCorrectionLevel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/FormatException.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/FormatException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/FormatInformation.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/FormatInformation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/Gauge/src/main/java/com/lingya/ui/GaugeView.java" afterPath="$PROJECT_DIR$/libs/Gauge/src/main/java/com/lingya/ui/GaugeView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/GenericGF.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/GenericGF.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/GenericGFPoly.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/GenericGFPoly.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/HighLevelEncoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/HighLevelEncoder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/HttpServerTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/HttpServerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/HttpService.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/HttpService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/HttpServiceTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/HttpServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/JsonAdapter.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/JsonAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/adapters/JsonAdapterTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/adapters/JsonAdapterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/utils/JsonUtilsTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/utils/JsonUtilsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MPLineChartAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MPLineChartAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MainClockAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/MainClockAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/MaskUtil.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/MaskUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/MatrixUtil.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/MatrixUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/Mode.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/Mode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MultipleSeriesChartAdapter.java" afterPath="$PROJECT_DIR$/MultipleSeriesChartAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/Palettes.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/Palettes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/QRCode.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/encoder/QRCode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/lingya/qrcodegenerator/QRCodeFactory.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/lingya/qrcodegenerator/QRCodeFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/QRCodeWriter.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/QRCodeWriter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/androidTest/java/com/google/zxing/qrcode/QRCodeWriterTest.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/androidTest/java/com/google/zxing/qrcode/QRCodeWriterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/ReaderException.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/ReaderException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/RealmFactory.java" afterPath="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/RealmFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/ReedSolomonDecoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/ReedSolomonDecoder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/ReedSolomonEncoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/ReedSolomonEncoder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/ReedSolomonException.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/common/reedsolomon/ReedSolomonException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorAdapterFactory.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorAdapterFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SensorAverageHelperTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SensorAverageHelperTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/ui/SensorCardView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/ui/SensorCardView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorLog.java" afterPath="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorLog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorLogRequestCallback.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorLogRequestCallback.java" />
+    <list default="true" id="ab585bf6-77f6-459d-a331-3123eead3394" name="Default" comment="按照传感器类型 分组显示 数据,增加 SensorType 枚举类型，默认配置 设定为 2组传感器">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorStatusCollection.java" afterPath="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorStatusCollection.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.client/src/main/java/com/lingya/farmintell/client/SensorStatusUpdatedReceiver.java" afterPath="$PROJECT_DIR$/libs/farmintell.client/src/main/java/com/lingya/farmintell/client/SensorStatusUpdatedReceiver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusViewAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusViewAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorsConfig.java" afterPath="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorsConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SensorsConfigFactoryTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SensorsConfigFactoryTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/ServiceBinderProvider.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/ServiceBinderProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/SharedPreferencesRequestCallback.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/SharedPreferencesRequestCallback.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/SharedPreferencesRequestCallbackTest.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/androidTest/java/com/lingya/farmintell/httpserver/SharedPreferencesRequestCallbackTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/SplashActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/SplashActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/SymbolInfo.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/SymbolInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/SymbolShapeHint.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/SymbolShapeHint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/util/SystemUiHider.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/util/SystemUiHider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/util/SystemUiHiderBase.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/util/SystemUiHiderBase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/util/SystemUiHiderHoneycomb.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/util/SystemUiHiderHoneycomb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/TextEncoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/TextEncoder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/Version.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/qrcode/decoder/Version.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/ViewAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/ViewAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/WebSiteFactory.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/WebSiteFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/WebSocketAdapter.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/WebSocketAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/WebSocketFactory.java" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/java/com/lingya/farmintell/httpserver/adapters/WebSocketFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/Writer.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/Writer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/WriterException.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/WriterException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/X12Encoder.java" afterPath="$PROJECT_DIR$/libs/qrcode.encoder/src/main/java/com/google/zxing/datamatrix/encoder/X12Encoder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_cam_monitor.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_cam_monitor.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_fullscreen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_fullscreen.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/Gauge/src/main/res/values/attrs_gauge_view.xml" afterPath="$PROJECT_DIR$/libs/Gauge/src/main/res/values/attrs_gauge_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/attrs_sensor_card_view.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/attrs_sensor_card_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/Gauge/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/libs/Gauge/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.client/farmintell.client.iml" afterPath="$PROJECT_DIR$/libs/farmintell.client/farmintell.client.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/index.html" afterPath="$PROJECT_DIR$/libs/farmintell.httpserver/src/main/assets/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/anim/left_in.xml" afterPath="$PROJECT_DIR$/app/src/main/res/anim/left_in.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/anim/left_out.xml" afterPath="$PROJECT_DIR$/app/src/main/res/anim/left_out.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/anim/right_in.xml" afterPath="$PROJECT_DIR$/app/src/main/res/anim/right_in.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/anim/right_out.xml" afterPath="$PROJECT_DIR$/app/src/main/res/anim/right_out.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/Gauge/src/main/res/layout/sample_gauge_view.xml" afterPath="$PROJECT_DIR$/libs/Gauge/src/main/res/layout/sample_gauge_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/sample_sensor_label_view.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/sample_sensor_label_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.models/src/main/assets/sensorsConfig.json" afterPath="$PROJECT_DIR$/libs/farmintell.models/src/main/assets/sensorsConfig.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/shape1.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/shape1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/splash.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/splash.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.models/build.gradle" afterPath="$PROJECT_DIR$/libs/farmintell.models/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.modbus/farmintell.modbus.iml" afterPath="$PROJECT_DIR$/libs/farmintell.modbus/farmintell.modbus.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/farmintell.models/farmintell.models.iml" afterPath="$PROJECT_DIR$/libs/farmintell.models/farmintell.models.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="2e665e17-9880-4ab0-9493-8ab1fc39c4e5" name="Failed commit: Default" comment="更新WebApi 通讯功能和传感器列表">
@@ -1055,24 +949,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="sensorsConfig.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/assets/sensorsConfig.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.259259">
-              <caret line="73" column="18" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SensorStatusListAdapter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24019608">
-              <caret line="115" column="34" selection-start-line="115" selection-start-column="34" selection-end-line="115" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.16113745">
+              <caret line="149" column="5" selection-start-line="149" selection-start-column="5" selection-end-line="149" selection-end-column="5" />
               <folding>
-                <element signature="e#2269#2270#0" expanded="true" />
-                <element signature="e#2300#2301#0" expanded="true" />
                 <element signature="e#2354#2355#0" expanded="true" />
                 <element signature="e#2405#2406#0" expanded="true" />
               </folding>
@@ -1080,66 +962,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SensorLog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorLog.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libs/farmintell.models/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-              <folding>
-                <element signature="e#948#949#0" expanded="true" />
-                <element signature="e#980#981#0" expanded="true" />
-                <element signature="e#1011#1012#0" expanded="true" />
-                <element signature="e#1038#1039#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SensorAdapterFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorAdapterFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="102" column="20" selection-start-line="102" selection-start-column="20" selection-end-line="102" selection-end-column="20" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SensorLogRequestCallback.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorLogRequestCallback.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RealmFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/RealmFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="48" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SensorAverageHelperTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SensorAverageHelperTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="95" column="48" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SensorConfigLogTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SensorConfigLogTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1149,11 +986,57 @@
         <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorStatusCollection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
+              <caret line="118" column="26" selection-start-line="118" selection-start-column="26" selection-end-line="118" selection-end-column="26" />
               <folding>
-                <element signature="e#1493#1494#0" expanded="true" />
-                <element signature="e#1529#1530#0" expanded="true" />
-                <element signature="e#1721#1735#0" expanded="true" />
+                <element signature="e#1815#1829#0" expanded="true" />
+                <element signature="e#2392#2393#0" expanded="true" />
+                <element signature="e#2428#2429#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SensorService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/services/SensorService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArrayMap.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/22.2.1/support-v4-22.2.1-sources.jar!/android/support/v4/util/ArrayMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+              <folding>
+                <element signature="e#2630#2631#0" expanded="true" />
+                <element signature="e#2653#2654#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Collections.java" pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/lib/jvm/jdk1.7.0_79/src.zip!/java/util/Collections.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3159" column="39" selection-start-line="3159" selection-start-column="29" selection-end-line="3159" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArrayList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Android/Sdk/sources/android-15/java/util/ArrayList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="489" column="30" selection-start-line="489" selection-start-column="30" selection-end-line="489" selection-end-column="30" />
+              <folding>
+                <element signature="e#3116#3117#0" expanded="true" />
+                <element signature="e#3157#3158#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1163,25 +1046,21 @@
         <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorsConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="155" column="17" selection-start-line="155" selection-start-column="17" selection-end-line="155" selection-end-column="17" />
+              <caret line="151" column="5" selection-start-line="151" selection-start-column="5" selection-end-line="151" selection-end-column="5" />
               <folding>
-                <element signature="e#4987#4988#0" expanded="true" />
-                <element signature="e#5020#5021#0" expanded="true" />
-                <element signature="e#5055#5056#0" expanded="true" />
-                <element signature="e#5090#5091#0" expanded="true" />
-                <element signature="e#5132#5133#0" expanded="true" />
-                <element signature="e#5174#5175#0" expanded="true" />
-                <element signature="e#5209#5210#0" expanded="true" />
-                <element signature="e#5244#5245#0" expanded="true" />
-                <element signature="e#5275#5276#0" expanded="true" />
-                <element signature="e#5309#5310#0" expanded="true" />
-                <element signature="e#5340#5341#0" expanded="true" />
-                <element signature="e#5374#5375#0" expanded="true" />
-                <element signature="e#5410#5411#0" expanded="true" />
-                <element signature="e#5447#5448#0" expanded="true" />
-                <element signature="e#5873#5874#0" expanded="true" />
-                <element signature="e#5923#5924#0" expanded="true" />
+                <element signature="e#1779#1780#0" expanded="true" />
+                <element signature="e#1810#1811#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArrayMap.java" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/util/ArrayMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="256" column="12" selection-start-line="256" selection-start-column="12" selection-end-line="256" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1927,6 +1806,16 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="proguardRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Extracts Android annotations for the debug variant into the archive file" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="extractDebugAnnotations" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Extracts Android annotations for the release variant into the archive file" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="extractReleaseAnnotations" />
               </ExternalTaskPojo>
             </list>
           </value>
@@ -4332,6 +4221,16 @@
                 <option name="name" value="dexDebugAndroidTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Extracts Android annotations for the debug variant into the archive file" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.modbus" />
+                <option name="name" value="extractDebugAnnotations" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Extracts Android annotations for the release variant into the archive file" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.modbus" />
+                <option name="name" value="extractReleaseAnnotations" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.modbus" />
                 <option name="name" value="generateDebugAndroidTestAssets" />
               </ExternalTaskPojo>
@@ -4537,6 +4436,11 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.modbus" />
                 <option name="name" value="preReleaseUnitTestBuild" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.android.support:support-v4:22.2.1" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.modbus" />
+                <option name="name" value="prepareComAndroidSupportSupportV42221Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.modbus" />
@@ -4882,6 +4786,16 @@
                 <option name="name" value="dexDebugAndroidTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Extracts Android annotations for the debug variant into the archive file" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.models" />
+                <option name="name" value="extractDebugAnnotations" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Extracts Android annotations for the release variant into the archive file" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.models" />
+                <option name="name" value="extractReleaseAnnotations" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.models" />
                 <option name="name" value="generateDebugAndroidTestAssets" />
               </ExternalTaskPojo>
@@ -4984,11 +4898,19 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.models" />
+                <option name="name" value="mergeDebugResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.models" />
                 <option name="name" value="mergeReleaseAssets" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.models" />
                 <option name="name" value="mergeReleaseProguardFiles" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.models" />
+                <option name="name" value="mergeReleaseResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Creates a version of android.jar that's suitable for unit tests." />
@@ -5079,6 +5001,11 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.models" />
                 <option name="name" value="preReleaseUnitTestBuild" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.android.support:support-v4:22.2.1" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.models" />
+                <option name="name" value="prepareComAndroidSupportSupportV42221Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/libs/farmintell.models" />
@@ -5737,7 +5664,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="12981088858591" />
+        <entry key="$PROJECT_DIR$" value="12984711755076" />
         <entry key="D:\Projects\Java\FarmIntell" value="11510744261047" />
       </map>
     </option>
@@ -6751,6 +6678,8 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
+                            <option value="$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/22.2.1/support-v4-22.2.1.aar" />
+                            <option value="$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar" />
                             <option value="$MODULE_DIR$/libs/gson-2.3.1.jar" />
                             <option value="$MODULE_DIR$/libs/realm-0.82.2.jar" />
                           </list>
@@ -7511,14 +7440,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorAdapterFactory.java" />
         <option value="$PROJECT_DIR$/libs/farmintell.models/src/main/assets/sensorsConfig.json" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusViewAdapter.java" />
-        <option value="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorsConfig.java" />
         <option value="$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SensorTypesTest.java" />
         <option value="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorTypes.java" />
         <option value="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorType.java" />
-        <option value="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorStatusCollection.java" />
         <option value="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorLog.java" />
         <option value="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/RealmFactory.java" />
         <option value="$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SensorAverageHelperTest.java" />
+        <option value="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorsConfig.java" />
+        <option value="$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorStatusCollection.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusListAdapter.java" />
       </list>
     </option>
@@ -7587,46 +7516,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="farmintell.modbus" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -8140,6 +8029,144 @@
               <option name="myItemId" value="libs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell.modbus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell.modbus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell.modbus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell.modbus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell.modbus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -8174,62 +8201,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -8260,6 +8231,74 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="farmintell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -8314,31 +8353,15 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmIntell" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -8426,6 +8449,36 @@
             <PATH_ELEMENT USER_OBJECT="src">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FarmIntell" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="farmintell.modbus" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -8985,7 +9038,13 @@
       <option name="project" value="LOCAL" />
       <updated>1443703351267</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="按照传感器类型 分组显示 数据,增加 SensorType 枚举类型，默认配置 设定为 2组传感器">
+      <created>1447227921253</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1447227921253</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -9002,22 +9061,21 @@
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4951857" sideWeight="0.6705461" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.68225586" sideWeight="0.6356968" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.68225586" sideWeight="0.6356968" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.267653" sideWeight="0.8135593" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.68225586" sideWeight="0.36430317" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3823934" sideWeight="0.15321924" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24678664" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5061898" sideWeight="0.85735625" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26799485" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5006878" sideWeight="0.68307966" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3823934" sideWeight="0.8467808" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49243465" sideWeight="0.6748166" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48280606" sideWeight="0.7991038" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41403025" sideWeight="0.72336614" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1651671" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4594223" sideWeight="0.38509804" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2114396" sideWeight="0.18644068" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47455296" sideWeight="0.75354743" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2114396" sideWeight="0.18644068" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47455296" sideWeight="0.74898124" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.027634962" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13946016" sideWeight="0.47477064" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -9029,6 +9087,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39908952" sideWeight="0.49676377" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26799485" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.56121045" sideWeight="0.8084656" order="12" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -9089,7 +9148,8 @@
     <MESSAGE value="更新项目结构,修正 SensorAverage 计算" />
     <MESSAGE value="更新WebApi 通讯功能和传感器列表" />
     <MESSAGE value="图表提示信息 显示 Sensor Name,SensorSummary 类型增加 getSensorConfig 方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="图表提示信息 显示 Sensor Name,SensorSummary 类型增加 getSensorConfig 方法" />
+    <MESSAGE value="按照传感器类型 分组显示 数据,增加 SensorType 枚举类型，默认配置 设定为 2组传感器" />
+    <option name="LAST_COMMIT_MESSAGE" value="按照传感器类型 分组显示 数据,增加 SensorType 枚举类型，默认配置 设定为 2组传感器" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -9204,62 +9264,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/assets/registers.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.75">
-          <caret line="14" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="67" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SecretKeyTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SensorConfigStatusCollectionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SensorsConfigFactoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/RealmFactoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="16" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/farmintell.models/libs/realm-0.82.2.jar!/io/realm/Realm.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9655173">
-          <caret line="182" column="34" selection-start-line="182" selection-start-column="34" selection-end-line="182" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SensorConfigAverageHelperTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="28" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/ModbusRegisterReaderImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/modbus/Register.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -9397,9 +9401,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -9407,15 +9408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1438#1439#0" expanded="false" />
-            <element signature="e#1473#1474#0" expanded="false" />
-            <element signature="e#1527#1528#0" expanded="false" />
-            <element signature="e#1566#1567#0" expanded="false" />
-            <element signature="e#1616#1617#0" expanded="false" />
-            <element signature="e#1663#1664#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -9447,22 +9439,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="249" column="19" selection-start-line="249" selection-start-column="19" selection-end-line="249" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#31717#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#4442#4443#0" expanded="false" />
-            <element signature="e#4511#4512#0" expanded="false" />
-            <element signature="e#7280#7281#0" expanded="false" />
-            <element signature="e#7338#7339#0" expanded="false" />
-            <element signature="e#8800#8801#0" expanded="false" />
-            <element signature="e#8860#8861#0" expanded="false" />
-            <element signature="e#15981#15982#0" expanded="false" />
-            <element signature="e#16024#16025#0" expanded="false" />
-            <element signature="e#21170#21171#0" expanded="false" />
-            <element signature="e#21197#21198#0" expanded="false" />
-            <element signature="e#29114#29115#0" expanded="false" />
-            <element signature="e#29147#29148#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -9470,7 +9446,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -9478,22 +9453,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="55" column="19" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#16713#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#2878#2879#0" expanded="false" />
-            <element signature="e#2936#2937#0" expanded="false" />
-            <element signature="e#4015#4016#0" expanded="false" />
-            <element signature="e#4069#4070#0" expanded="false" />
-            <element signature="e#4261#4262#0" expanded="false" />
-            <element signature="e#4311#4312#0" expanded="false" />
-            <element signature="e#6548#6549#0" expanded="false" />
-            <element signature="e#6601#6602#0" expanded="false" />
-            <element signature="e#6673#6674#0" expanded="false" />
-            <element signature="e#6726#6727#0" expanded="false" />
-            <element signature="e#15925#15926#0" expanded="false" />
-            <element signature="e#15978#15979#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -9501,9 +9460,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="82" column="32" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="34" />
-          <folding>
-            <element signature="class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -9523,76 +9479,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorsConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="155" column="17" selection-start-line="155" selection-start-column="17" selection-end-line="155" selection-end-column="17" />
-          <folding>
-            <element signature="e#4987#4988#0" expanded="true" />
-            <element signature="e#5020#5021#0" expanded="true" />
-            <element signature="e#5055#5056#0" expanded="true" />
-            <element signature="e#5090#5091#0" expanded="true" />
-            <element signature="e#5132#5133#0" expanded="true" />
-            <element signature="e#5174#5175#0" expanded="true" />
-            <element signature="e#5209#5210#0" expanded="true" />
-            <element signature="e#5244#5245#0" expanded="true" />
-            <element signature="e#5275#5276#0" expanded="true" />
-            <element signature="e#5309#5310#0" expanded="true" />
-            <element signature="e#5340#5341#0" expanded="true" />
-            <element signature="e#5374#5375#0" expanded="true" />
-            <element signature="e#5410#5411#0" expanded="true" />
-            <element signature="e#5447#5448#0" expanded="true" />
-            <element signature="e#5873#5874#0" expanded="true" />
-            <element signature="e#5923#5924#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1084337">
           <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_fullscreen.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.7763158">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/assets/sensorsConfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.259259">
-          <caret line="73" column="18" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorStatusCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
-          <folding>
-            <element signature="e#1493#1494#0" expanded="true" />
-            <element signature="e#1529#1530#0" expanded="true" />
-            <element signature="e#1721#1735#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/services/SensorService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3313253">
-          <caret line="242" column="24" selection-start-line="242" selection-start-column="24" selection-end-line="242" selection-end-column="24" />
-          <folding />
-        </state>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorStatus.java">
@@ -9608,15 +9509,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorLogRequestCallback.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.35119048">
           <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/RealmFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.45833334">
           <caret line="63" column="48" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
           <folding />
         </state>
@@ -9624,7 +9524,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SensorConfigLogTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.35119048">
           <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
           <folding />
         </state>
@@ -9632,7 +9532,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorAdapterFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.35119048">
           <caret line="102" column="20" selection-start-line="102" selection-start-column="20" selection-end-line="102" selection-end-column="20" />
           <folding />
         </state>
@@ -9640,7 +9540,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/androidTest/java/com/lingya/farmintell/models/SensorAverageHelperTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.5119048">
           <caret line="95" column="48" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="48" />
           <folding />
         </state>
@@ -9648,24 +9548,131 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorLog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.42857143">
           <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
           <folding>
-            <element signature="e#948#949#0" expanded="true" />
-            <element signature="e#980#981#0" expanded="true" />
-            <element signature="e#1011#1012#0" expanded="true" />
+            <element signature="e#939#940#0" expanded="true" />
+            <element signature="e#966#967#0" expanded="true" />
+            <element signature="e#1006#1007#0" expanded="true" />
             <element signature="e#1038#1039#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/assets/sensorsConfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-48.666668">
+          <caret line="73" column="18" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/farmintell.models/libs/realm-0.82.2.jar!/io/realm/internal/TableQuery.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3630363">
+          <caret line="366" column="22" selection-start-line="366" selection-start-column="22" selection-end-line="366" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/farmintell.models/libs/realm-0.82.2.jar!/io/realm/RealmQuery.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47524753">
+          <caret line="319" column="23" selection-start-line="319" selection-start-column="23" selection-end-line="319" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorsConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="151" column="5" selection-start-line="151" selection-start-column="5" selection-end-line="151" selection-end-column="5" />
+          <folding>
+            <element signature="e#1779#1780#0" expanded="true" />
+            <element signature="e#1810#1811#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-22/android/util/ArrayMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="256" column="12" selection-start-line="256" selection-start-column="12" selection-end-line="256" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk1.7.0_79/src.zip!/java/util/Collections.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3159" column="39" selection-start-line="3159" selection-start-column="29" selection-end-line="3159" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.models/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/22.2.1/support-v4-22.2.1-sources.jar!/android/support/v4/util/ArrayMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+          <folding>
+            <element signature="e#2630#2631#0" expanded="true" />
+            <element signature="e#2653#2654#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-15/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="489" column="30" selection-start-line="489" selection-start-column="30" selection-end-line="489" selection-end-column="30" />
+          <folding>
+            <element signature="e#3116#3117#0" expanded="true" />
+            <element signature="e#3157#3158#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.modbus/src/main/java/com/lingya/farmintell/services/SensorService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/farmintell.models/src/main/java/com/lingya/farmintell/models/SensorStatusCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="118" column="26" selection-start-line="118" selection-start-column="26" selection-end-line="118" selection-end-column="26" />
+          <folding>
+            <element signature="e#1815#1829#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="e#2428#2429#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lingya/farmintell/adapters/SensorStatusListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24019608">
-          <caret line="115" column="34" selection-start-line="115" selection-start-column="34" selection-end-line="115" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.16113745">
+          <caret line="149" column="5" selection-start-line="149" selection-start-column="5" selection-end-line="149" selection-end-column="5" />
           <folding>
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2300#2301#0" expanded="true" />
             <element signature="e#2354#2355#0" expanded="true" />
             <element signature="e#2405#2406#0" expanded="true" />
           </folding>

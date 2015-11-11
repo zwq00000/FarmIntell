@@ -20,7 +20,6 @@ import com.lingya.farmintell.models.SensorsConfig;
 import com.lingya.farmintell.services.SensorService;
 
 import java.util.Date;
-import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmQuery;
@@ -69,7 +68,7 @@ public class SensorStatusListAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return sensorBinder.getStatus().find(getSensorTypeName(position));
+        return sensorBinder.getStatus().findByName(SensorTypes[position]);
     }
 
     @Override
@@ -101,18 +100,24 @@ public class SensorStatusListAdapter extends BaseAdapter {
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final List<SensorStatus> statuses = (List<SensorStatus>) this.getItem(position);
-        String typeName = SensorTypes[position].name();
+        final SensorStatus[] statuses = (SensorStatus[]) this.getItem(position);
+        if (statuses == null) {
+            return convertView;
+        }
+
+        SensorType sensorType = SensorTypes[position];
 
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.listitem_sensorlog, null);
 
             ImageView iconView = (ImageView) convertView.findViewById(R.id.list_item_icon);
-            iconView.setImageResource(getIcon(typeName));
+            iconView.setImageResource(getIcon(sensorType));
 
             ((TextView) convertView.findViewById(R.id.list_item_value)).setText("");
         }
-        if (statuses.size() > 0) {
+
+        if (statuses.length > 0) {
+            final SensorsConfig.SensorConfig config = statuses[0].getConfig();
             TextView sensorNameView = (TextView) convertView.findViewById(R.id.list_item_name);
             //传感器名称
             sensorNameView.setText(getDisplayString(statuses));
@@ -122,7 +127,7 @@ public class SensorStatusListAdapter extends BaseAdapter {
                 sensorValue.post(new Runnable() {
                     @Override
                     public void run() {
-                        sensorValue.setText(query(statuses.get(0).getConfig()));
+                        sensorValue.setText(query(config));
                     }
                 });
                 lastUpdateTime += UPDATE_SUMMARY_INTERVAL;
@@ -131,14 +136,14 @@ public class SensorStatusListAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private String getDisplayString(List<SensorStatus> statuses) {
-        SensorsConfig.SensorConfig config = statuses.get(0).getConfig();
+    private String getDisplayString(SensorStatus[] statuses) {
+        SensorsConfig.SensorConfig config = statuses[0].getConfig();
 
         float summary = 0;
         for (SensorStatus status : statuses) {
             summary += status.getValue();
         }
-        float average = summary / statuses.size();
+        float average = summary / statuses.length;
 
         return config.getDisplayName() + "  " + config.formatValue(average) + " " + config.getUnit();
     }
@@ -158,22 +163,22 @@ public class SensorStatusListAdapter extends BaseAdapter {
     /**
      * 根据 传感器类型 获取 图标
      *
-     * @param sensorName
+     * @param sensorType
      * @return
      */
-    private int getIcon(String sensorName) {
-        switch (sensorName) {
-            case "temp":
+    private int getIcon(SensorType sensorType) {
+        switch (sensorType) {
+            case temp:
                 return (R.drawable.thermometer_3_4);
-            case "hum":
+            case hum:
                 return (R.drawable.fog);
-            case "co2":
+            case co2:
                 return (R.drawable.co2);
-            case "light":
+            case light:
                 return (R.drawable.sun);
-            case "soilWater":
+            case soilWater:
                 return (R.drawable.umbrella);
-            case "soilTemp":
+            case soilTemp:
                 return (R.drawable.thermometer_full);
         }
         return 0;
