@@ -13,7 +13,6 @@ import java.text.DecimalFormat;
  */
 public class SensorsConfig {
 
-
     /**
      * 默认配置文件
      */
@@ -38,7 +37,6 @@ public class SensorsConfig {
 
     /*******************************************************************************************
      * 静态工厂方法
-     *
      *******************************************************************************************/
     private String[] sensorIds;
     private SensorConfig[] sensorConfigCache;
@@ -103,6 +101,11 @@ public class SensorsConfig {
         return sensorIds;
     }
 
+    /**
+     * 获取 传感器 配置集合
+     *
+     * @return
+     */
     public SensorConfig[] getSensors() {
         if (this.sensorConfigCache == null) {
             sensorConfigCache = new SensorConfig[getSensorsCount()];
@@ -118,6 +121,10 @@ public class SensorsConfig {
         return sensorConfigCache;
     }
 
+    /**
+     * 传感器 数量(总数)
+     * @return
+     */
     int getSensorsCount() {
         if (sensorCount > 0) {
             return sensorCount;

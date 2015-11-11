@@ -222,5 +222,8 @@ public class SensorAdapterFactory
             defaultInstance = null;
         }
         unregisterReceiver();
+        if (this.sensorBinder != null) {
+            this.context.unbindService(this.serviceConnection);
+        }
     }
 }

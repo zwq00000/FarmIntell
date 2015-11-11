@@ -12,32 +12,32 @@ import org.json.JSONObject;
  */
 public class JsonAdapterTest extends AndroidTestCase {
 
-  private Context context;
+    private Context context;
 
-  public void setUp() throws Exception {
-    context = getContext();
-    SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
-    SharedPreferences.Editor editor = pref.edit();
-    editor.putInt("key_int", -1);
-    editor.putString("key_string", " ");
-    editor.putFloat("key_float", Float.NaN);
-    editor.commit();
-  }
+    public void setUp() throws Exception {
+        context = getContext();
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putInt("key_int", -1);
+        editor.putString("key_string", " ");
+        editor.putFloat("key_float", Float.NaN);
+        editor.commit();
+    }
 
-  public void testSetPreferences() throws Exception {
-    SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
-    JsonAdapter.setPreferences(pref, new JSONObject("{\"key_int\":100}"));
-    JsonAdapter.setPreferences(pref, new JSONObject("{\"key_string\":\"Test/7/9\"}"));
-    JsonAdapter.setPreferences(pref, new JSONObject("{\"key_float\":2015.01}"));
+    public void testSetPreferences() throws Exception {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
+        JsonAdapter.setPreferences(pref, new JSONObject("{\"key_int\":100}"));
+        JsonAdapter.setPreferences(pref, new JSONObject("{\"key_string\":\"Test/7/9\"}"));
+        JsonAdapter.setPreferences(pref, new JSONObject("{\"key_float\":2015.01}"));
 
-    assertEquals(pref.getInt("key_int", 0), 100);
-    assertEquals(pref.getString("key_string", ""), "Test/7/9");
-    assertEquals(pref.getFloat("key_float", Float.NaN), 2015.01f);
+        assertEquals(pref.getInt("key_int", 0), 100);
+        assertEquals(pref.getString("key_string", ""), "Test/7/9");
+        assertEquals(pref.getFloat("key_float", Float.NaN), 2015.01f);
 
 
-  }
+    }
 
-  public void testToJSONStringer() throws Exception {
+    public void testToJSONStringer() throws Exception {
 
-  }
+    }
 }

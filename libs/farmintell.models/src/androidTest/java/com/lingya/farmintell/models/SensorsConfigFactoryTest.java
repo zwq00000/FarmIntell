@@ -4,7 +4,6 @@ import android.test.AndroidTestCase;
 
 /**
  * Created by zwq00000 on 2015/7/29.
- *
  */
 public class SensorsConfigFactoryTest extends AndroidTestCase {
 

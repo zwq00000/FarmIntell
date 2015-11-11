@@ -14,94 +14,94 @@ import java.io.IOException;
 
 public class HttpService extends Service {
 
-  private static final String TAG = HttpService.class.getSimpleName();
-  AsyncHttpServer asyncHttpServer;
-  private boolean isRunning = false;
-
-  /**
-   * Called by the system when the service is first created.  Do not call this method directly.
-   */
-  public void onCreate() {
-    super.onCreate();
-    asyncHttpServer = new AsyncHttpServer();
-    initHttpServer(asyncHttpServer);
-  }
-
-  /**
-   * @deprecated Implement {@link #onStartCommand(Intent, int, int)} instead.
-   */
-  @Deprecated
-  public void onStart(Intent intent, int startId) {
-    onBind(intent);
-  }
-
-  @Override
-  public IBinder onBind(Intent intent) {
-    if (!isRunning) {
-      startHttpServer();
-    }
-    return new HttpServerBinderImpl();
-  }
-
-  @Override
-  public void onDestroy() {
-    if (asyncHttpServer != null) {
-      asyncHttpServer.stop();
-      isRunning = false;
-    }
-  }
-
-  /**
-   * 初始化 Http Server
-   */
-  void initHttpServer(AsyncHttpServer server) {
-    WebSiteFactory factory = new WebSiteFactory(this);
-    try {
-      factory.copyAssetToWebSite("index.html");
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    server.directory(this, "/assets/.*?", "");
-
-    server.get("/index.html", factory.getDefaultDocCallback());
-    server.get("/", factory.getDefaultDocCallback());
-    server.directory("/settings/.*?", this.getDir("settings", Context.MODE_PRIVATE), true);
-    SharedPreferencesRequestCallback
-        prefCallback =
-        new SharedPreferencesRequestCallback(this);
-    server.get("/pref/.*?", prefCallback);
-    server.post("/pref/.*?", prefCallback);
-    WebSocketFactory.connect(server, "/websocket");
-  }
-
-  /**
-   * 启动 Http Server
-   */
-  private void startHttpServer() {
-    if (asyncHttpServer == null) {
-      asyncHttpServer = new AsyncHttpServer();
-      initHttpServer(asyncHttpServer);
-    }
-    asyncHttpServer.listen(AsyncServer.getDefault(), 8080);
-    isRunning = true;
-  }
-
-  public interface IHttpServerBinder {
+    private static final String TAG = HttpService.class.getSimpleName();
+    AsyncHttpServer asyncHttpServer;
+    private boolean isRunning = false;
 
     /**
-     * 获取 Http Server 实例
+     * Called by the system when the service is first created.  Do not call this method directly.
      */
-    AsyncHttpServer getHttpServer();
-  }
-
-  private class HttpServerBinderImpl extends Binder implements IHttpServerBinder {
+    public void onCreate() {
+        super.onCreate();
+        asyncHttpServer = new AsyncHttpServer();
+        initHttpServer(asyncHttpServer);
+    }
 
     /**
-     * 获取 Http Server 实例
+     * @deprecated Implement {@link #onStartCommand(Intent, int, int)} instead.
      */
+    @Deprecated
+    public void onStart(Intent intent, int startId) {
+        onBind(intent);
+    }
+
     @Override
-    public AsyncHttpServer getHttpServer() {
-      return HttpService.this.asyncHttpServer;
+    public IBinder onBind(Intent intent) {
+        if (!isRunning) {
+            startHttpServer();
+        }
+        return new HttpServerBinderImpl();
     }
-  }
+
+    @Override
+    public void onDestroy() {
+        if (asyncHttpServer != null) {
+            asyncHttpServer.stop();
+            isRunning = false;
+        }
+    }
+
+    /**
+     * 初始化 Http Server
+     */
+    void initHttpServer(AsyncHttpServer server) {
+        WebSiteFactory factory = new WebSiteFactory(this);
+        try {
+            factory.copyAssetToWebSite("index.html");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        server.directory(this, "/assets/.*?", "");
+
+        server.get("/index.html", factory.getDefaultDocCallback());
+        server.get("/", factory.getDefaultDocCallback());
+        server.directory("/settings/.*?", this.getDir("settings", Context.MODE_PRIVATE), true);
+        SharedPreferencesRequestCallback
+                prefCallback =
+                new SharedPreferencesRequestCallback(this);
+        server.get("/pref/.*?", prefCallback);
+        server.post("/pref/.*?", prefCallback);
+        WebSocketFactory.connect(server, "/websocket");
+    }
+
+    /**
+     * 启动 Http Server
+     */
+    private void startHttpServer() {
+        if (asyncHttpServer == null) {
+            asyncHttpServer = new AsyncHttpServer();
+            initHttpServer(asyncHttpServer);
+        }
+        asyncHttpServer.listen(AsyncServer.getDefault(), 8080);
+        isRunning = true;
+    }
+
+    public interface IHttpServerBinder {
+
+        /**
+         * 获取 Http Server 实例
+         */
+        AsyncHttpServer getHttpServer();
+    }
+
+    private class HttpServerBinderImpl extends Binder implements IHttpServerBinder {
+
+        /**
+         * 获取 Http Server 实例
+         */
+        @Override
+        public AsyncHttpServer getHttpServer() {
+            return HttpService.this.asyncHttpServer;
+        }
+    }
 }

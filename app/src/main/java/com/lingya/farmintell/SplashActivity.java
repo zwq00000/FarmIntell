@@ -12,20 +12,20 @@ import android.widget.RelativeLayout;
  */
 public class SplashActivity extends Activity {
 
-  private RelativeLayout splash;
+    private RelativeLayout splash;
 
-  @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.splash);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.splash);
 
-    //ViewUtils.inject(this);
-    //setupTabView();
-  }
+        //ViewUtils.inject(this);
+        //setupTabView();
+    }
 
-  public void mainClick(View view) {
-    Intent mainIntent = new Intent(this, MainActivity.class);
-    this.startActivity(mainIntent);
-    this.finish();
-  }
+    public void mainClick(View view) {
+        Intent mainIntent = new Intent(this, MainActivity.class);
+        this.startActivity(mainIntent);
+        this.finish();
+    }
 }

@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.ClientSettingsFragment"
+        <activity
+            android:name=".activities.ClientSettingsFragment"
             android:label="@string/label_client_settings"></activity>
 
         <!-- Http server websocket broadcast -->

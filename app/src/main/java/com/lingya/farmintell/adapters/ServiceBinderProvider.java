@@ -5,9 +5,9 @@ package com.lingya.farmintell.adapters;
  */
 public interface ServiceBinderProvider<TBinder> {
 
-  /**
-   * 获取服务绑定
-   */
-  TBinder getBinder();
+    /**
+     * 获取服务绑定
+     */
+    TBinder getBinder();
 
 }

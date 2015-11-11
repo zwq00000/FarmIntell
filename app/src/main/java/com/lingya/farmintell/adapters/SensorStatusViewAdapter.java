@@ -19,121 +19,121 @@ import java.io.IOException;
  */
 public class SensorStatusViewAdapter implements ViewAdapter<SensorService.ISensorBinder> {
 
-  private static final int[] viewIds = new int[]{
-      R.id.tv11,
-      R.id.tv12,
-      R.id.tv13,
-      R.id.tv14,
-      R.id.tv21,
-      R.id.tv22,
-      R.id.tv23,
-      R.id.tv24,
-      R.id.tv21,
-      R.id.tv22,
-      R.id.tv23,
-      R.id.tv24
-  };
+    private static final int[] viewIds = new int[]{
+            R.id.tv11,
+            R.id.tv12,
+            R.id.tv13,
+            R.id.tv14,
+            R.id.tv21,
+            R.id.tv22,
+            R.id.tv23,
+            R.id.tv24,
+            R.id.tv31,
+            R.id.tv32,
+            R.id.tv33,
+            R.id.tv34
+    };
 
 
-  private final Handler handler;
-  private ViewGroup containerView;
-  private SensorService.ISensorBinder viewData;
+    private final Handler handler;
+    private ViewGroup containerView;
+    private SensorService.ISensorBinder viewData;
 
-  /**
-   * 构造方法
-   */
-  public SensorStatusViewAdapter(ViewGroup container) {
-    this();
-    bindView(container);
-  }
-
-  /**
-   * 构造方法
-   */
-  public SensorStatusViewAdapter() {
-    handler = new Handler();
-  }
-
-  /**
-   * 设置视图数据
-   */
-  @Override
-  public void setViewData(SensorService.ISensorBinder viewData) {
-    this.viewData = viewData;
-  }
-
-  /**
-   * 绑定视图
-   *
-   * @param container 容器视图
-   */
-  public void bindView(ViewGroup container) {
-    containerView = container;
-    initCardView();
-  }
-
-  private void initCardView() {
-    try {
-      Context context = containerView.getContext();
-      SensorsConfig
-          config =
-              SensorsConfig.getDefaultInstance(context);
-      SensorsConfig.SensorConfig[] sensorConfigs = config.getSensors();
-      Palettes palettes = Palettes.getInstance(context);
-      for (int i = 0; i < sensorConfigs.length; i++) {
-        int viewId = viewIds[i];
-        SensorsConfig.SensorConfig sensorConfig = sensorConfigs[i];
-        SensorCardView cardView = ((SensorCardView) containerView.findViewById(viewId));
-        cardView.setHeaderText(sensorConfig.getDisplayName());
-        cardView.setNumberFormat(sensorConfig.getNumberFormat());
-        cardView.setMaxValue(sensorConfig.getMax());
-        cardView.setMinValue(sensorConfig.getMin());
-      }
-    } catch (IOException e) {
-      e.printStackTrace();
+    /**
+     * 构造方法
+     */
+    public SensorStatusViewAdapter(ViewGroup container) {
+        this();
+        bindView(container);
     }
-  }
 
-  /**
-   * 更新视图
-   */
-  @Override
-  public void notifyDataChanged() {
-    handler.post(new Runnable() {
-      @Override
-      public void run() {
-        bind();
-      }
-    });
-  }
-
-  public void setOnClickListener(View.OnClickListener onClickListener) {
-    for (int viewId :
-        this.viewIds) {
-      View textView = containerView.findViewById(viewId);
-      if (textView != null) {
-        textView.setOnClickListener(onClickListener);
-      }
+    /**
+     * 构造方法
+     */
+    public SensorStatusViewAdapter() {
+        handler = new Handler();
     }
-  }
 
-  /**
-   * 绑定界面任务概要数据
-   */
-  private void bind() {
-    if (this.viewData == null || containerView == null) {
-      return;
+    /**
+     * 设置视图数据
+     */
+    @Override
+    public void setViewData(SensorService.ISensorBinder viewData) {
+        this.viewData = viewData;
     }
-    final SensorStatusCollection statusCollection = viewData.getStatus();
 
-    int count = Math.min(viewIds.length, statusCollection.size());
-    SensorStatus[] statuses = statusCollection.getStatuses();
-    for (int i = 0; i < count; i++) {
-      int viewId = viewIds[i];
-      SensorCardView cardView = ((SensorCardView) containerView.findViewById(viewId));
-      SensorStatus status = statuses[i];
-      cardView.setValue(status.getValue());
-      cardView.setTag(status.getId());
+    /**
+     * 绑定视图
+     *
+     * @param container 容器视图
+     */
+    public void bindView(ViewGroup container) {
+        containerView = container;
+        initCardView();
     }
-  }
+
+    private void initCardView() {
+        try {
+            Context context = containerView.getContext();
+            SensorsConfig
+                    config =
+                    SensorsConfig.getDefaultInstance(context);
+            SensorsConfig.SensorConfig[] sensorConfigs = config.getSensors();
+            Palettes palettes = Palettes.getInstance(context);
+            for (int i = 0; i < sensorConfigs.length; i++) {
+                int viewId = viewIds[i];
+                SensorsConfig.SensorConfig sensorConfig = sensorConfigs[i];
+                SensorCardView cardView = ((SensorCardView) containerView.findViewById(viewId));
+                cardView.setHeaderText(sensorConfig.getDisplayName());
+                cardView.setNumberFormat(sensorConfig.getNumberFormat());
+                cardView.setMaxValue(sensorConfig.getMax());
+                cardView.setMinValue(sensorConfig.getMin());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 更新视图
+     */
+    @Override
+    public void notifyDataChanged() {
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                bind();
+            }
+        });
+    }
+
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        for (int viewId :
+                this.viewIds) {
+            View textView = containerView.findViewById(viewId);
+            if (textView != null) {
+                textView.setOnClickListener(onClickListener);
+            }
+        }
+    }
+
+    /**
+     * 绑定界面任务概要数据
+     */
+    private void bind() {
+        if (this.viewData == null || containerView == null) {
+            return;
+        }
+        final SensorStatusCollection statusCollection = viewData.getStatus();
+
+        int count = Math.min(viewIds.length, statusCollection.size());
+        SensorStatus[] statuses = statusCollection.getStatuses();
+        for (int i = 0; i < count; i++) {
+            int viewId = viewIds[i];
+            SensorCardView cardView = ((SensorCardView) containerView.findViewById(viewId));
+            SensorStatus status = statuses[i];
+            cardView.setValue(status.getValue());
+            cardView.setTag(status.getId());
+        }
+    }
 }

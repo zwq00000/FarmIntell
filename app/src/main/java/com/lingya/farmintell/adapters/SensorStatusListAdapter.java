@@ -15,10 +15,12 @@ import com.lingya.farmintell.R;
 import com.lingya.farmintell.models.RealmFactory;
 import com.lingya.farmintell.models.SensorLog;
 import com.lingya.farmintell.models.SensorStatus;
+import com.lingya.farmintell.models.SensorType;
 import com.lingya.farmintell.models.SensorsConfig;
 import com.lingya.farmintell.services.SensorService;
 
 import java.util.Date;
+import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmQuery;
@@ -33,6 +35,7 @@ public class SensorStatusListAdapter extends BaseAdapter {
      * 统计数据 更新间隔
      */
     private static final int UPDATE_SUMMARY_INTERVAL = 1000 * 60;
+    private static SensorType[] SensorTypes = SensorType.values();
     private final Context context;
     private final LayoutInflater inflater;
     private final Realm realm;
@@ -47,30 +50,35 @@ public class SensorStatusListAdapter extends BaseAdapter {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.sensorBinder = sensorBinder;
-        this.realm = RealmFactory.getInstance(context);;
+        this.realm = RealmFactory.getInstance(context);
     }
 
     public static SensorStatusListAdapter createInstance(Context context, SensorService.ISensorBinder sensorBinder) {
 
-            return new SensorStatusListAdapter(context, sensorBinder);
+        return new SensorStatusListAdapter(context, sensorBinder);
     }
 
     @Override
     public int getCount() {
-        if(sensorBinder.getStatus() == null){
+        if (sensorBinder.getStatus() == null) {
             return 0;
         }
-        return sensorBinder.getStatus().size();
+        return SensorTypes.length;
+        //return sensorBinder.getStatus().size();
     }
 
     @Override
     public Object getItem(int position) {
-        return sensorBinder.getStatus().getStatuses()[position];
+        return sensorBinder.getStatus().find(getSensorTypeName(position));
     }
 
     @Override
     public long getItemId(int position) {
         return position;
+    }
+
+    private String getSensorTypeName(int position) {
+        return SensorTypes[position].name();
     }
 
     /**
@@ -93,39 +101,58 @@ public class SensorStatusListAdapter extends BaseAdapter {
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final SensorStatus status = (SensorStatus) this.getItem(position);
+        final List<SensorStatus> statuses = (List<SensorStatus>) this.getItem(position);
+        String typeName = SensorTypes[position].name();
 
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.listitem_sensorlog, null);
 
             ImageView iconView = (ImageView) convertView.findViewById(R.id.list_item_icon);
-            iconView.setImageResource(getIcon(status.getName()));
+            iconView.setImageResource(getIcon(typeName));
 
             ((TextView) convertView.findViewById(R.id.list_item_value)).setText("");
         }
+        if (statuses.size() > 0) {
+            TextView sensorNameView = (TextView) convertView.findViewById(R.id.list_item_name);
+            //传感器名称
+            sensorNameView.setText(getDisplayString(statuses));
 
-        TextView sensorNameView = (TextView) convertView.findViewById(R.id.list_item_name);
-        //传感器名称
-        sensorNameView.setText(status.getDisplayName() + "  " + status.getFormatedValue() + " " + status.getConfig().getUnit());
-
-        final TextView sensorValue = (TextView) convertView.findViewById(R.id.list_item_value);
-        if (lastUpdateTime < System.currentTimeMillis() || TextUtils.isEmpty(sensorValue.getText())) {
-            sensorValue.post(new Runnable() {
-                @Override
-                public void run() {
-                    sensorValue.setText(query(status.getConfig()));
-                }
-            });
-            lastUpdateTime += UPDATE_SUMMARY_INTERVAL;
+            final TextView sensorValue = (TextView) convertView.findViewById(R.id.list_item_value);
+            if (lastUpdateTime < System.currentTimeMillis() || TextUtils.isEmpty(sensorValue.getText())) {
+                sensorValue.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        sensorValue.setText(query(statuses.get(0).getConfig()));
+                    }
+                });
+                lastUpdateTime += UPDATE_SUMMARY_INTERVAL;
+            }
         }
         return convertView;
     }
 
+    private String getDisplayString(List<SensorStatus> statuses) {
+        SensorsConfig.SensorConfig config = statuses.get(0).getConfig();
+
+        float summary = 0;
+        for (SensorStatus status : statuses) {
+            summary += status.getValue();
+        }
+        float average = summary / statuses.size();
+
+        return config.getDisplayName() + "  " + config.formatValue(average) + " " + config.getUnit();
+    }
+
+    /**
+     * 查询 24小时内 最大最小值
+     *
+     * @param config
+     * @return
+     */
     private String query(SensorsConfig.SensorConfig config) {
-        RealmQuery<SensorLog> query = realm.where(SensorLog.class).equalTo("sensorId", config.getId())
+        RealmQuery<SensorLog> query = realm.where(SensorLog.class).equalTo("name", config.getName())
                 .greaterThan("time", new Date(System.currentTimeMillis() - 1000 * 60 * 24));
         return "最大值:" + config.formatValue(query.maximumFloat("value")) + " 最小值:" + config.formatValue(query.minimumFloat("value"));
-
     }
 
     /**
@@ -153,7 +180,7 @@ public class SensorStatusListAdapter extends BaseAdapter {
     }
 
     public void onDestroy() {
-        if(this.realm!=null){
+        if (this.realm != null) {
             realm.close();
         }
     }

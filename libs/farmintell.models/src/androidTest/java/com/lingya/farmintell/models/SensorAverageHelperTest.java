@@ -92,6 +92,7 @@ public class SensorAverageHelperTest extends AndroidTestCase {
                 for (int i = 0; i < 12 * 60 * 24; i++) {
                     SensorLog log = realm.createObject(SensorLog.class);
                     log.setSensorId(SENSOR_ID);
+                    log.setName(SensorType.co2.name());
                     log.setTime(new Date(time));
                     log.setValue(i);
                     time += 20 * 1000;

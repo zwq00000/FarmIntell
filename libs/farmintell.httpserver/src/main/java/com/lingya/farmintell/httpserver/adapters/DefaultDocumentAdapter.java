@@ -15,26 +15,26 @@ import java.io.FileNotFoundException;
  */
 public class DefaultDocumentAdapter implements HttpServerRequestCallback {
 
-  private File defaultDoc;
+    private File defaultDoc;
 
-  public DefaultDocumentAdapter(String doc) {
-    defaultDoc = new File(doc);
-  }
-
-  @Override
-  public void onRequest(AsyncHttpServerRequest request, final AsyncHttpServerResponse response) {
-    FileInputStream is = null;
-    try {
-      is = new FileInputStream(defaultDoc);
-      response.code(200);
-      Util.pump(is, response, new CompletedCallback() {
-        @Override
-        public void onCompleted(Exception ex) {
-          response.end();
-        }
-      });
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
+    public DefaultDocumentAdapter(String doc) {
+        defaultDoc = new File(doc);
     }
-  }
+
+    @Override
+    public void onRequest(AsyncHttpServerRequest request, final AsyncHttpServerResponse response) {
+        FileInputStream is = null;
+        try {
+            is = new FileInputStream(defaultDoc);
+            response.code(200);
+            Util.pump(is, response, new CompletedCallback() {
+                @Override
+                public void onCompleted(Exception ex) {
+                    response.end();
+                }
+            });
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }

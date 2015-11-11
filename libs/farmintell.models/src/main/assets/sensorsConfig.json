@@ -67,6 +67,72 @@
           "factor": 0.1
         }
       ]
+    },
+    {
+      "slaveId": 3,
+      "model": "温湿度CO2光照变送器",
+      "sensors": [
+        {
+          "id": "3-0",
+          "name": "temp",
+          "displayName": "温度",
+          "unit": "℃",
+          "min": -20,
+          "max": 80,
+          "factor": 0.1
+        },
+        {
+          "id": "3-1",
+          "name": "hum",
+          "displayName": "湿度",
+          "unit": "%rh",
+          "min": 0,
+          "max": 100,
+          "factor": 0.1
+        },
+        {
+          "id": "3-2",
+          "name": "co2",
+          "displayName": "CO2",
+          "unit": "ppm",
+          "min": 0,
+          "max": 5000,
+          "factor": 1
+        },
+        {
+          "id": "3-3",
+          "name": "light",
+          "displayName": "光照",
+          "unit": "lux",
+          "min": -0,
+          "max": 200000,
+          "factor": 10
+        }
+      ]
+    },
+    {
+      "slaveId": 4,
+      "model": "土壤温湿度传感器",
+      "sensors": [
+        {
+          "id": "4-0",
+          "name": "soilWater",
+          "displayName": "土壤含水率",
+          "unit": "%(m3/m3)",
+          "min": 0,
+          "max": 100,
+          "factor": 0.1
+        },
+        {
+          "id": "4-1",
+          "name": "soilTemp",
+          "displayName": "土壤温度",
+          "unit": "℃",
+          "min": -30,
+          "max": 70,
+          "factor": 0.1
+        }
+      ]
     }
   ]
 }

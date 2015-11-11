@@ -18,6 +18,12 @@ public class SensorLog extends RealmObject {
     private String sensorId;
 
     /**
+     * 传感器名称 @See SensorType
+     */
+    @Index
+    private String name;
+
+    /**
      * 测量时间
      */
     @Index
@@ -50,5 +56,13 @@ public class SensorLog extends RealmObject {
 
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

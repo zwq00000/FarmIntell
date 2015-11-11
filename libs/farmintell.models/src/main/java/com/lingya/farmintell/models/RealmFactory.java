@@ -61,6 +61,7 @@ public class RealmFactory {
                 for (SensorStatus status : statuses) {
                     SensorLog log = realm.createObject(SensorLog.class);
                     log.setSensorId(status.getId());
+                    log.setName(status.getName());
                     log.setTime(statusCollection.getUpdateTime());
                     log.setValue(status.getValue());
                 }

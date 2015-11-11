@@ -1,22 +1,21 @@
-<FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:gauge="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gauge="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.lingya.ui.GaugeView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:padding="10dp"
-            android:textSize="20sp"
+        android:textSize="20sp"
         gauge:fontSize="30dp"
         gauge:maxValue="80"
         gauge:minValue="-20"
-            gauge:pointColor="@android:color/holo_red_dark"
-            gauge:pointSize="60"
-            gauge:startAngle="135"
-            gauge:strokeCap="BUTT"
-            gauge:strokeColor="@android:color/darker_gray"
+        gauge:pointColor="@android:color/holo_red_dark"
+        gauge:pointSize="60"
+        gauge:startAngle="135"
+        gauge:strokeCap="BUTT"
+        gauge:strokeColor="@android:color/darker_gray"
 
         gauge:strokeWidth="10dp"
         gauge:sweepAngle="270"

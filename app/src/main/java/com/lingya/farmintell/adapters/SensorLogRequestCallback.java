@@ -24,45 +24,45 @@ import io.realm.RealmResults;
  */
 public class SensorLogRequestCallback implements HttpServerRequestCallback {
 
-  private final Context context;
+    private final Context context;
 
-  public SensorLogRequestCallback(Context context) {
-    this.context = context;
-  }
-
-  @Override
-  public void onRequest(AsyncHttpServerRequest request, AsyncHttpServerResponse response) {
-    String sensorId = request.getMatcher().replaceAll("");
-    if (TextUtils.isEmpty(sensorId)) {
-      response.code(404);
-      response.end();
-      return;
+    public SensorLogRequestCallback(Context context) {
+        this.context = context;
     }
-    long lastDayMillis = System.currentTimeMillis() - TimeUnit.DAYS.toMillis(1);
-    Realm realm = RealmFactory.getInstance(context);
-    try {
-      RealmResults<SensorLog>
-          logs = realm
-          .where(SensorLog.class)
-          .equalTo("sensorId", sensorId)
-          .greaterThan("time", new Date(lastDayMillis))
-          .findAll();
-      JSONObject json = new JSONObject();
-      try {
-        JSONArray jsonArray = new JSONArray();
-        for (SensorLog log : logs) {
-          jsonArray.put(log.getValue());
+
+    @Override
+    public void onRequest(AsyncHttpServerRequest request, AsyncHttpServerResponse response) {
+        String sensorId = request.getMatcher().replaceAll("");
+        if (TextUtils.isEmpty(sensorId)) {
+            response.code(404);
+            response.end();
+            return;
         }
-        json.put("sensorId", sensorId)
-            .put("count", logs.size())
-            .put("values", jsonArray);
-        response.send(json);
-        response.end();
-      } catch (JSONException e) {
-        e.printStackTrace();
-      }
-    } finally {
-      realm.close();
+        long lastDayMillis = System.currentTimeMillis() - TimeUnit.DAYS.toMillis(1);
+        Realm realm = RealmFactory.getInstance(context);
+        try {
+            RealmResults<SensorLog>
+                    logs = realm
+                    .where(SensorLog.class)
+                    .equalTo("sensorId", sensorId)
+                    .greaterThan("time", new Date(lastDayMillis))
+                    .findAll();
+            JSONObject json = new JSONObject();
+            try {
+                JSONArray jsonArray = new JSONArray();
+                for (SensorLog log : logs) {
+                    jsonArray.put(log.getValue());
+                }
+                json.put("sensorId", sensorId)
+                        .put("count", logs.size())
+                        .put("values", jsonArray);
+                response.send(json);
+                response.end();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } finally {
+            realm.close();
+        }
     }
-  }
 }

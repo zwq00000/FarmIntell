@@ -7,7 +7,6 @@ import com.lingya.farmintell.models.SensorsConfig;
 
 /**
  * Created by zwq00000 on 2015/7/29.
- *
  */
 public class JsonUtilsTest extends AndroidTestCase {
 

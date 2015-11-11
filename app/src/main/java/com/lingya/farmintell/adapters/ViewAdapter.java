@@ -7,20 +7,20 @@ import android.view.ViewGroup;
  */
 public interface ViewAdapter<ViewModel> {
 
-  /**
-   * 设置视图数据
-   */
-  void setViewData(ViewModel viewData);
+    /**
+     * 设置视图数据
+     */
+    void setViewData(ViewModel viewData);
 
-  /**
-   * 绑定视图
-   *
-   * @param container 容器视图
-   */
-  void bindView(ViewGroup container);
+    /**
+     * 绑定视图
+     *
+     * @param container 容器视图
+     */
+    void bindView(ViewGroup container);
 
-  /**
-   * 更新视图
-   */
-  void notifyDataChanged();
+    /**
+     * 更新视图
+     */
+    void notifyDataChanged();
 }

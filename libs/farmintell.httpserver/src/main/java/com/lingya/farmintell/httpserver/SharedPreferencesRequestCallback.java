@@ -24,76 +24,76 @@ import org.json.JSONStringer;
  */
 class SharedPreferencesRequestCallback implements HttpServerRequestCallback {
 
-  private static final String TAG = "RequestCallback";
-  private final SharedPreferences pref;
+    private static final String TAG = "RequestCallback";
+    private final SharedPreferences pref;
 
-  public SharedPreferencesRequestCallback(Context context) {
-    pref = PreferenceManager.getDefaultSharedPreferences(context);
-  }
-
-  public SharedPreferencesRequestCallback(SharedPreferences sharedPreferences) {
-    if (sharedPreferences == null) {
-      throw new IllegalArgumentException("sharedPreferences is not been null");
+    public SharedPreferencesRequestCallback(Context context) {
+        pref = PreferenceManager.getDefaultSharedPreferences(context);
     }
-    this.pref = sharedPreferences;
-  }
 
-  @Override
-  public void onRequest(AsyncHttpServerRequest request, AsyncHttpServerResponse response) {
-    String requestMethod = request.getMethod();
-    if (TextUtils.equals(requestMethod, AsyncHttpGet.METHOD)) {
-      onGetRequest(request, response);
-    } else if (TextUtils.equals(requestMethod, AsyncHttpPost.METHOD)) {
-      onPostRequest(request, response);
+    public SharedPreferencesRequestCallback(SharedPreferences sharedPreferences) {
+        if (sharedPreferences == null) {
+            throw new IllegalArgumentException("sharedPreferences is not been null");
+        }
+        this.pref = sharedPreferences;
     }
-  }
 
-  /**
-   * 响应 Http POST 方法
-   */
-  private void onPostRequest(AsyncHttpServerRequest request,
-                             AsyncHttpServerResponse response) {
-    Log.d(TAG, "onPostRequest");
-
-    AsyncHttpRequestBody body = request.getBody();
-    if (body instanceof JSONObjectBody) {
-      JSONObjectBody jsonBody = (JSONObjectBody) body;
-      JSONObject json = jsonBody.get();
-      try {
-        JsonAdapter.setPreferences(pref, json);
-        response.code(200);
-        response.end();
-      } catch (JSONException e) {
-        e.printStackTrace();
-        response.code(500);
-        response.send(e.getMessage());
-        response.end();
-      }
+    @Override
+    public void onRequest(AsyncHttpServerRequest request, AsyncHttpServerResponse response) {
+        String requestMethod = request.getMethod();
+        if (TextUtils.equals(requestMethod, AsyncHttpGet.METHOD)) {
+            onGetRequest(request, response);
+        } else if (TextUtils.equals(requestMethod, AsyncHttpPost.METHOD)) {
+            onPostRequest(request, response);
+        }
     }
-    response.send(body.get().toString());
-    response.end();
-  }
 
-  /**
-   * 响应 Http GET 方法
-   */
-  private void onGetRequest(AsyncHttpServerRequest request,
-                            AsyncHttpServerResponse response) {
-    Log.d(TAG, "onGetRequest");
-    String key = request.getMatcher().replaceAll("");
+    /**
+     * 响应 Http POST 方法
+     */
+    private void onPostRequest(AsyncHttpServerRequest request,
+                               AsyncHttpServerResponse response) {
+        Log.d(TAG, "onPostRequest");
 
-    try {
-      JSONStringer stringer = JsonAdapter.toJSONStringer(pref, key);
-      if (stringer == null) {
-        response.code(404);
+        AsyncHttpRequestBody body = request.getBody();
+        if (body instanceof JSONObjectBody) {
+            JSONObjectBody jsonBody = (JSONObjectBody) body;
+            JSONObject json = jsonBody.get();
+            try {
+                JsonAdapter.setPreferences(pref, json);
+                response.code(200);
+                response.end();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                response.code(500);
+                response.send(e.getMessage());
+                response.end();
+            }
+        }
+        response.send(body.get().toString());
         response.end();
-      } else {
-        response.send("application/json; charset=utf-8", stringer.toString());
-        response.end();
-      }
-    } catch (JSONException e) {
-      response.send(e.getMessage());
-      response.end();
     }
-  }
+
+    /**
+     * 响应 Http GET 方法
+     */
+    private void onGetRequest(AsyncHttpServerRequest request,
+                              AsyncHttpServerResponse response) {
+        Log.d(TAG, "onGetRequest");
+        String key = request.getMatcher().replaceAll("");
+
+        try {
+            JSONStringer stringer = JsonAdapter.toJSONStringer(pref, key);
+            if (stringer == null) {
+                response.code(404);
+                response.end();
+            } else {
+                response.send("application/json; charset=utf-8", stringer.toString());
+                response.end();
+            }
+        } catch (JSONException e) {
+            response.send(e.getMessage());
+            response.end();
+        }
+    }
 }

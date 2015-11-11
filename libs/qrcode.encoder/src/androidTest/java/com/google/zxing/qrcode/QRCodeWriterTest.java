@@ -12,16 +12,16 @@ import junit.framework.TestCase;
 public class QRCodeWriterTest extends TestCase {
 
 
-  public void testEncode() throws Exception {
-    QRCodeWriter writer = new QRCodeWriter();
-    String text = "http://192.168.0.196/index.html";
-    Bitmap image = QRCodeFactory.renderToBitmap(text);
-    assertNotNull(image);
+    public void testEncode() throws Exception {
+        QRCodeWriter writer = new QRCodeWriter();
+        String text = "http://192.168.0.196/index.html";
+        Bitmap image = QRCodeFactory.renderToBitmap(text);
+        assertNotNull(image);
 
-  }
+    }
 
 
-  public void testEncode1() throws Exception {
+    public void testEncode1() throws Exception {
 
-  }
+    }
 }

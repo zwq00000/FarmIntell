@@ -10,28 +10,28 @@ import com.lingya.farmintell.R;
  */
 class Palettes {
 
-  private final int[] colors;
-  private int index = 0;
+    private final int[] colors;
+    private int index = 0;
 
-  private Palettes(Context context) {
-    Resources r = context.getResources();
-    colors = r.getIntArray(R.array.colorPalttes);
-  }
-
-  public int getNext() {
-    index++;
-    if (index >= colors.length) {
-      index = 0;
+    private Palettes(Context context) {
+        Resources r = context.getResources();
+        colors = r.getIntArray(R.array.colorPalttes);
     }
-    return colors[index];
-  }
 
-  public int get(int index) {
-    return colors[index % colors.length];
-  }
+    public static Palettes getInstance(Context context) {
+        return new Palettes(context);
+    }
 
-  public static Palettes getInstance(Context context) {
-    return new Palettes(context);
-  }
+    public int getNext() {
+        index++;
+        if (index >= colors.length) {
+            index = 0;
+        }
+        return colors[index];
+    }
+
+    public int get(int index) {
+        return colors[index % colors.length];
+    }
 
 }

@@ -20,94 +20,94 @@ import java.util.Set;
  */
 public class JsonAdapter {
 
-  private static final String TAG = "JsonAdapter";
+    private static final String TAG = "JsonAdapter";
 
-  public static void setPreferences(SharedPreferences pref, JSONObject jsonObject)
-      throws JSONException {
-    Iterator keys = jsonObject.keys();
-    Map<String, ?> prefMap = pref.getAll();
-    while (keys.hasNext()) {
-      String key = keys.next().toString();
-      Object currentValue = prefMap.get(key);
-      Log.d(TAG, key + ":" + currentValue);
-      if (currentValue instanceof String) {
-        pref.edit().putString(key, jsonObject.getString(key)).apply();
-      } else if (currentValue instanceof Integer) {
-        pref.edit().putInt(key, jsonObject.getInt(key)).apply();
-      } else if (currentValue instanceof Float) {
-        pref.edit().putFloat(key, (float) jsonObject.getDouble(key)).apply();
-      } else if (currentValue instanceof Long) {
-        pref.edit().putLong(key, jsonObject.getLong(key)).apply();
-      } else if (currentValue instanceof Set) {
-        pref.edit().putStringSet(key, convertToSet(jsonObject.getJSONArray(key))).apply();
-      }
+    public static void setPreferences(SharedPreferences pref, JSONObject jsonObject)
+            throws JSONException {
+        Iterator keys = jsonObject.keys();
+        Map<String, ?> prefMap = pref.getAll();
+        while (keys.hasNext()) {
+            String key = keys.next().toString();
+            Object currentValue = prefMap.get(key);
+            Log.d(TAG, key + ":" + currentValue);
+            if (currentValue instanceof String) {
+                pref.edit().putString(key, jsonObject.getString(key)).apply();
+            } else if (currentValue instanceof Integer) {
+                pref.edit().putInt(key, jsonObject.getInt(key)).apply();
+            } else if (currentValue instanceof Float) {
+                pref.edit().putFloat(key, (float) jsonObject.getDouble(key)).apply();
+            } else if (currentValue instanceof Long) {
+                pref.edit().putLong(key, jsonObject.getLong(key)).apply();
+            } else if (currentValue instanceof Set) {
+                pref.edit().putStringSet(key, convertToSet(jsonObject.getJSONArray(key))).apply();
+            }
+        }
     }
-  }
 
-  private static Set<String> convertToSet(JSONArray jsonArray) throws JSONException {
-    if (jsonArray == null || jsonArray.length() == 0) {
-      return null;
+    private static Set<String> convertToSet(JSONArray jsonArray) throws JSONException {
+        if (jsonArray == null || jsonArray.length() == 0) {
+            return null;
+        }
+        HashSet<String> set = new HashSet<String>();
+        for (int i = 0; i < jsonArray.length(); i++) {
+            set.add(jsonArray.getString(i));
+        }
+        return set;
     }
-    HashSet<String> set = new HashSet<String>();
-    for (int i = 0; i < jsonArray.length(); i++) {
-      set.add(jsonArray.getString(i));
-    }
-    return set;
-  }
 
-  private static JSONStringer appendJson(JSONStringer jsonStringer, Set<?> stringSet)
-      throws JSONException {
-    if (stringSet != null) {
-      jsonStringer.array();
-      for (Object item : stringSet) {
-        jsonStringer.value(item);
-      }
-      jsonStringer.endArray();
+    private static JSONStringer appendJson(JSONStringer jsonStringer, Set<?> stringSet)
+            throws JSONException {
+        if (stringSet != null) {
+            jsonStringer.array();
+            for (Object item : stringSet) {
+                jsonStringer.value(item);
+            }
+            jsonStringer.endArray();
+        }
+        return jsonStringer;
     }
-    return jsonStringer;
-  }
 
-  private static JSONStringer appendJson(JSONStringer jsonStringer, String key, Object value)
-      throws JSONException {
-    jsonStringer.object()
-        .key(key);
-    if (value instanceof Set) {
-      appendJson(jsonStringer, (Set) value);
-    } else {
-      jsonStringer.value(value);
+    private static JSONStringer appendJson(JSONStringer jsonStringer, String key, Object value)
+            throws JSONException {
+        jsonStringer.object()
+                .key(key);
+        if (value instanceof Set) {
+            appendJson(jsonStringer, (Set) value);
+        } else {
+            jsonStringer.value(value);
+        }
+        jsonStringer.endObject();
+
+        return jsonStringer;
     }
-    jsonStringer.endObject();
 
-    return jsonStringer;
-  }
-
-  private static JSONStringer appendJson(JSONStringer jsonStringer, Map<String, ?> prefMap)
-      throws JSONException {
-    jsonStringer.object();
-    for (Map.Entry<String, ?> entry : prefMap.entrySet()) {
-      jsonStringer.key(entry.getKey());
-      Object value = entry.getValue();
-      if (value instanceof Set) {
-        appendJson(jsonStringer, (Set) value);
-      } else {
-        jsonStringer.value(value);
-      }
+    private static JSONStringer appendJson(JSONStringer jsonStringer, Map<String, ?> prefMap)
+            throws JSONException {
+        jsonStringer.object();
+        for (Map.Entry<String, ?> entry : prefMap.entrySet()) {
+            jsonStringer.key(entry.getKey());
+            Object value = entry.getValue();
+            if (value instanceof Set) {
+                appendJson(jsonStringer, (Set) value);
+            } else {
+                jsonStringer.value(value);
+            }
+        }
+        jsonStringer.endObject();
+        return jsonStringer;
     }
-    jsonStringer.endObject();
-    return jsonStringer;
-  }
 
-  public static JSONStringer toJSONStringer(SharedPreferences pref, String key)
-      throws JSONException {
-    JSONStringer stringer = null;
-    if (TextUtils.isEmpty(key)) {
-      stringer = new JSONStringer();
-      appendJson(stringer, pref.getAll());
-    } else if (pref.contains(key)) {
-      Object item = pref.getAll().get(key);
-      stringer = new JSONStringer();
-      appendJson(stringer, key, item);
+    public static JSONStringer toJSONStringer(SharedPreferences pref, String key)
+            throws JSONException {
+        JSONStringer stringer = null;
+        if (TextUtils.isEmpty(key)) {
+            stringer = new JSONStringer();
+            appendJson(stringer, pref.getAll());
+        } else if (pref.contains(key)) {
+            Object item = pref.getAll().get(key);
+            stringer = new JSONStringer();
+            appendJson(stringer, key, item);
+        }
+        return stringer;
     }
-    return stringer;
-  }
 }

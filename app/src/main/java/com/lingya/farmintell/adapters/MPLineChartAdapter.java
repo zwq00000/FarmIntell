@@ -427,6 +427,25 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
         }
     }
 
+    private String getSensorSummary(SensorSummary summary) {
+        if (summary == null) {
+            throw new IllegalArgumentException("summary is not been null");
+        }
+        SensorsConfig.SensorConfig config = summary.getSensorConfog();
+        if (config == null) {
+            throw new NullPointerException("summayr.SensorConfig is not been null");
+        }
+        return config.getDisplayName() + " 数量:" + summary.size()
+                + " 最大:" + summary.getMaximum()
+                + " 最小:" + summary.getMinimum();
+    }
+
+    /**
+     * 填充 传感器统计值
+     *
+     * @param sensorSummary
+     * @throws IOException
+     */
     private synchronized void fillSeriesDataset(SensorSummary sensorSummary) throws IOException {
         if (sensorSummary == null || lineChart == null) {
             return;

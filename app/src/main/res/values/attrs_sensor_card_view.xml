@@ -1,6 +1,6 @@
 <resources>
     <declare-styleable name="SensorCardView">
-        <attr name="headerText" format="string"/>
-        <attr name="valueText" format="string"/>
+        <attr name="headerText" format="string" />
+        <attr name="valueText" format="string" />
     </declare-styleable>
 </resources>

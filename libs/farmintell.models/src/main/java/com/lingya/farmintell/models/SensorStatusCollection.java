@@ -5,8 +5,10 @@ import com.lingya.farmintell.utils.JsonUtils;
 import org.json.JSONException;
 import org.json.JSONStringer;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * 传感器状态集合 Created by zwq00000 on 2015/6/29.
@@ -59,8 +61,30 @@ public class SensorStatusCollection {
         statuses = new SensorStatus[0];
     }
 
+    /**
+     * 获取 传感器状态集合
+     *
+     * @return
+     */
     public SensorStatus[] getStatuses() {
         return this.statuses;
+    }
+
+    /**
+     * 根据 传感器名称 返回 传感器集合
+     *
+     * @param sensorName
+     * @return
+     */
+    public List<SensorStatus> find(String sensorName) {
+        List<SensorStatus> findResult = new ArrayList<SensorStatus>(2);
+        for (SensorStatus status :
+                this.statuses) {
+            if (status.getName().equalsIgnoreCase(sensorName)) {
+                findResult.add(status);
+            }
+        }
+        return findResult;
     }
 
     /**

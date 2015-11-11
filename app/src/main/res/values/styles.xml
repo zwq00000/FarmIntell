@@ -22,7 +22,8 @@
     </style>
 
     <!-- Backward-compatible version of ?android:attr/buttonBarButtonStyle -->
-    <style name="ButtonBarButton"/>
+    <style name="ButtonBarButton" />
+
     <style name="headerText">
         <item name="android:gravity">center</item>
         <item name="android:background">#F5DEB3</item>
@@ -30,6 +31,7 @@
         <item name="android:layout_marginLeft">0.5dp</item>
         <item name="android:layout_marginRight">0.5dp</item>
     </style>
+
     <style name="vNumber">
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:textSize">40dp</item>
