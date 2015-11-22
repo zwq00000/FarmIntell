@@ -68,7 +68,7 @@ public class SensorService extends Service {
                 public void onValueChanged(final Register... holders) {
                     boolean isChanged = false;
                     for (Register register : holders) {
-                        if (register.isChanged()) {
+                        if (register.hasChanged()) {
                             isChanged = true;
                             break;
                         }
@@ -189,6 +189,7 @@ public class SensorService extends Service {
         }
         this.statusCollection = new SensorStatusCollection(config);
         this.registerReader = ModbusRegisterReader.getInstance(this, registers);
+        //注册 数值变更通知
         registerReader.setOnValueChangedListener(registerListener);
         this.registerReader.open();
         Log.d(TAG, "open ModbusRegisterReaderImpl");
@@ -269,8 +270,6 @@ public class SensorService extends Service {
 
     private static class SensorServiceBinderImpl extends Binder implements ISensorBinder {
 
-        //24小时 毫秒数
-        private static final long ONE_DAY_MILLIS = TimeUnit.DAYS.toMillis(1);
         private final SensorService sensorService;
 
         private SensorServiceBinderImpl(SensorService sensorService) {
@@ -303,7 +302,7 @@ public class SensorService extends Service {
             if (sensorService == null) {
                 return null;
             }
-            Date lastDate = new Date(System.currentTimeMillis() - ONE_DAY_MILLIS);
+            Date lastDate = new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(1));
             Realm realm = RealmFactory.getInstance(sensorService);
             try {
                 return realm.where(SensorLog.class)

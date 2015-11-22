@@ -113,7 +113,8 @@ public class RegisterFactory {
             public Float next() {
                 sensorIndex++;
                 if (registerIndex < registers.length) {
-                    if (sensorIndex < registers[registerIndex].getCount()) {
+                    Register register = registers[registerIndex];
+                    if (sensorIndex < register.getCount() && register.hasChanged()) {
                         return (Float) registers[registerIndex].getSensorValue(sensorIndex);
                     } else {
                         registerIndex++;

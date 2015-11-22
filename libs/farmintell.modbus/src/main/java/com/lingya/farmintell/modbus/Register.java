@@ -15,7 +15,7 @@ public class Register implements Holder<Short> {
     /**
      * 数据是否已经改变
      */
-    private boolean isChanged = false;
+    private boolean changed = false;
 
     /**
      * 从站Id    {@value 1~255}
@@ -82,7 +82,7 @@ public class Register implements Holder<Short> {
         Sensor sensor = this.getSensors()[offset];
         if (sensor.getRawValue() != value) {
             sensor.setRawValue(value);
-            isChanged = true;
+            changed = true;
         }
     }
 
@@ -119,7 +119,7 @@ public class Register implements Holder<Short> {
                 getSensors()) {
             sensor.reset();
         }
-        isChanged = false;
+        changed = false;
     }
 
     /**
@@ -171,8 +171,8 @@ public class Register implements Holder<Short> {
     /**
      * 数据是否已经改变
      */
-    public boolean isChanged() {
-        return isChanged;
+    public boolean hasChanged() {
+        return changed;
     }
 
     /**

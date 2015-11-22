@@ -77,7 +77,7 @@ public class RegisterTest extends AndroidTestCase {
         for (int i = 0; i < 1000; i++) {
             request.writeFrame(output);
             request.readResponse(input);
-            if (holder.isChanged()) {
+            if (holder.hasChanged()) {
                 Log.d(TAG, i + "\t" + RegisterFactory.toValueJson(holder));
             } else {
                 Log.d(TAG, i + "\tread error");

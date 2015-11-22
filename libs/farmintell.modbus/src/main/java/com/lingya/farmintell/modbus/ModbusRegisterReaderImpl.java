@@ -71,9 +71,11 @@ public class ModbusRegisterReaderImpl extends ModbusRegisterReader<Holder<Short>
         for (int i = 0; i < requestsLen; i++) {
             ReadInputRegistersRequest request = this.requests[i];
             try {
-                readRegister(request);
-                if (i < requestsLen - 1) {
-                    Thread.sleep(50);
+                if (!readRegister(request)) {
+                    if (i < requestsLen - 1) {
+                        //读取下一个 从站之前等待 50毫秒
+                        Thread.sleep(50);
+                    }
                 }
             } catch (IOException ex) {
                 Log.e(TAG, ex.getMessage());
@@ -83,6 +85,13 @@ public class ModbusRegisterReaderImpl extends ModbusRegisterReader<Holder<Short>
         }
     }
 
+    /**
+     * 读取 Modbus 寄存器
+     *
+     * @param request
+     * @return true 读取成功,false 读取失败
+     * @throws IOException
+     */
     private boolean readRegister(ReadInputRegistersRequest request) throws IOException {
         int retryCount = 0;
         while (retryCount < 3) {
