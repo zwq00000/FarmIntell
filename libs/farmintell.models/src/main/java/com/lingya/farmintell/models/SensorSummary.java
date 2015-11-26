@@ -1,46 +1,63 @@
 package com.lingya.farmintell.models;
+/*
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+*/
 /**
  * 传感器值 小时合计
  * Created by zwq00000 on 2015/7/4.
- */
+ *//*
+
 public class SensorSummary {
 
     private static final SimpleDateFormat SHORT_TIME_FORMAT = new SimpleDateFormat("HH");
-    /**
+    */
+/**
      * 传感器配置
-     */
+ *//*
+
     private SensorsConfig.SensorConfig sensorConfog;
-    /**
+    */
+/**
      * 传感器Id
-     */
+ *//*
+
     private String sensorId;
 
-    /**
+    */
+/**
      * 测量时间
-     */
+ *//*
+
     private Calendar startCalendar;
-    /**
+    */
+/**
      * 算数平均值
-     */
+ *//*
+
     private float[] averages;
 
-    /**
+    */
+/**
      * 时间标记序列
-     */
+ *//*
+
     private Date[] timeStamps;
 
-    /**
+    */
+/**
      * 最大值
-     */
+ *//*
+
     private float maximum;
-    /**
+    */
+/**
      * 最小值
-     */
+ *//*
+
     private float minimum;
 
     private SensorSummary() {
@@ -135,3 +152,4 @@ public class SensorSummary {
         return sensorConfog;
     }
 }
+*/

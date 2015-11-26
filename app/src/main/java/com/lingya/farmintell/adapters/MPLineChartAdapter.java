@@ -1,24 +1,18 @@
 package com.lingya.farmintell.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
 import com.lingya.farmintell.R;
 import com.lingya.farmintell.models.SensorStatus;
 import com.lingya.farmintell.models.SensorStatusCollection;
-import com.lingya.farmintell.models.SensorSummary;
 import com.lingya.farmintell.models.SensorsConfig;
 import com.lingya.farmintell.services.SensorService;
 
@@ -27,6 +21,9 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * MP线图适配器
+ * 当  {@link  SensorStatus}  传感器状态更新时,通过 {@link #notifyDataChanged} 方法通知实时更新
+ * {@See showSensorHistory} 方法
  * Created by zwq00000 on 15-8-24.
  */
 public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBinder> {
@@ -35,37 +32,9 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
      * 图表显示的最大点数
      */
     private static final int MAX_POINTS = 25;
-    /**
-     * X轴 最大值
-     */
-    private static final double X_MAX = MAX_POINTS + 0.5;
-    /**
-     * X轴最小值
-     */
-    private static final double X_MIN = 0.5;
-    /**
-     * Y轴最大值
-     */
-    private static final double Y_MAX = 1;
-    /**
-     * Y轴最小值
-     */
-    private static final double Y_MIN = 0;
+
     private static final String TAG = "MPLineChartAdapter";
 
-    /**
-     * 数轴颜色
-     */
-    private static final int AXES_COLOR = Color.LTGRAY;
-    /**
-     * 标签颜色
-     */
-    private static final int LABELS_COLOR = Color.LTGRAY;
-    /**
-     * 图表背景色
-     */
-    private static final int CHART_COLOR_BACKGROUND = Color.TRANSPARENT;
-    private static final String[] SERIES_NAMES = new String[]{"平均值", "最大值", "最小值"};
 
     /**
      * 序列调色板
@@ -77,7 +46,10 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
      * 图表对象
      */
     private LineChart lineChart;
-    private long resumtTime;
+    /**
+     * 恢复时间,从历史数据恢复为实时数据的时间
+     */
+    private long resumeTime;
     private SensorService.ISensorBinder sensorBinder;
     /**
      * 选中的传感器Id
@@ -97,77 +69,30 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
             throw new IllegalArgumentException("chart is not been null");
         }
         this.lineChart = chart;
-        //initChart(context,chart);
     }
-
 
     /**
-     * 创建 {@link LineChart} 对象
+     * 判断 浮点值是否可用
+     * @param value
+     * @return
      */
-    private static void initChart(Context context, LineChart lineChart) {
-        //初始化 Renderer 样式
-        // no description text
-        lineChart.setDescription("");
-        lineChart.setNoDataTextDescription("You need to provide data for the chart.");
-
-        // enable value highlighting
-        lineChart.setHighlightEnabled(true);
-
-        // enable touch gestures
-        lineChart.setTouchEnabled(true);
-
-        lineChart.setDragDecelerationFrictionCoef(0.9f);
-
-        // enable scaling and dragging
-        lineChart.setDragEnabled(true);
-        lineChart.setScaleEnabled(true);
-        lineChart.setDrawGridBackground(false);
-        lineChart.setHighlightPerDragEnabled(true);
-
-        // if disabled, scaling can be done on x- and y-axis separately
-        lineChart.setPinchZoom(true);
-
-        lineChart.animateX(3000);
-
-        // set an alternative background color
-        lineChart.setBackgroundColor(Color.LTGRAY);
-
-
-        // get the legend (only possible after setting data)
-        Legend l = lineChart.getLegend();
-
-        // modify the legend ...
-        // l.setPosition(LegendPosition.LEFT_OF_CHART);
-
-        l.setForm(Legend.LegendForm.LINE);
-        //l.setTypeface(tf);
-        l.setTextSize(11f);
-        l.setTextColor(Color.WHITE);
-        l.setPosition(Legend.LegendPosition.BELOW_CHART_LEFT);
-//        l.setYOffset(11f);
-
-        XAxis xAxis = lineChart.getXAxis();
-        //xAxis.setTypeface(tf);
-        xAxis.setTextSize(12f);
-        xAxis.setTextColor(Color.WHITE);
-        xAxis.setDrawGridLines(false);
-        xAxis.setDrawAxisLine(false);
-        xAxis.setSpaceBetweenLabels(1);
-
-        YAxis leftAxis = lineChart.getAxisLeft();
-        //leftAxis.setTypeface(tf);
-        leftAxis.setTextColor(ColorTemplate.getHoloBlue());
-        leftAxis.setAxisMaxValue(200f);
-        leftAxis.setDrawGridLines(true);
+    private static boolean isValiable(float value) {
+        return !Float.isInfinite(value) && !Float.isNaN(value);
     }
 
-    public void setViewData(SensorSummary sensorSummary) {
-        if (sensorSummary == null) {
-            throw new NullPointerException("summary is not been null");
+    /**
+     * 设置 平均值 图表数据
+     *
+     * @param config
+     * @param averages
+     */
+    public void setViewData(SensorsConfig.SensorConfig config, float[] averages) {
+        if (averages == null) {
+            throw new NullPointerException("averages is not been null");
         }
 
         try {
-            fillSeriesDataset(sensorSummary);
+            fillSeriesDataset(config, averages);
             lineChart.invalidate();
         } catch (IOException e) {
             e.printStackTrace();
@@ -214,7 +139,7 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
      */
     @Override
     public void notifyDataChanged() {
-        if (resumtTime < System.currentTimeMillis()) {
+        if (resumeTime < System.currentTimeMillis()) {
             if (this.sensorBinder != null) {
                 SensorStatusCollection status = sensorBinder.getStatus();
                 this.fillSeriesDataset(status);
@@ -224,6 +149,31 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
         }
     }
 
+    /**
+     * 获取 传感器配置
+     *
+     * @return
+     */
+    private SensorsConfig.SensorConfig getSensorConfig(String sensorId) {
+        SensorStatus[] statuses = this.sensorBinder.getStatus().getStatuses();
+        if (statuses.length == 0) {
+            return null;
+        }
+        if (TextUtils.isEmpty(sensorId)) {
+            return statuses[0].getConfig();
+        }
+        for (SensorStatus item : statuses) {
+            if (item.getId().equals(sensorId)) {
+                return item.getConfig();
+            }
+        }
+        return statuses[0].getConfig();
+    }
+
+    /**
+     * 填充 传感器实时状态 数据图表
+     * @param status
+     */
     private synchronized void fillSeriesDataset(SensorStatusCollection status) {
         if (lineChart == null) {
             return;
@@ -242,6 +192,10 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
         }
     }
 
+    /**
+     * 填充传感器实时状态 数据图表
+     * @param status
+     */
     private synchronized void fillSeriesDataset(SensorStatus status) {
         if (lineChart == null) {
             return;
@@ -296,11 +250,21 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
 
     }
 
+    /**
+     * 创建 线图数据
+     * @param config
+     * @return
+     */
     private LineData createLineData(SensorsConfig.SensorConfig config) {
         return createLineData(config, MAX_POINTS);
     }
 
-
+    /**
+     * 创建 线图数据
+     * @param config
+     * @param xCount
+     * @return
+     */
     private LineData createLineData(SensorsConfig.SensorConfig config, int xCount) {
         if (xCount < 1) {
             xCount = MAX_POINTS;
@@ -361,6 +325,11 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
         lineDataSet.setDrawValues(false);
     }
 
+    /**
+     * 根据 SensorId 获取 调色板颜色
+     * @param sensorId
+     * @return
+     */
     private int getPaletteColor(String sensorId) {
         int index = getSensorIndex(sensorId);
         if (index < 0 || index >= PALETTES.length) {
@@ -369,6 +338,11 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
         return PALETTES[index];
     }
 
+    /**
+     * 创建 图表数据集
+     * @param config
+     * @return
+     */
     private LineDataSet createDataSet(SensorsConfig.SensorConfig config) {
         ArrayList<Entry> yVals = new ArrayList<Entry>();
         LineDataSet lineDataSet = new LineDataSet(yVals, config.getDisplayName());
@@ -398,6 +372,9 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
         }
     }
 
+    /**
+     * 重置图表，清理图表数据
+     */
     public void reset() {
         this.lineChart.clear();
         lineChart.clearValues();
@@ -409,55 +386,34 @@ public class MPLineChartAdapter implements ViewAdapter<SensorService.ISensorBind
      * @param sensorId
      */
     public void showSensorHistory(String sensorId) {
-        if (this.lineChart != null) {
-            this.resumtTime = System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(1);
+        if (this.lineChart != null && !TextUtils.isEmpty(sensorId)) {
             this.sensorId = sensorId;
-
+            SensorsConfig.SensorConfig config = getSensorConfig(sensorId);
             SensorAdapterFactory factory = SensorAdapterFactory.getInstance(this.context);
-            SensorSummary summary = factory.getBinder().get24HourlySummary(sensorId);
-
-            if (summary.size() > 1) {
-                setViewData(summary);
-            }
-            SensorsConfig.SensorConfig config = summary.getSensorConfog();
-            Toast.makeText(context, config.getDisplayName() + " 数量:" + summary.size()
-                    + " 最大:" + summary.getMaximum()
-                    + " 最小:" + summary.getMinimum()
-                    , Toast.LENGTH_SHORT).show();
+            float[] average = factory.getBinder().get24HourlySummary(sensorId);
+            setViewData(config, average);
+            this.resumeTime = System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(1);
         }
-    }
-
-    private String getSensorSummary(SensorSummary summary) {
-        if (summary == null) {
-            throw new IllegalArgumentException("summary is not been null");
-        }
-        SensorsConfig.SensorConfig config = summary.getSensorConfog();
-        if (config == null) {
-            throw new NullPointerException("summayr.SensorConfig is not been null");
-        }
-        return config.getDisplayName() + " 数量:" + summary.size()
-                + " 最大:" + summary.getMaximum()
-                + " 最小:" + summary.getMinimum();
     }
 
     /**
      * 填充 传感器统计值
      *
-     * @param sensorSummary
+     * @param averages
      * @throws IOException
      */
-    private synchronized void fillSeriesDataset(SensorSummary sensorSummary) throws IOException {
-        if (sensorSummary == null || lineChart == null) {
+    private synchronized void fillSeriesDataset(SensorsConfig.SensorConfig config, float[] averages) throws IOException {
+        if (averages == null || lineChart == null) {
             return;
         }
-        SensorsConfig.SensorConfig config = sensorSummary.getSensorConfog();
         updateYAxis(config);
         LineData lineData = createLineData(config);
         LineDataSet lineDataSet = lineData.getDataSets().get(0);
-        float[] averages = sensorSummary.getAverages();
         for (int i = 0; i < averages.length; i++) {
-            float value = Math.max(Math.min(averages[i], config.getMax()), config.getMin());
-            lineDataSet.addEntry(new Entry(value, i));
+            float value = averages[i];
+            if (isValiable(averages[i])) {
+                lineDataSet.addEntry(new Entry(value, i));
+            }
         }
 
         lineChart.setData(lineData);

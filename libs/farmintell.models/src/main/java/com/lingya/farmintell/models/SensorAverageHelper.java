@@ -1,12 +1,5 @@
 package com.lingya.farmintell.models;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.util.Log;
-
-import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -18,11 +11,11 @@ import io.realm.RealmQuery;
  * Created by zwq00000 on 2015/7/28.
  */
 public class SensorAverageHelper {
-
+/*
     private static final String TAG = "SensorAverageHelper";
-    /**
+    *//**
      * 下一次更新时间
-     */
+     *//*
     private static Date nextUpdateTime;
     // 批量更新 工作现场
     private static Thread batchUpdateThread;
@@ -69,12 +62,12 @@ public class SensorAverageHelper {
         }
     };
 
-    /**
+    *//**
      * 批量更新 传感器平均值
      *
      * @param context
      * @param endTime
-     */
+     *//*
     public static void batchUpdateAverages(Context context, long endTime) {
         Realm realm = null;
         Date nextTime = getLatestUpdateTime(context).getTime();
@@ -96,10 +89,10 @@ public class SensorAverageHelper {
         }
     }
 
-    /**
+    *//**
      * 获取 最近一次 平均值 统计时间
      * 如果 平均值 表为空，则 返回 传感器日志最早的时间 作为 计算统计表的开始时间
-     */
+     *//*
     public static Calendar getLatestUpdateTime(Context context) {
         Realm realm = null;
         try {
@@ -150,9 +143,9 @@ public class SensorAverageHelper {
         }
     }
 
-    /**
+    *//**
      * 是否包含 平均值实例
-     */
+     *//*
     public static boolean hasInstance(Realm realm, String sensorId, Date updateTime) {
         RealmQuery<SensorAverage> query = realm.where(SensorAverage.class)
                 .equalTo("sensorId", sensorId)
@@ -161,14 +154,14 @@ public class SensorAverageHelper {
         return query.count() > 0;
     }
 
-    /**
+    *//**
      * 追加平均值记录
      *
      * @param realm
      * @param sensorIds
      * @param updateTime
      * @return 下一次更新时间
-     */
+     *//*
     public static Date appendAverage(final Realm realm, final String[] sensorIds,
                                      final Date updateTime) {
         final Calendar startCalendar = CalendarUtils.getStartCalendar(updateTime);
@@ -208,7 +201,7 @@ public class SensorAverageHelper {
         Calendar endCalendar = CalendarUtils.getStartCalendar(startTime);
         return query(realm, sensorId, startCalendar, endCalendar);
     }
-
+*/
     /**
      * 根据所给 开始时间 和结束 时间 查询 @see SensorAverage
      *
@@ -217,7 +210,7 @@ public class SensorAverageHelper {
      * @param startCalendar
      * @param endCalendar
      * @return
-     */
+     *//*
     public static RealmQuery<SensorAverage> query(Realm realm, String sensorId,
                                                   Calendar startCalendar,
                                                   Calendar endCalendar) {
@@ -232,5 +225,43 @@ public class SensorAverageHelper {
                 .equalTo("sensorId", sensorId)
                 .greaterThanOrEqualTo("startTime", startCalendar.getTime())
                 .lessThanOrEqualTo("endTime", endCalendar.getTime());
+    }
+*/
+
+    /**
+     * 查询 平均值
+     *
+     * @param realm
+     * @param sensorId
+     * @param hours
+     * @return
+     */
+    public static float[] queryAverage(Realm realm, String sensorId, Date startTime, int hours) {
+        if (hours <= 0) {
+            throw new IllegalArgumentException("hours is been more then 0");
+        }
+
+        Calendar hourBegin = Calendar.getInstance();
+        hourBegin.setTime(startTime);
+        Calendar hourEnd = (Calendar) hourBegin.clone();
+        hourEnd.add(Calendar.HOUR, 1);
+
+        float[] values = new float[hours];
+
+        for (int i = 0; i < hours; i++) {
+            RealmQuery<SensorLog> hourQuery = realm.where(SensorLog.class)
+                    .equalTo("sensorId", sensorId)
+                    .between("time", hourBegin.getTime(), hourEnd.getTime());
+            if (hourQuery.count() > 0) {
+                values[i] = (float) hourQuery.averageFloat("value");
+            } else {
+                values[i] = 0;
+            }
+
+            hourBegin.add(Calendar.HOUR, 1);
+            hourEnd.add(Calendar.HOUR, 1);
+        }
+
+        return values;
     }
 }

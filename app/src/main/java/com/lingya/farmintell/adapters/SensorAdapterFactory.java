@@ -13,7 +13,6 @@ import android.util.Log;
 
 import com.lingya.farmintell.models.SensorLog;
 import com.lingya.farmintell.models.SensorStatusCollection;
-import com.lingya.farmintell.models.SensorSummary;
 import com.lingya.farmintell.services.SensorService;
 
 import java.io.Closeable;
@@ -68,7 +67,7 @@ public class SensorAdapterFactory
      * 绑定代理,解决服务延迟绑定
      */
     private SensorService.ISensorBinder proxySensorBinder = new SensorService.ISensorBinder() {
-        private final SensorSummary EMPTY_SENSOR_SUMMARIES = new SensorSummary("", new Date());
+        //private final SensorSummary EMPTY_SENSOR_SUMMARIES = new SensorSummary("", new Date());
 
         /**
          * 获取 传感器状态
@@ -112,12 +111,12 @@ public class SensorAdapterFactory
          * 获取 24小时 每小时的状态统计
          */
         @Override
-        public SensorSummary get24HourlySummary(String sensorId) {
+        public float[] get24HourlySummary(String sensorId) {
             SensorService.ISensorBinder original = SensorAdapterFactory.this.sensorBinder;
             if (original != null) {
                 return original.get24HourlySummary(sensorId);
             }
-            return EMPTY_SENSOR_SUMMARIES;
+            return new float[0];
         }
 
         /**
@@ -126,12 +125,12 @@ public class SensorAdapterFactory
          * @param endTime @return
          */
         @Override
-        public SensorSummary getHourlySummary(String sensorId, Date startTime, Date endTime) {
+        public float[] getHourlySummary(String sensorId, Date startTime, Date endTime) {
             SensorService.ISensorBinder original = SensorAdapterFactory.this.sensorBinder;
             if (original != null) {
                 return original.getHourlySummary(sensorId, startTime, endTime);
             }
-            return EMPTY_SENSOR_SUMMARIES;
+            return new float[0];
         }
     };
 
@@ -168,6 +167,11 @@ public class SensorAdapterFactory
         }
     }
 
+    /**
+     * 注销 视图适配器
+     *
+     * @param viewAdapter
+     */
     public void unregistViewAdapter(ViewAdapter viewAdapter) {
         if (viewAdapter != null) {
             this.viewAdapters.remove(viewAdapter);

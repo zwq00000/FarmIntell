@@ -19,7 +19,6 @@ import com.lingya.farmintell.models.RealmFactory;
 import com.lingya.farmintell.models.SensorAverageHelper;
 import com.lingya.farmintell.models.SensorLog;
 import com.lingya.farmintell.models.SensorStatusCollection;
-import com.lingya.farmintell.models.SensorSummary;
 import com.lingya.farmintell.models.SensorsConfig;
 
 import org.json.JSONException;
@@ -108,7 +107,7 @@ public class SensorService extends Service {
     public void onCreate() {
         mHandler = new Handler(Looper.myLooper());
         defaultRealm = RealmFactory.getInstance(this);
-        SensorAverageHelper.registerAverageUpdate(this);
+        //SensorAverageHelper.registerAverageUpdate(this);
     }
 
     /**
@@ -120,7 +119,7 @@ public class SensorService extends Service {
     public void onDestroy() {
         try {
             closeInternal();
-            SensorAverageHelper.unregisterAverageUpdate(this);
+            //SensorAverageHelper.unregisterAverageUpdate(this);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -188,7 +187,7 @@ public class SensorService extends Service {
             throw new IOException("初始化失败,没有设置 传感器");
         }
         this.statusCollection = new SensorStatusCollection(config);
-        this.registerReader = ModbusRegisterReader.getInstance(this, registers);
+        this.registerReader = ModbusRegisterReader.createInstance(this, registers);
         //注册 数值变更通知
         registerReader.setOnValueChangedListener(registerListener);
         this.registerReader.open();
@@ -258,14 +257,14 @@ public class SensorService extends Service {
         /**
          * 获取 24小时 每小时的状态统计
          */
-        SensorSummary get24HourlySummary(String sensorId);
+        float[] get24HourlySummary(String sensorId);
 
         /**
          * 获取 小时 汇总统计
          *
          * @param endTime @return
          */
-        SensorSummary getHourlySummary(String sensorId, Date startTime, Date endTime);
+        float[] getHourlySummary(String sensorId, Date startTime, Date endTime);
     }
 
     private static class SensorServiceBinderImpl extends Binder implements ISensorBinder {
@@ -318,15 +317,16 @@ public class SensorService extends Service {
          * 获取 24小时 每小时的状态统计
          */
         @Override
-        public SensorSummary get24HourlySummary(String sensorId) {
-            return RealmFactory.get24HourlySummary(sensorService.defaultRealm, sensorId, new Date());
+        public float[] get24HourlySummary(String sensorId) {
+            Date startTime = new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(1));
+            return SensorAverageHelper.queryAverage(sensorService.defaultRealm, sensorId, startTime, 24);
         }
 
         /**
          * 获取 小时 汇总统计
          */
         @Override
-        public SensorSummary getHourlySummary(String sensorId, Date startTime, Date endTime) {
+        public float[] getHourlySummary(String sensorId, Date startTime, Date endTime) {
             if (TextUtils.isEmpty(sensorId)) {
                 throw new IllegalArgumentException("sensorId is not been null Or Empty");
             }

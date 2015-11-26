@@ -79,7 +79,6 @@ public class SensorStatusViewAdapter implements ViewAdapter<SensorService.ISenso
                     config =
                     SensorsConfig.getDefaultInstance(context);
             SensorsConfig.SensorConfig[] sensorConfigs = config.getSensors();
-            Palettes palettes = Palettes.getInstance(context);
             for (int i = 0; i < sensorConfigs.length; i++) {
                 int viewId = viewIds[i];
                 SensorsConfig.SensorConfig sensorConfig = sensorConfigs[i];

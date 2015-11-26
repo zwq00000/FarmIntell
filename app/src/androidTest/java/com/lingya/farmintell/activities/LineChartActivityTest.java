@@ -6,6 +6,8 @@ import com.lingya.farmintell.adapters.MPLineChartAdapter;
 import com.lingya.farmintell.models.RealmFactory;
 import com.lingya.farmintell.models.SensorSummary;
 
+import java.util.Date;
+
 import io.realm.Realm;
 
 /**
@@ -27,7 +29,7 @@ public class LineChartActivityTest extends AndroidTestCase {
 
         Realm realm = RealmFactory.getInstance(getContext());
         assertNotNull(realm);
-        SensorSummary summary = RealmFactory.get24HourlySummary(realm, "0-1");
+        SensorSummary summary = RealmFactory.get24HourlySummary(realm, "0-1",new Date());
         assertNotNull(summary);
         assertEquals(summary.getAverages().length, 24);
         adpater.setViewData(summary);

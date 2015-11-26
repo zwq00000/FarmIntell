@@ -65,15 +65,17 @@ public abstract class ModbusRegisterReader<H extends Holder> implements Closeabl
         this.holders = holders;
     }
 
-    public static ModbusRegisterReader<Holder<Short>> getInstance(Context context,
-                                                                  Holder<Short>[] holders) {
+    /**
+     * 创建 默认的 MODBUS 寄存器读取器 实例
+     *
+     * @param holders
+     * @return
+     */
+    public static ModbusRegisterReader<Holder<Short>> createInstance(Context context, Holder<Short>[] holders) {
+        Log.d(TAG, "Debug Mode " + BuildConfig.DEBUG);
         if ((context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0) {
-            try {
-                return new ModbusRegisterReaderMock(holders, context);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
+            //Debug 模式下使用 模拟输入
+            return new ModbusRegisterReaderMock(holders);
         } else {
             return new ModbusRegisterReaderImpl(holders, SerialPortFactory.getInstance());
         }
@@ -194,14 +196,18 @@ public abstract class ModbusRegisterReader<H extends Holder> implements Closeabl
         void onValueChanged(H... holders);
     }
 
+    /**
+     * Modbus 寄存器读取 模拟器
+     * 用于 调试程序,根据 @see SensorConfig 生成模拟输入
+     */
     static class ModbusRegisterReaderMock extends ModbusRegisterReader<Holder<Short>> {
 
         private final SensorsConfig config;
         private final Random random = new Random();
 
-        public ModbusRegisterReaderMock(Holder<Short>[] holders, Context context) throws IOException {
+        public ModbusRegisterReaderMock(Holder<Short>[] holders) {
             super(holders);
-            this.config = SensorsConfig.getDefaultInstance(context);
+            this.config = SensorsConfig.getDefaultInstance();
             this.period = 1000;
         }
 

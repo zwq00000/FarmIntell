@@ -1,4 +1,5 @@
 package com.lingya.farmintell.models;
+/*
 
 import java.util.Calendar;
 import java.util.Date;
@@ -6,46 +7,62 @@ import java.util.Date;
 import io.realm.RealmObject;
 import io.realm.annotations.Index;
 
+*/
 /**
  * 传感器平均值 Created by zwq00000 on 2015/8/2.
- */
+ *//*
+
 public class SensorAverage extends RealmObject {
 
-    /**
+    */
+/**
      * 传感器Id
-     */
+ *//*
+
     @Index
     private String sensorId;
 
-    /**
+    */
+/**
      * 小时平均值
-     */
+ *//*
+
     private float average;
 
-    /**
+    */
+/**
      * 最大值
-     */
+ *//*
+
     private float maximum;
-    /**
+    */
+/**
      * 最小值
-     */
+ *//*
+
     private float minimum;
 
 
-    /**
+    */
+/**
      * 采样数量
-     */
+ *//*
+
     private int samplesCount;
 
-    /**
+    */
+/**
      * 开始时间
-     */
+ *//*
+
     @Index
     private Date startTime;
 
-    /**
+    */
+/**
      * 结束时间
-     */
+ *//*
+
     @Index
     private Date endTime;
 
@@ -119,3 +136,4 @@ public class SensorAverage extends RealmObject {
         this.minimum = minimum;
     }
 }
+*/
